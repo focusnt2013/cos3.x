@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans default-lazy-init="true">
+    <bean id="CosBaseAction" class="com.focus.cos.web.action.CosBaseAction" abstract="true">
+    </bean>
+    <bean id="GridAction" class="com.focus.cos.web.action.GridAction" parent="CosBaseAction">
+    </bean>
+    <bean id="HttpAction" class="com.focus.cos.web.common.action.HttpAction" scope="prototype">
+    </bean>
+    <bean id="EditorAction" class="com.focus.cos.web.common.action.EditorAction" scope="prototype">
+    </bean>
+    <bean id="RegisterAction" class="com.focus.cos.web.login.action.RegisterAction" scope="prototype" parent="CosBaseAction">
+    </bean>
+    <bean id="LoginAction" class="com.focus.cos.web.login.action.LoginAction" scope="prototype" parent="OpsAction">
+        <property name="login">
+            <ref bean="Login"/>
+        </property>
+    </bean>
+    <bean id="UserAction" class="com.focus.cos.web.user.action.UserAction" scope="prototype" parent="CosBaseAction">
+        <property name="userMgr">
+            <ref bean="UserMgr"/>
+        </property>
+        <property name="roleMgr">
+            <ref bean="RoleMgr"/>
+        </property>
+    </bean>
+    <bean id="RoleAction" class="com.focus.cos.web.user.action.RoleAction" scope="prototype" parent="CosBaseAction">
+        <property name="roleMgr">
+            <ref bean="RoleMgr"/>
+        </property>
+    </bean>  
+    <bean id="OpsAction" class="com.focus.cos.web.ops.action.OpsAction" scope="prototype" parent="GridAction">
+    </bean>
+    <bean id="ZookeeperAction" class="com.focus.cos.web.ops.action.ZookeeperAction" scope="prototype" parent="OpsAction">
+        <property name="zookeeperMgr">
+            <ref bean="ZookeeperMgr"/>
+        </property>
+        <property name="filesMgr">
+            <ref bean="FilesMgr"/>
+        </property>
+    </bean>
+    <bean id="MonitorAction" class="com.focus.cos.web.ops.action.MonitorAction" scope="prototype" parent="OpsAction">
+    </bean>
+    <bean id="MonitorLoadAction" class="com.focus.cos.web.ops.action.MonitorLoadAction" scope="prototype" parent="OpsAction">
+    </bean>
+    <bean id="MonitorConfigAction" class="com.focus.cos.web.ops.action.MonitorConfigAction" scope="prototype" parent="OpsAction">
+    </bean>
+    <bean id="FilesAction" class="com.focus.cos.web.ops.action.FilesAction" scope="prototype" parent="OpsAction">
+        <property name="filesMgr">
+            <ref bean="FilesMgr"/>
+        </property>
+    </bean>
+    <bean id="RpcAction" class="com.focus.cos.web.ops.action.RpcAction" scope="prototype" parent="OpsAction">
+        <property name="filesMgr">
+            <ref bean="FilesMgr"/>
+        </property>
+    </bean>
+    <bean id="ControlAction" class="com.focus.cos.web.ops.action.ControlAction" scope="prototype" parent="OpsAction">
+        <property name="controlMgr">
+            <ref bean="ControlMgr"/>
+        </property>
+        <property name="userMgr">
+            <ref bean="UserMgr"/>
+        </property>
+        <property name="filesMgr">
+            <ref bean="FilesMgr"/>
+        </property>
+    </bean>
+    <bean id="EmailAction" class="com.focus.cos.web.ops.action.EmailAction" scope="prototype" parent="GridAction">
+    	<property name="emailMgr">
+            <ref bean="EmailMgr"/>
+        </property>
+    </bean>
+    <bean id="SyslogAction" class="com.focus.cos.web.ops.action.SyslogAction" scope="prototype" parent="GridAction"/>
+    <bean id="SysalarmAction" class="com.focus.cos.web.ops.action.SysalarmAction" scope="prototype" parent="GridAction">
+        <property name="sysalarmMgr">
+            <ref bean="SysalarmMgr"/>
+        </property>
+    </bean>
+    <bean id="NoticeAction" class="com.focus.cos.web.ops.action.NoticeAction" scope="prototype" parent="GridAction">
+        <property name="noticeMgr">
+            <ref bean="NoticeMgr"/>
+        </property>
+    </bean>
+    <bean id="SysnotifyAction" class="com.focus.cos.web.ops.action.SysnotifyAction" scope="prototype" parent="GridAction">
+        <property name="sysnotifyMgr">
+            <ref bean="DescktopMgr"/>
+        </property>
+    </bean>
+    <bean id="HelperAction" class="com.focus.cos.web.common.action.HelperAction" scope="prototype" parent="GridAction">
+    	<property name="helperMgr">
+            <ref bean="HelperMgr"/>
+        </property>
+    </bean>
+    <!-- 
+    <bean id="CmpCfgAction" class="com.focus.cos.web.config.action.CmpCfgAction" scope="prototype" parent="GridAction">
+        <property name="cmpCfgMgr">
+            <ref bean="CmpCfgMgr"/>
+        </property>
+    </bean>
+    -->
+    <bean id="SftCfgAction" class="com.focus.cos.web.config.action.SftCfgAction" scope="prototype" parent="GridAction">
+        <property name="sftCfgMgr">
+            <ref bean="SftCfgMgr"/>
+        </property>
+    </bean>
+    <bean id="SysCfgAction" class="com.focus.cos.web.config.action.SysCfgAction" scope="prototype" parent="GridAction">
+        <property name="sysCfgMgr">
+            <ref bean="SysCfgMgr"/>
+        </property>
+    </bean>
+    <bean id="DevAction" class="com.focus.cos.web.dev.action.DevAction" scope="prototype" parent="GridAction">
+    </bean>
+    <bean id="DiggConfigAction" class="com.focus.cos.web.dev.action.DiggConfigAction" scope="prototype" parent="DevAction">
+        <property name="diggConfigMgr">
+            <ref bean="DiggConfigMgr"/>
+        </property>
+        <property name="diggMgr">
+            <ref bean="DiggMgr"/>
+        </property>
+    </bean>
+    <bean id="DiggAction" class="com.focus.cos.web.dev.action.DiggAction" scope="prototype" parent="DevAction">
+        <property name="diggMgr">
+            <ref bean="DiggMgr"/>
+        </property>
+        <property name="securityMgr">
+            <ref bean="SecurityMgr"/>
+        </property>
+    </bean>
+    <bean id="FormAction" class="com.focus.cos.web.dev.action.FormAction" scope="prototype" parent="DiggAction">
+    </bean>
+    <bean id="ModulesAction" class="com.focus.cos.web.dev.action.ModulesAction" scope="prototype" parent="DevAction">
+        <property name="modulesMgr">
+            <ref bean="ModulesMgr"/>
+        </property>
+        <property name="userMgr">
+            <ref bean="UserMgr"/>
+        </property>
+        <property name="programMgr">
+            <ref bean="ProgramMgr"/>
+        </property>
+        <property name="controlMgr">
+            <ref bean="ControlMgr"/>
+        </property>
+        <property name="menusMgr">
+            <ref bean="MenusMgr"/>
+        </property>
+    </bean>
+    <bean id="SecurityAction" class="com.focus.cos.web.ops.action.SecurityAction" scope="prototype" parent="GridAction">
+        <property name="securityMgr">
+            <ref bean="SecurityMgr"/>
+        </property>
+        <property name="monitorMgr">
+            <ref bean="MonitorMgr"/>
+        </property>
+    </bean>
+    <bean id="WeixinAction" class="com.focus.cos.web.dev.action.WeixinAction" scope="prototype" parent="DevAction">
+    	<property name="weixinMgr">
+            <ref bean="WeixinMgr"/>
+        </property>
+    </bean>
+    <bean id="MenusAction" class="com.focus.cos.web.dev.action.MenusAction" scope="prototype" parent="DevAction">
+        <property name="menusMgr">
+            <ref bean="MenusMgr"/>
+        </property>
+    </bean>
+    <bean id="ProgramAction" class="com.focus.cos.web.dev.action.ProgramAction" scope="prototype" parent="DevAction">
+        <property name="programMgr">
+            <ref bean="ProgramMgr"/>
+        </property>
+        <property name="userMgr">
+            <ref bean="UserMgr"/>
+        </property>
+        <property name="filesMgr">
+            <ref bean="FilesMgr"/>
+        </property>
+    </bean>
+</beans>

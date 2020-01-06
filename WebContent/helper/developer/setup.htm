@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta name="robots" content="all">
+<meta name="author" content="w3school.com.cn">
+<link rel="stylesheet" type="text/css" href="helper/developer/style.css">
+<link href="cos.ico" rel="shortcut icon" type="image/x-icon">
+</head>
+<body>
+	
+	<div id="maincontent" style="text-align: left; width: 732px;">
+
+		<h1>配置与启动</h1>
+<!--
+		<div id="tpn">
+			<ul class="prenext">
+			<li class="pre"><a href="/html/index.asp" title="HTML 教程">HTML 教程</a></li>
+			<li class="next"><a href="/html/html_intro.asp" title="HTML 简介">HTML 简介</a></li>
+			</ul>
+		</div>
+-->
+
+		<div id="intro">
+		<h2>步骤1 上传基础的软件包</h2>
+		<p>下载cors.tar.gz上传到目标安装服务器，在服务器上解压。以下安装配置步骤说明以安装在根目录/cos下为例，使用root账号权限操作。实际安装可以根据安装配置的需求调整安装路径。</p>
+
+		<h2>步骤2 安装JDK1.6</h2>
+		<p>执行以下指令</p>
+<pre>
+#mkdir /cos/setup
+#cd /cos/setup
+#wget –c http://cd.yun.ftn.qq.com/ftn_handler/3f8684e39f0e2dab00066a8b5538eaf024c24c947018cd27fdc9995398726bf8/?fname=jdk-6u45-linux-x64.bin&cn=0&cv=30013
+#chmod 755 /cos/setup/*.*
+#/cos/setup/jdk-6u45-linux-x64.bin
+</pre>
+		<h2>步骤3 建立jdk的符号链接</h2>
+		<p>可以跳过这一步，相对要修改涉及JDK的相关配置（warpper.conf），如果要调整执行以下指令</p>
+<pre>
+#ln -s /cos/setup/jdk1.6.0_45 /cos/jdk 
+</pre>
+		<p>或者</p>
+<pre>
+#mv /cos/setup/jdk1.6.0_45 /cos/jdk   
+</pre>
+		<h2>步骤4 为系统运行创建用户与用户组</h2>
+		<p>从系统安全的角度出发，任何软件都不能用root用户权限启动执行，需要为系统创建专属的用户与用户组，以cos作为系统运行的用户与用户组例，执行以下指令</p>
+<pre>
+#groupadd cos
+#useradd -g cos cos
+#passwd cos
+//输入新的用户名密码  123456
+Changing password for user sysadmin.
+New UNIX password: 
+BAD PASSWORD: it is based on a dictionary word
+Retype new UNIX password: 
+passwd: all authentication tokens updated successfully.
+//授权部署目录给sysadmin用户
+#chgrp –R cos /cos
+#chown –R cos /cos
+#chmod –R 755 /cos
+ 
+</pre>
+		<h2>步骤6 修改/cos/bin/下的启动脚本</h2>
+				<p>在/cos/bin下有启动服务的shell脚本：原文件名是cos</p>
+		<pre>
+		#chmod 755 /cos/bin/*
+		</pre>
+		<h2>步骤5 系统启动相关配置</h2>
+		<p>修改/cos/bin目录下可执行文件的权限</p>
+<pre>
+#chmod 755 /cos/bin/*
+</pre>
+		<p>在/etc/init.d目录建立服务脚本的符号链接</p>
+<pre>
+#chmod 755 /cos/bin/*
+</pre>
+		</div>
+
+	</div>
+
+<!-- wrapper end -->
+</body>
+</html>

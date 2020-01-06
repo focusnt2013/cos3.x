@@ -1,0 +1,115 @@
+﻿a:visited {text-decoration: none;color:#FFFFFF;}
+a:link    {text-decoration: none;color:#FFFFFF;}
+a:active  {text-decoration: none;color:#FFF000;}
+a:hover   {text-decoration: none;cursor: hand;color:#FFF000;text-decoration: none;}
+
+.skit_menu_item
+{
+	background-image: url(skin/unicom2013/top/top_094.png);
+	height:24px;
+	padding-left:8px;
+	padding-right:8px;
+	padding-bottom:3px;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 9pt;
+	color:#FFFFFF;
+	cursor:hand
+}
+
+.skit_link_hover
+{
+	color:#FFFFFF;
+}
+.skit_search_input
+{
+	white-space:none;
+	background:#EEEFFA;width:130px;height:13px;font-weight:bold;font-size:8pt;
+	padding-top:6px; padding-bottom:5px;padding-left:9px;padding-right:8px;
+	border-top:0px solid #EEEFFA; border-left:0px solid #EEEFFA; border-right:0px solid #EEEFFA; border-bottom:0px solid #EEEFFA
+}
+
+.skit_top_title_sub 
+{
+	font-size:12pt;
+	color:#F39405;
+	text-align:center;
+	font-weight:bold;
+}
+
+.skit_top_left {
+	font-size: 12pt;
+	font-family:serif, Photina Casual Black;
+	color:#FFFFFF;
+	text-align:center;
+	text-decoration: none;
+	font-weight:bold;}
+
+.skit_top_right {
+	font-size: 12pt;
+	font-family:serif, Photina Casual Black;
+	color:#FFFFFF;
+	text-align:center;
+	text-decoration: none;
+	font-weight:bold;}
+
+.be001 {  background-image: url(skin/unicom2013/top/top_tu001.png); height:24px}
+.be002 {  background-image: url(skin/unicom2013/top/top_tu02.png); }
+.be003 {  background-image: url(skin/unicom2013/top/top_tu06.png); height:24px; border-bottom:1px solid #ccc;}
+.be093 {  background-image: url(skin/unicom2013/top/top_093.png); width:27px}
+.be094 {  background-image: url(skin/unicom2013/top/top_094.png); height:24px}
+.be096 {  background-image: url(skin/unicom2013/top/top_096.png); width:9px}
+.be097 {  background-image: url(skin/unicom2013/top/top_097.png); width:8px}
+.be095 {  background-image: url(skin/unicom2013/top/top_095.png); width:7px}
+.be099 {  background-image: url(skin/unicom2013/top/top_099.png); height:24px}
+
+.be012 {  background-image: url(skin/unicom2013/top/top_tu14.png); width:26px;height:58px;}
+.be011 {  background-image: url(skin/unicom2013/top/top_tu14.png); width:26px;height:58px;}
+.be015 {  background-image: url(skin/unicom2013/top/top_tu14.png); width:172px;height:58px}
+.be016 {  background-image: url(skin/unicom2013/top/top_tu14.png); width:172px;height:58px}
+.be010 {  background-image: url(skin/unicom2013/top/top_tu14.png); height:58px}
+
+
+.be012 {  background-image: url(skin/unicom2013/top/top_tu12.png); width:26px;height:58px;}
+.be011 {  background-image: url(skin/unicom2013/top/top_tu11.png); width:26px;height:58px;}
+.be015 {  background-image: url(skin/unicom2013/top/top_tu15.png); width:172px;height:58px}
+.be016 {  background-image: url(skin/unicom2013/top/top_tu16.png); width:172px;height:58px}
+.be010 {  background-image: url(skin/unicom2013/top/top_tu10.png); height:58px}
+
+.skit_module_icon
+{
+	background-color:transparent;
+	background-image: url(images/portal/sLogin.png);
+	width:22px;
+	height:22px;
+}
+.skit_window_close
+{
+	background-color:transparent;
+	background-image: url(images/close.png);
+	width:22px;
+	height:22px;
+	cursor:pointer;
+}
+.skit_top_title 
+{
+	font-size:20pt;
+	font-family:"微软雅黑";
+	color:#cc0000;
+	text-align:center;
+}
+.skit_top_title_logo 
+{
+	font-size:14pt;
+	font-family:"微软雅黑";
+	color:#cc0000;
+	text-align:center;
+}
+
+.skit_top_title_version 
+{
+	font-size:10pt;
+	font-family:"微软雅黑";
+	color:#F39405;
+	text-align:center;
+}

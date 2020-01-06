@@ -1,0 +1,547 @@
+A:visited
+{
+    COLOR: #000000;
+    TEXT-DECORATION: none;
+    cursor:pointer;
+}
+A:link
+{
+    COLOR: #000000;
+    TEXT-DECORATION: none;
+    cursor:pointer;
+}
+A:active
+{
+    COLOR: #566B52;
+    TEXT-DECORATION: none;
+    cursor:pointer;
+}
+A:hover
+{
+    CURSOR: hand;
+    COLOR: #ADBEA9;
+    cursor:pointer;
+}
+
+.skit_table_area
+{
+	cursor:pointer;
+	overflow-x:auto;
+	overflow-y:auto;
+	BACKGROUND: #F8F8F8;
+	BORDER-TOP: 1px solid buttonhighlight;
+    BORDER-LEFT: 1px solid buttonshadow;
+    BORDER-RIGHT: 1px solid buttonshadow;
+    BORDER-BOTTOM: 1px solid #8FA68A;
+	scrollbar-highlight-color:#ACDAFF;
+	scrollbar-darkshadow-color:#5BBAFF;
+	scrollbar-shadow-color:#5BBAFF;
+	scrollbar-track-color:#ACDAFF;
+	scrollbar-base-color:#66BEFF;
+	scrollbar-arrow-color:#C4E4FF;
+}
+
+.skit_table_label
+{
+	padding-left:6px;
+}
+
+.skit_table_longstr
+{
+	font-size: 12px;
+	margin:0 0 0px;
+	width: 100%;
+	border:solid #7F9DB9 0px ;
+	color: #494949;
+	aaa:expression(this.readOnly=true);
+}
+
+.skit_thumble
+{
+	cursor:pointer;
+	color:#FFFFFF;
+	font-family:serif;
+	font-size:9pt;
+	font-weight:bold;
+}
+.skit_thumble_img
+{
+	BORDER-TOP: 1px solid #B6C2B1;
+    BORDER-LEFT: 1px solid #B6C2B1;
+    BORDER-RIGHT: 1px solid buttonshadow;
+}
+.skit_thumble_label
+{
+	BACKGROUND: #dae3ec;
+	padding-left:5px;
+	padding-right:5px;
+	width:128px;
+	height:22px;
+	white-space: none;
+	text-align:center;
+    BORDER-LEFT: 1px solid #dae3ec;
+    BORDER-RIGHT: 1px solid buttonshadow;
+    BORDER-BOTTOM: 1px solid buttonshadow;
+}
+
+.skit_table_body
+{
+	cursor:pointer;
+	overflow-y:auto;
+	scrollbar-highlight-color:#ACDAFF;
+	scrollbar-darkshadow-color:#5BBAFF;
+	scrollbar-shadow-color:#5BBAFF;
+	scrollbar-track-color:#ACDAFF;
+	scrollbar-base-color:#66BEFF;
+	scrollbar-arrow-color:#C4E4FF;
+}
+
+.skit_table_frame
+{
+	font-size: 12px;
+	background-color: #FFFFFF;
+	border: 1px solid #a0afc3;
+/*	scrollbar-highlight-color:#ACDAFF;
+	scrollbar-darkshadow-color:#5BBAFF;
+	scrollbar-shadow-color:#5BBAFF;
+	scrollbar-track-color:#ACDAFF;
+	scrollbar-base-color:#66BEFF;
+	scrollbar-arrow-color:#C4E4FF;*/
+	
+}
+
+.skit_table_frame1
+{
+	font-size: 12px;
+	background-color: #FFFFFF;
+	border-left: 1px solid #44B9FF;
+	border-right: 1px solid #44B9FF;
+	scrollbar-highlight-color:#ACDAFF;
+	scrollbar-darkshadow-color:#5BBAFF;
+	scrollbar-shadow-color:#5BBAFF;
+	scrollbar-track-color:#ACDAFF;
+	scrollbar-base-color:#66BEFF;
+	scrollbar-arrow-color:#C4E4FF;
+}
+
+.skit_table_head
+{
+    BORDER-BOTTOM: 1px solid #a0afc3;
+	font-size: 12px;
+	color: #black;
+	height:23px;
+	font-weight: bold;
+	padding-left: 3px;
+	background-color:#dae3ec;
+	padding-right: 3px;
+}
+
+.skit_table_title
+{
+	FONT-FAMILY:"Lucia Consol";
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.skit_table_subhead
+{
+	FONT-FAMILY:serif;
+    BORDER-BOTTOM: 1px solid #e6e6e6;
+    BORDER-LEFT: 1px solid #e6e6e6;
+	font-size: 12px;
+	height:23px;
+	font-weight: bold;
+	background-color: #f2f5f9;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+.skit_table_headmini
+{
+	FONT-FAMILY:"Lucia Consol";
+    BORDER-BOTTOM: 1px solid #8FA68A;
+    BORDER-LEFT: 1px solid #B9C7B6;
+	font-size: 12px;
+	height:19px;
+	font-weight: bold;
+	background-color: #F4F7F4;
+	padding-left: 3px;
+}
+.skit_table_cellmini
+{
+	FONT-FAMILY:"Lucia Consol";
+	height:19px;
+    BORDER-BOTTOM: 1px solid #c6d5f6;
+	word-spacing: 2px;
+	font-size:12px;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+.skit_table_head_label
+{
+	font-size: 12px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+.skit_table_head_ext
+{
+	BACKGROUND: #dae3ec;
+	BORDER-TOP: 1px solid #e6e6e6;
+    BORDER-LEFT: 0px solid #e6e6e6;
+    BORDER-RIGHT: 1px solid #61795B;
+    BORDER-BOTTOM: 1px solid #61795B;
+	height:22px;
+}
+
+
+.skit_head_cell
+{
+    BORDER-LEFT: 1px solid #AFAFAF;
+}
+
+.skit_table_row_selected
+{
+	background-color: #EEF5FD;
+}
+
+.skit_table_cell
+{
+	padding-top: 1px;
+	height:23px;
+    BORDER-BOTTOM: 1px solid #e6e6e6;
+    BORDER-LEFT: 0px solid #FFF;
+	word-spacing: 2px;
+	font-size:12px;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+.skit_table_cell_end
+{
+	height:22px;
+	word-spacing: 2px;
+	font-size:12px;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+.skit_cell_input
+{
+	cursor:pointer;
+    BORDER-TOP: 0px solid buttonshadow;
+    BORDER-LEFT: 0px solid buttonshadow;
+    BORDER-RIGHT: 0px solid buttonshadow;
+    BORDER-BOTTOM: 0px solid buttonshadow;
+	font-size:9pt;
+}
+
+.skit_table_over
+{
+	BACKGROUND: #8FA68A;
+	BORDER-TOP: 1px solid #B9C7B6;
+    BORDER-LEFT: 1px solid #637B5D;
+    BORDER-RIGHT: 0px solid #61795B;
+    BORDER-BOTTOM: 1px solid #6F8B69;
+	color:#fff000;
+	font-size:9pt;
+}
+
+.skit_attrtab_body
+{
+	BACKGROUND: #F8F8F8;
+    BORDER-LEFT: 1px solid #B9C7B6;
+    BORDER-RIGHT: 1px solid #61795B;
+    BORDER-BOTTOM: 1px solid #8FA68A;
+}
+
+.skit_attrtab_cell
+{
+    BORDER-LEFT: 0px solid #FFFFFF;
+    BORDER-RIGHT: 0px solid #61795B;
+    BORDER-BOTTOM: 1px solid #DBE1D9;
+	height:22px;
+	word-spacing: 2px;
+	font-size:9pt;
+}
+
+.skit_attrtab_cell_ext
+{
+    BORDER-LEFT: 0px solid #FFFFFF;
+    BORDER-RIGHT: 0px solid #61795B;
+    BORDER-BOTTOM: 0px solid #DBE1D9;
+	height:22px;
+	word-spacing: 2px;
+	font-size:9pt;
+}
+
+
+.skit_table_page{
+	text-align:right;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: 12px;
+	text-align: right;
+	color: #045295;
+	height:22px;
+	font-weight: bold;
+	background-color: #afd7fa;
+}
+
+.skit_table_navig{
+	/*background-color: #d4e7f6;*/
+	background: url(skin/unicom2013/addimg/skit_table_navig_tbg.png) repeat-x;
+/*	border-top: 1px solid #a9bed5;
+	border-left: 1px solid #a9bed5;
+	border-right: 1px solid #a9bed5;
+	border-bottom: 1px solid #a9bed5;*/
+	padding-left: 5px;
+	padding-right: 5px;
+	height: 30px;
+	white-space:nowrap;
+	vertical-align: middle;
+}
+
+.skit_table_bar
+{
+    BORDER-BOTTOM: 1px solid #8FA68A;
+    BORDER-LEFT: 0px solid #B9C7B6;
+	font-size: 12px;
+	color: #FFFFFF;
+	height:22px;
+	font-weight: bold;
+	background-color: #A9BAA5;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+.skit_button_collapse {
+	height: 26px;
+	width: 26px;
+	cursor: pointer;
+}
+
+.skit_tabbar
+{
+	background-color:#ade0ff;
+}
+.skit_tab
+{
+	cursor:pointer;
+	background-color: #dae3ec;
+	border-bottom:1px solid #9BDAFF;
+	padding:0 0.8em;
+	font-weight:bold;
+	white-space:nowrap;
+	color:#003366;
+}
+	
+.skit_active
+{
+	background-color:#ffffff;
+	color:#000;
+	border:1px solid #9BDAFF;
+	border-bottom:1px solid #fff
+	color:#003366;
+}
+
+.skit_page_back
+{
+	background-image: url(skit/images/icons/back.gif);
+	display:-moz-inline-box;/*解决IE10 非兼容模式显示不了的问题*/
+	display:inline-block;/*解决IE10 非兼容模式显示不了的问题*/
+	vertical-align:middle;/*解决IE10 非兼容模式显示不了的问题*/
+	cursor:pointer;
+	width:16px;
+	height:16px;
+}
+.skit_page_backnone
+{
+	background-image: url(skit/images/icons/backnone.gif);
+	display:-moz-inline-box;/*解决IE10 非兼容模式显示不了的问题*/
+	display:inline-block;/*解决IE10 非兼容模式显示不了的问题*/
+	vertical-align:middle;/*解决IE10 非兼容模式显示不了的问题*/
+	cursor:pointer;
+	width:16px;
+	height:16px;
+}
+.skit_page_back2end
+{
+	display:-moz-inline-box;/*解决IE10 非兼容模式显示不了的问题*/
+	display:inline-block;/*解决IE10 非兼容模式显示不了的问题*/
+	vertical-align:middle;/*解决IE10 非兼容模式显示不了的问题*/
+	cursor:pointer;
+	width:16px;
+	height:16px;
+}
+.skit_page_back2endnone
+{
+	display:-moz-inline-box;/*解决IE10 非兼容模式显示不了的问题*/
+	display:inline-block;/*解决IE10 非兼容模式显示不了的问题*/
+	vertical-align:middle;/*解决IE10 非兼容模式显示不了的问题*/
+	cursor:pointer;
+	width:16px;
+	height:16px;
+}
+.skit_page_forward
+{
+	background-image: url(skit/images/icons/forward.gif);
+	display:-moz-inline-box;/*解决IE10 非兼容模式显示不了的问题*/
+	display:inline-block;/*解决IE10 非兼容模式显示不了的问题*/
+	vertical-align:middle;/*解决IE10 非兼容模式显示不了的问题*/
+	cursor:pointer;
+	width:16px;
+	height:16px;
+}
+.skit_page_forwardnone
+{
+	display:-moz-inline-box;/*解决IE10 非兼容模式显示不了的问题*/
+	display:inline-block;/*解决IE10 非兼容模式显示不了的问题*/
+	vertical-align:middle;/*解决IE10 非兼容模式显示不了的问题*/
+	cursor:pointer;
+	width:16px;
+	height:16px;
+}
+.skit_page_forward2end
+{
+	display:-moz-inline-box;/*解决IE10 非兼容模式显示不了的问题*/
+	display:inline-block;/*解决IE10 非兼容模式显示不了的问题*/
+	vertical-align:middle;/*解决IE10 非兼容模式显示不了的问题*/
+	cursor:pointer;
+	width:16px;
+	height:16px;
+}
+.skit_page_forward2endnone
+{
+	display:-moz-inline-box;/*解决IE10 非兼容模式显示不了的问题*/
+	display:inline-block;/*解决IE10 非兼容模式显示不了的问题*/
+	vertical-align:middle;/*解决IE10 非兼容模式显示不了的问题*/
+	cursor:pointer;
+	width:16px;
+	height:16px;
+}
+.skit_page_go
+{
+	display:-moz-inline-box;/*解决IE10 非兼容模式显示不了的问题*/
+	display:inline-block;/*解决IE10 非兼容模式显示不了的问题*/
+	vertical-align:middle;/*解决IE10 非兼容模式显示不了的问题*/
+	cursor:pointer;
+	width:16px;
+	height:16px;
+}
+.skit_table
+{
+	cursor:pointer;
+	border-right: 1px solid #c6d5f6;
+}
+
+.skit_table td {
+    BORDER-BOTTOM: 1px solid #BAC8B7;
+    BORDER-LEFT: 1px solid #BAC8B7;
+	height:19px;
+	padding-left: 3px;
+	padding-right: 3px;
+	FONT-FAMILY:"Lucia Consol";
+	font-size: 12px;
+	word-spacing: 2px;
+}
+
+.skit_table .head {
+    BORDER-TOP: 1px solid #B9C7B6;
+    BORDER-BOTTOM: 1px solid #8FA68A;
+    BORDER-LEFT: 1px solid #B9C7B6;
+	height:23px;
+	padding-left: 1px;
+	padding-right: 1px;
+	FONT-FAMILY:"Lucia Consol";
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #cbe8fa;
+}
+.skit_table .head0 {
+    BORDER-TOP: 1px solid #B9C7B6;
+    BORDER-BOTTOM: 0px solid #BAC8B7;
+    BORDER-LEFT: 1px solid #B9C7B6;
+	height:23px;
+	padding-left: 1px;
+	padding-right: 1px;
+	FONT-FAMILY:"Lucia Consol";
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #DEE6DD;
+}
+.skit_table .head1 {
+    BORDER-LEFT: 1px solid #B9C7B6;
+    BORDER-BOTTOM: 1px solid #8FA68A;
+	height:23px;
+	padding-left: 1px;
+	padding-right: 1px;
+	FONT-FAMILY:"Lucia Consol";
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #DEE6DD;
+}
+.skit_table .head2 {
+    BORDER-TOP: 0px solid #B9C7B6;
+    BORDER-BOTTOM: 1px solid #8FA68A;
+    BORDER-LEFT: 1px solid #B9C7B6;
+	padding-left: 1px;
+	padding-right: 1px;
+	FONT-FAMILY:"Lucia Consol";
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #FFF000;
+}
+
+.skit_table .head3 {
+    BORDER-TOP: 0px solid #B9C7B6;
+    BORDER-BOTTOM: 1px solid #8FA68A;
+    BORDER-LEFT: 1px solid #B9C7B6;
+	height:23px;
+	padding-left: 1px;
+	padding-right: 1px;
+	FONT-FAMILY:"Lucia Consol";
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #DEE6DD;
+}
+.skit_table .head10 {
+    BORDER-TOP: 0px solid #B9C7B6;
+    BORDER-BOTTOM: 0px solid #8FA68A;
+    BORDER-LEFT: 0px solid #B9C7B6;
+	height:23px;
+	padding-left: 1px;
+	padding-right: 1px;
+	FONT-FAMILY:"Lucia Consol";
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #DEE6DD;
+}
+.skit_table .head11 {
+    BORDER-TOP: 0px solid #B9C7B6;
+    BORDER-BOTTOM: 1px solid #8FA68A;
+    BORDER-LEFT: 0px solid #B9C7B6;
+	height:23px;
+	padding-left: 1px;
+	padding-right: 1px;
+	FONT-FAMILY:"Lucia Consol";
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #DEE6DD;
+}
+.skit_table .head12 {
+    BORDER-RIGHT: 1px solid #B9C7B6;
+    BORDER-TOP: 0px solid #B9C7B6;
+    BORDER-BOTTOM: 0px solid #8FA68A;
+    BORDER-LEFT: 0px solid #B9C7B6;
+	height:23px;
+	padding-left: 1px;
+	padding-right: 1px;
+	FONT-FAMILY:"Lucia Consol";
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #DEE6DD;
+}

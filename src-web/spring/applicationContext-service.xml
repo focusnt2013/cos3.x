@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans default-autowire="byName" default-lazy-init="false">
+    <bean id="MonitorMgr" class="com.focus.cos.web.ops.service.MonitorMgr" destroy-method="close">
+    </bean>
+    <bean id="SecurityMgr" class="com.focus.cos.web.ops.service.SecurityMgr" destroy-method="close">
+        <property name="userDao">
+            <ref bean="UserDAO"/>
+        </property>
+    </bean>
+    <bean id="RpcMgr" class="com.focus.cos.web.ops.service.RpcMgr" destroy-method="close">
+    </bean>
+    <bean id="ControlMgr" class="com.focus.cos.web.ops.service.ControlMgr">
+    </bean>
+    <bean id="FilesMgr" class="com.focus.cos.web.ops.service.FilesMgr">
+    </bean>
+    <bean id="Login" class="com.focus.cos.web.login.service.Login">
+        <property name="userDao">
+            <ref bean="UserDAO"/>
+        </property>
+    </bean>
+    <bean id="UserMgr" class="com.focus.cos.web.user.service.UserMgr">
+        <property name="userDao">
+            <ref bean="UserDAO"/>
+        </property>
+    </bean>
+    <bean id="RoleMgr" class="com.focus.cos.web.user.service.RoleMgr" destroy-method="close">
+        <property name="userDao">
+            <ref bean="UserDAO"/>
+        </property>
+    </bean>
+	<bean id="AlarmSaveMgr" class="com.focus.cos.web.ops.service.AlarmSaveMgr" destroy-method="close">
+    	<property name="sysalarmDao">
+    		<ref bean="SysalarmDAO"/>
+    	</property>
+    </bean>
+    <bean id="AlarmConfirmMgr" class="com.focus.cos.web.ops.service.AlarmConfirmMgr" destroy-method="close">
+    	<property name="sysalarmDao">
+    		<ref bean="SysalarmDAO"/>
+    	</property>
+    </bean>
+    <bean id="SysalarmMgr" class="com.focus.cos.web.ops.service.SysalarmMgr">
+    	<property name="sysalarmDao">
+    		<ref bean="SysalarmDAO"/>
+    	</property>
+    	<property name="jdbcDao">
+			<ref bean="JDBCBaseDAO" />
+		</property>
+    	<property name="alarmSaveMgr">
+    		<ref bean="AlarmSaveMgr"/>
+    	</property>
+    	<property name="alarmConfirmMgr">
+    		<ref bean="AlarmConfirmMgr"/>
+    	</property>
+    </bean>
+	<bean id="NoticeMgr" class="com.focus.cos.web.ops.service.NoticeMgr">
+		<property name="noticeDao">
+            <ref bean="NoticeDAO"/>
+        </property>
+    </bean>
+	<bean id="DescktopMgr" class="com.focus.cos.web.ops.service.DescktopMgr">
+		<property name="sysnotifyDao">
+            <ref bean="SysnotifyDAO"/>
+        </property>
+        <property name="sysalarmMgr">
+            <ref bean="SysalarmMgr"/>
+        </property>
+        <property name="jdbcBaseDao">
+            <ref bean="JDBCBaseDAO"/>
+        </property>
+    </bean>
+    <bean id="ZookeeperMgr" class="com.focus.cos.web.ops.service.ZookeeperMgr">
+    </bean>
+    <bean id="HelperMgr" class="com.focus.cos.web.common.HelperMgr" destroy-method="close">
+    </bean>
+    <!-- 
+	<bean id="CmpCfgMgr" class="com.focus.cos.web.config.service.CmpCfgMgr">
+    </bean>
+    -->
+	<bean id="SysCfgMgr" class="com.focus.cos.web.config.service.SysCfgMgr">
+    </bean>
+	<bean id="SftCfgMgr" class="com.focus.cos.web.config.service.SftCfgMgr">
+    </bean>
+    <bean id="WeixinMgr" class="com.focus.cos.web.dev.service.WeixinMgr">
+    </bean>
+	<bean id="EmailMgr" class="com.focus.cos.web.ops.service.EmailMgr">
+		<property name="emailOutboxDao">
+            <ref bean="EmailOutboxDAO"/>
+        </property>
+    </bean>
+	<bean id="DiggConfigMgr" class="com.focus.cos.web.dev.service.DiggConfigMgr">
+    </bean>
+    <bean id="DiggMgr" class="com.focus.cos.web.dev.service.DiggMgr" destroy-method="close">
+    </bean>
+    <bean id="FormMgr" class="com.focus.cos.web.dev.service.FormMgr">
+    </bean>
+    <bean id="ModulesMgr" class="com.focus.cos.web.dev.service.ModulesMgr">
+    </bean>
+	<bean id="MenusMgr" class="com.focus.cos.web.dev.service.MenusMgr">
+    </bean>
+	<bean id="ProgramMgr" class="com.focus.cos.web.dev.service.ProgramMgr">
+    </bean>
+	<!-- 定义目标bean和bean中的方法 -->
+	<!-- 
+    <bean id="JobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref local="InboxJob"/>
+        </property>
+        <property name="targetMethod">
+            <value>doIndex</value>
+        </property>
+    </bean>
+
+	<bean id="CronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <ref bean="JobDetail"/>
+        </property>
+        <property name="cronExpression">
+            <value>0 0/5 * * * ?</value>
+        </property>
+	</bean>
+	<bean autowire = "no" class = "org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref local ="CronTrigger"/>
+            </list>
+        </property>
+    </bean> -->
+
+</beans>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta name="robots" content="all">
+<link rel="stylesheet" type="text/css" href="helper/developer/style.css">
+<link href="cos.ico" rel="shortcut icon" type="image/x-icon">
+</head>
+<body>
+	
+	<div id="maincontent" style="text-align: left; width: 732px;">
+		<h1>用户接口</h1>
+		<div id="intro">
+		<h2></h2>
+		<p>调用该接口获取系统后台用户的数据，该功能方便第三方开发基于用户权限的功能。</p>
+		<p class="tiy" id="btnWs"></p>
+		</div>
+		<div>
+		<h2>接口调用例程</h2>
+		<p>加载接口包，配置正确的邮件服务接口地址WS_USER，</p>	
+		<pre>
+UserQuery query = new UserQuery();
+query.setRoleid(1);//查询系统管理员角色		
+ArrayList<User> users = UserClient.listUser("<span id='case0' style='color:red'></span>", query);
+StringBuffer to = new StringBuffer();
+ for(User user : users)
+{
+	if(user.getRoleid()==81&&user.getEmail()!=null&&!user.getEmail().isEmpty())
+	{
+		if( to.length() > 0 ) to.append(";");
+		to.append(user.getEmail());//添加邮箱地址到指定
+	}
+	if( this.account.equals(user.getUsername()) )
+	{
+		当前用户的真名  = user.getRealname();
+		当前用户的邮箱 = user.getEmail();
+	}
+}
+		</pre>
+		<p class="tiy"><a href="javascript:parent.download('cos.api.zip')">下载接口包</a></p>
+		</div>
+	</div>
+<!-- wrapper end -->
+</body>
+<script type="text/javascript">
+function getParameter(param, def)  
+{  
+	var query = window.location.search;//获取URL地址中？后的所有字符  
+	var iLen = param.length;//获取你的参数名称长度  
+	var iStart = query.indexOf(param);//获取你该参数名称的其实索引
+	if (iStart == -1)//-1为没有该参数  
+		return def;  
+	iStart += iLen + 1;  
+	var iEnd = query.indexOf("&", iStart);//获取第二个参数的其实索引  
+	if (iEnd == -1)//只有一个参数  
+		return query.substring(iStart);//获取单个参数的参数值  
+	return query.substring(iStart, iEnd);//获取第二个参数的值  
+}
+var ws = getParameter("ws", "#");
+document.getElementById("btnWs").innerHTML = "<a target='_blank' href='"+ws+"'>测试WEBSERVICE接口</a>";
+document.getElementById("case0").innerHTML = ws.substring(0, ws.length-5);
+</script>
+</html>

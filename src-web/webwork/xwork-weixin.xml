@@ -1,0 +1,11 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<package name="weixin" extends="default">
+	    <action name="weixin" class="WeixinAction">	
+		    <result name="presetmenu" type="dispatcher">/jsp/weixin/menu.jsp</result>
+		    <result name="summary" type="dispatcher">/jsp/weixin/summary.jsp</result>
+    		<interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+		</action>
+   	</package>
+</xwork>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta name="robots" content="all">
+<link rel="stylesheet" type="text/css" href="helper/developer/style.css">
+</head>
+<body style='text-align: left;'>
+	
+	<div id="maincontent" style="text-align: left; width: 732px;">
+		<h1>后台界面框架介绍与使用</h1>
+		<div id="intro">
+		<h2></h2>
+		<p>系统更提供统一的界面框架组件，界面采用多视图融合架构，在相同页面下，用户可以使用多视图窗口进行界面操作。在统一界面下可进行系统消息通知的接收。</p>
+		<img src='../../images/developer/025.png' width='666'>	
+		<p class="tiy"><a href="javascript:parent.download('cos.ide.zip')">下载COS.IDE</a></p>
+		</div>
+		<div>
+		<h2>内嵌式框架组件使用</h2>
+		<p>在主界面框架中打开新视图。点击关闭按钮可以关闭当前视图。</p>
+		<pre>
+if( top )
+{
+	top.openView("新浪首页", "http://www.sina.com.cn/");
+}
+		</pre>
+		<p class="tiy"><a href="javascript:test_openview();">点击试一试</a></p>
+
+		<p>确认对话框的使用：以下脚本将调用主界面框架的【确认对话框】组件。</p>
+		<img src='../../images/developer/026.png' width='666'>	
+		<pre>
+if( top )
+{
+	top.skit_confirm("您确定要删除该记录吗？",function(yes){
+		if( yes ){
+			alert("执行删除操作。");
+		}
+	});
+}
+		</pre>
+		<p class="tiy"><a href="javascript:test_confirm();">点击试一试</a></p>
+
+		<p>提示对话框使用：以下脚本将调用主界面框架的【提示对话框】组件。</p>
+		<pre>
+if( top )
+{
+	top.skit_alert("男人最变态的地方是：自己的女人，被人睡过一次两次，就接受不了，碰都不想碰她，非得离婚；别人的女人，别人睡过千百遍，却一点不嫌弃，就算离婚也要娶她。 ", "段子手");//第二个参数可以不传
+}
+		</pre>
+		<p class="tiy"><a href="javascript:test_alert1();">点击试一试</a></p>
+
+		
+		<p>富文本的提示对话框使用：以下脚本将调用主界面框架的【提示对话框】组件。</p>
+		<pre>
+if( top )
+{
+	//第二个参数可以不传
+    top.skit_alert(
+        "人生有两个阶段性问题，第一，人为什么要上学？第二，人为什么要上班？&lt;br/&gt;"+
+        "答案很简单，第一，为了以后能上班；第二，为了孩子能上学。&lt;br/&gt;"+
+        "&lt;img src='http://image.tianjimedia.com/uploadImages/2015/129/56/J63MI042Z4P8_1000x500.jpg' width='200'/&gt;");
+}
+		</pre>
+		<p class="tiy"><a href="javascript:test_alert2();">点击试一试</a></p>
+		</div>
+		<div>
+		<h2>主界面框架使用提醒，关于跨域问题</h2>
+		<p>业务系统与主界面框架属于两个系统模块，可能配置在，浏览器客户端如果发现属于不同的安全区会阻止业务系统的页面调用主界面框架的函数。解决办法是：在域名配置时将业务系统的访问域名配置为与主界面框架一致。
+		例如，主界面框架的域名是http://admin.xxxxx.com/，那么业务系统的域名配置就应该是http://admin.xxxxx.com/xxxx/。<span style='color:red'>切记主界面框架必须占据集群平台的根域</span>。关于跨域的解释请参看
+		<a href='http://www.cnblogs.com/rainman/archive/2011/02/20/1959325.html' target='_blank'>【JavaScript跨域总结与解决办法】</a></p>
+		<p class="tiy"><a target="_blank" href="#">下载COS.IDE</a></p>
+		</div>
+	</div>
+<!-- wrapper end -->
+<iframe name="cos.frames" id="cos.frames" style="display:none"></iframe>
+</body>
+<script type="text/javascript">
+function test_openview()
+{
+	try
+	{
+		if( top && top.openView  )
+		{
+			top.openView("新浪首页", "http://www.sina.com.cn/");
+			return;
+		}
+		else
+		{
+			skit_alert("打开新视图窗口演示，涉及跨域访问主界面框架，只能在主界面框架位于顶层，且属于同一域的的情况下被调用。");
+		}
+	}
+	catch (e)
+	{
+		var p = getParameter("refer", "");
+		p += "openview.html?href=http://www.sina.com.cn/";
+		document.getElementById("cos.frames").src = p;
+	}
+}
+function test_confirm()
+{
+	try
+	{
+		if( top && top.skit_confirm )
+		{
+			top.skit_confirm("您确定要删除该记录吗？",function(yes){
+				if( yes ){
+					alert("执行删除操作。");
+				}
+			});
+			return;
+		}
+	}
+	catch (e)
+	{
+	}
+	skit_confirm("您确定要删除该记录吗？",function(yes){
+		if( yes ){
+			alert("执行删除操作。");
+		}
+	});
+}
+function test_alert1()
+{
+	try
+	{
+		if( top && top.skit_alert  )
+		{
+			top.skit_alert("男人最变态的地方是：自己的女人，被人睡过一次两次，就接受不了，碰都不想碰她，非得离婚；别人的女人，别人睡过千百遍，却一点不嫌弃，就算离婚也要娶她。 ", "段子手");//第二个参数可以不传
+			return;
+		}
+	}
+	catch (e)
+	{
+	}
+	skit_alert("男人最变态的地方是：自己的女人，被人睡过一次两次，就接受不了，碰都不想碰她，非得离婚；别人的女人，别人睡过千百遍，却一点不嫌弃，就算离婚也要娶她。 ", "段子手");//第二个参数可以不传
+}
+function test_alert2()
+{
+	try
+	{
+		if( top && top.skit_alert  )
+		{
+			var txt = "人生有两个阶段性问题，第一，人为什么要上学？第二，人为什么要上班？<br/>"+
+					   "答案很简单，第一，为了以后能上班；第二，为了孩子能上学。<br/>"+
+					   "<img src='http://image.tianjimedia.com/uploadImages/2015/129/56/J63MI042Z4P8_1000x500.jpg' width='200'/>";
+			top.skit_alert(txt);//第二个参数可以不传
+			return;
+		}
+	}
+	catch (e)
+	{
+	}
+	var txt = "人生有两个阶段性问题，第一，人为什么要上学？第二，人为什么要上班？<br/>"+
+			   "答案很简单，第一，为了以后能上班；第二，为了孩子能上学。<br/>"+
+			   "<img src='http://image.tianjimedia.com/uploadImages/2015/129/56/J63MI042Z4P8_1000x500.jpg' width='200'/>";
+	skit_alert(txt);//第二个参数可以不传
+}
+
+/*显示提示对话框*/
+function skit_alert( message, title )
+{
+	if( title ){}else{
+		title = "提示";
+	}
+    var SM = new SimpleModal({"btn_ok":"确定"});
+    SM.show({
+        "title":title,
+        "callback": function(){
+    		skit_alert_close();
+        },
+        "contents": "<p>"+message+"</p>"
+    });
+    
+	var h = window.document.body.clientHeight;;
+	var w = window.document.body.clientWidth;
+	var div = document.getElementById('simple-modal');
+	var top = h/2 - div.scrollHeight/2;
+	SM.options.offsetTop = top;
+	SM._display();	
+}
+
+var callback_confirm;
+function skit_confirm()
+{
+	var args = skit_confirm.arguments;
+	var message = args[0];
+	callback_confirm = args.length>1?args[1]:null;
+	
+    var SM = new SimpleModal({"btn_ok":"我确定"});
+    SM.show({
+    	"model":"confirm",
+        "callback": function(){
+			if( callback_confirm )
+			{
+				callback_confirm(true);
+				callback_confirm = null;
+			}
+        },
+        "cancelback": function(){
+			if( callback_confirm )
+			{
+				callback_confirm(false);
+				callback_confirm = null;
+			}
+        },
+        "title":"您确定吗？",
+        "contents": "<p>"+message+"</p>"
+    });
+	var h = window.document.body.clientHeight;
+	var w = window.document.body.clientWidth;
+	var div = document.getElementById('simple-modal');
+	var top = h/2 - div.scrollHeight/2;
+	SM.options.offsetTop = top;
+	SM._display();
+}
+//获得参数的方法
+function getParameter(param, def)  
+{  
+	var query = window.location.search;//获取URL地址中？后的所有字符  
+	var iLen = param.length;//获取你的参数名称长度  
+	var iStart = query.indexOf(param);//获取你该参数名称的其实索引
+	if (iStart == -1)//-1为没有该参数  
+		return def;  
+	iStart += iLen + 1;  
+	var iEnd = query.indexOf("&", iStart);//获取第二个参数的其实索引  
+	if (iEnd == -1)//只有一个参数  
+		return query.substring(iStart);//获取单个参数的参数值  
+	return query.substring(iStart, iEnd);//获取第二个参数的值  
+}
+</script>
+</html>

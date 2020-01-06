@@ -1,0 +1,10 @@
+[PropertyInfo]
+btnBar,com.kehao.skit.button.KButtonBar,false,false, , ,false,<default>
+popMenuTag,String,false,false, , ,true,<default>
+scriptTag,String,false,false, , ,true,<default>
+scrollId,String,false,false, , ,true,<default>
+[IconNames]
+
+
+
+

@@ -1,0 +1,153 @@
+@charset "utf-8";
+
+body {
+	font-family: 微软雅黑;
+	margin-top:3px;
+	margin-left:3px;
+	margin-right:26px;
+	margin-bottom:26px;
+	font-size:0.9em;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+.box {
+	box-shadow:1px 1px 10px #BBB;
+	border-radius:4px;
+	background-color:rgb(240,240,240);
+	padding:10px;
+}
+
+h1, h2, h3, p {
+	margin-left:4px;
+}
+
+h3 {
+	font-size:1.2em;
+	font-weight:100;
+}
+
+h1,h2,h3, #leftMenu h2 {
+	color:rgba( 80,80,120, 0.9 );
+}
+
+h4 {
+	background-color:rgba( 120, 60, 100, 1 );
+	border-radius:10px;
+	color:white;
+	padding:4px;
+	font-weight:100;
+	font-size:0.8em;
+	display:inline-block;
+	margin-bottom:0px;
+}
+
+div.description h4 {
+	margin-left:30px;
+}
+
+div.description {
+	border:1px solid rgba( 120, 60, 100, 0.5 );
+	background-color: rgba( 200, 200, 200 );
+	padding:4px;
+	border-radius:10px;
+}
+
+.bold {
+	font-weight:bold;	
+}
+
+#footer {
+	clear:both;
+	color:#888;
+	text-align:center;
+	font-size:11px;
+	margin-top:10px;
+}
+
+a {
+	transition:color 0.4s ease-in-out;	
+	color:rgba( 0, 0, 0, 0.6 );
+	text-decoration:none;	
+}
+
+a:hover {
+	color:rgba( 0, 0, 0, 1 );
+}
+
+#content {
+	margin-top:60px;
+	margin-left:10px;
+	float:left;
+	width:70%;
+	color:#333;
+}
+
+#content h1 {
+	margin:5px;
+	font-size:2.0em;
+	font-weight:100;	
+}
+
+#content h2 {
+	font-size:1.4em;
+	font-weight:100;
+}
+
+#content .body {
+	margin:10px;
+	margin-left:0px;
+}
+
+div.info {
+	color:#666;
+	font-size:11px;
+}
+
+label {
+	display:block;
+	font-weight:bold;
+	color:#666;
+	color:rgba( 0, 0, 0, 0.6 );
+	line-height:1.4;
+}
+
+input[type='text'], textarea {
+	width:100%;
+	border:1px solid rgba(0,0,0,0.2);
+	border-radius:4px;
+	padding:5px 8px;
+	outline:0px;
+}
+
+input[type='text']:focus, input[type='button']:hover, textarea:hover {
+	-webkit-animation:pulse 2.5s infinite ease-in-out;	
+}
+
+input[type='button']:active {
+	background-color:#CCC;
+}
+
+fieldset {
+	border:none;	
+}
+
+input[type='button'], #editor {
+	border:1px solid rgba(0,0,0,0.2);
+	border-radius:4px;
+	padding:10px;	
+	outline:0px;
+	font-weight:bold;
+}
+
+@-webkit-keyframes pulse {
+	0% {
+		-webkit-box-shadow : 0 0 3px rgba( 0,0,0, 0.6 );	
+	}
+	50% {
+		-webkit-box-shadow : 0 0 7px rgba( 0,0,0, 0.9 );	
+	}
+	100% {
+		-webkit-box-shadow : 0 0 3px rgba( 0,0,0, 0.6 );	
+	}
+}

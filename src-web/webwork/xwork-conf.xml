@@ -1,0 +1,18 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<package name="conf" extends="default">
+	    <action name="syscfg" class="SysCfgAction">
+		    <result name="preset" type="dispatcher">/jsp/conf/syscfg.jsp</result>
+		    <result name="database" type="dispatcher">/jsp/conf/database.jsp</result>
+            <interceptor-ref name="fileUploadStack"/>
+    		<interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+	    </action>
+	    <action name="sftcfg" class="SftCfgAction">
+		    <result name="preset" type="dispatcher">/jsp/conf/softwarecfg.jsp</result>
+            <interceptor-ref name="fileUploadStack"/>
+    		<interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+	    </action>
+   	</package>
+</xwork>

@@ -1,0 +1,29 @@
+.skit_title_logo 
+{
+	font-size:20pt;
+	font-family:»ªÎÄçúçê, Georgia;
+	color:#0000FF;
+	text-align:center;
+	font-weight:bold;
+	padding-top:2px;
+}
+
+.skit_text 
+{
+	font-size:12pt;
+	color:#0000FF;
+	padding-left:10px;
+	padding-top:10px;
+	text-align:left;
+	font-weight:bold;
+}
+
+.skit_version 
+{
+	font-family: Georgia;
+	font-size:12pt;
+	color:#0000FF;
+	text-align:center;
+	font-weight:bold;
+	padding-left:5px;
+}

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta name="robots" content="all">
+<link rel="stylesheet" type="text/css" href="helper/developer/style.css">
+<title>开发者手册 COS云架构开放式应用服务系统</title>
+<link href="cos.ico" rel="shortcut icon" type="image/x-icon">
+<script type="text/javascript" src="developer.js"></script>
+<script type="text/javascript">
+function openFramesDemo()
+{
+	var p = "";
+	if(myreferrer && myreferrer != "" )
+	{
+		var i = myreferrer.indexOf("/main");
+		if( i != -1 )
+		{
+			p = myreferrer.substring(0, i+1);
+			p = "refer="+p;
+		}
+	}
+	document.getElementById("ifrconent").src = "helper!developer.action?id=function_frames&"+p;
+}
+
+function openInterfaceHelp(tag)
+{
+	var p = "";
+	var href = "helper!developer.action?id=interface_"+tag;
+	if( tag == "" ) href = "helper!developer.action?id=interface";
+	if(myreferrer && myreferrer != "" )
+	{
+		var i = myreferrer.indexOf("/main");
+		if( i != -1 )
+		{
+			var ws = myreferrer.substring(0, i+1);
+			if( tag != "" )
+				ws += "services/"+tag+"?wsdl";
+			p = "ws="+ws;
+		}
+	}
+	else
+	{
+		if( tag != "" )
+			p = "ws=http://<cos.web>/services/"+tag+"?wsdl";
+	}
+	if( p )
+		document.getElementById("ifrconent").src = href+"&"+p;
+	else
+		document.getElementById("ifrconent").src = href;
+}
+</script>
+</head>
+<body class="html">
+<div id="wrapper">
+	<div id="header" style="display:none">
+		<h3 class="heading heading-title" style="font-size:20pt;"><i id="logo"></i> COS云架构开放式应用服务系统
+	</div>
+	<!--
+	<div id="navfirst">
+	<ul id="menu">
+	<li id="h"><a href="http://www.w3school.com.cn/h.asp" title="HTML 系列教程">HTML 系列教程</a></li>
+	<li id="b"><a href="http://www.w3school.com.cn/b.asp" title="浏览器脚本教程">浏览器脚本</a></li>
+	<li id="s"><a href="http://www.w3school.com.cn/s.asp" title="服务器脚本教程">服务器脚本</a></li>
+	<li id="d"><a href="http://www.w3school.com.cn/d.asp" title="ASP.NET 教程">ASP.NET 教程</a></li>
+	<li id="x"><a href="http://www.w3school.com.cn/x.asp" title="XML 系列教程">XML 系列教程</a></li>
+	<li id="ws"><a href="http://www.w3school.com.cn/ws.asp" title="Web Services 系列教程">Web Services 系列教程</a></li>
+	<li id="w"><a href="http://www.w3school.com.cn/w.asp" title="建站手册">建站手册</a></li>
+	</ul>
+	</div>
+	-->
+
+	<div id="navsecond">
+		<div>
+			<div id="course">开发者手册</div>
+			<h2>概述</h2>
+			<ul>
+			<li class="currentLink" id="firstMenu" onclick="changeMenu(this)"><a href="helper!developer.action?id=intro" target="ifrconent" title="COS云架构开放式应用服务系统 简介">*总体介绍</a></li>
+			<li onclick="changeMenu(this)"><a href="helper!developer.action?id=cases" target="ifrconent" title="COS云架构开放式应用服务系统 使用案例">*应用案例</a></li>
+			</ul>
+			<h2>接口开发</h2>
+			<ul>
+			<li><a href="javascript:openInterfaceHelp('');" title="COS云架构开放式应用服务系统 接口介绍">*接口介绍</a></li>
+			<li onclick="changeMenu(this)"><a href="javascript:openInterfaceHelp('SystemNotifyService');">*发送系统消息通知接口</a></li>
+			<li onclick="changeMenu(this)"><a href="javascript:openInterfaceHelp('EmailService');">*发送邮件接口</a></li>
+			<li onclick="changeMenu(this)"><a href="javascript:openInterfaceHelp('AlarmService');">*发送系统告警接口</a></li>
+			<!-- <li onclick="changeMenu(this)"><a href="javascript:openInterfaceHelp('SMSService');">*发送短信接口</a></li> -->
+			<li onclick="changeMenu(this)"><a href="javascript:openInterfaceHelp('LogService');">*记录系统日志接口</a></li>
+			<li onclick="changeMenu(this)"><a href="javascript:openInterfaceHelp('UserService');">*用户接口</a></li>
+			</ul>
+			<h2>功能开发和使用</h2>
+			<ul>
+			<li onclick="changeMenu(this)"><a href="javascript:openFramesDemo();">*后台界面框架介绍与使用</a></li>
+			<li onclick="changeMenu(this)"><a href="helper!developer.action?id=function_privileges3th" target="ifrconent">*业务系统用户登录鉴权开发</a></li>
+			<li onclick="changeMenu(this)"><a href="helper!developer.action?id=function_privileges" target="ifrconent">*业务系统用户操作权限开发</a></li>
+			<li onclick="changeMenu(this)"><a href="helper!developer.action?id=function_monitor" target="ifrconent">*系统监控</a></li>
+			<li onclick="changeMenu(this)"><a href="helper!developer.action?id=function_skin" target="ifrconent">*系统后台换肤</a></li>
+			</ul>
+			<h2>配置相关</h2>
+			<ul>
+			<li onclick="changeMenu(this)"><a href="helper!developer.action?id=setuplinux" target="ifrconent" title="COS云架构开放式应用服务系统 Linux配置与启动">*在Linux环境配置与启动</a></li>
+			<li onclick="changeMenu(this)"><a href="helper!developer.action?id=setupwindows" target="ifrconent" title="COS云架构开放式应用服务系统 Windows配置与启动">*在Windows环境配置与启动</a></li>
+			<li onclick="changeMenu(this)"><a href="helper!developer.action?id=ide" target="ifrconent" title="COS云架构开放式应用服务系统 开发者配置">*开发者配置</a></li>
+			<li onclick="changeMenu(this)"><a href="helper!developer.action?id=modules" target="ifrconent" title="COS云架构开放式应用服务系统 COS.WEB的菜单配置">*COS.WEB的菜单配置</a></li>
+			<li onclick="changeMenu(this)"><a href="helper!developer.action?id=control" target="ifrconent" title="COS云架构开放式应用服务系统 主控程序引擎配置">*主控程序引擎配置</a></li>
+			</ul>
+			<h2>其它</h2>
+			<ul>
+			<li><a href="javascript:top.openView('font-awesome.css', 'helper!pdf.action?filename=cos-data-structure.pdf');">数据结构定义文档</a></li>
+			<!-- <li><a href="javascript:top.openView('font-awesome.css', 'defoneshow!fa.action');">font-awesome.css</a></li>-->
+			<li><a href="javascript:top.openView('系统可用图标展示', 'helper!icon.action');">系统可用图标展示</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="maincontent"><iframe id='ifrconent' name='ifrconent' frameborder='0' style='border:0px solid red;margin:0;height:800px;' width='100%'></iframe></div>
+
+	<div id="sidebar">
+
+		<div id="searchui">
+			<form method="get" id="searchform" action="http://www.google.com.hk/search">
+				<p><label for="searched_content">搜索:</label></p>
+				<p><input name="sitesearch" value="w3school.com.cn" type="hidden"></p>
+				<p>
+				<input name="as_q" class="box" id="searched_content" title="在此输入搜索内容。" type="text">
+				<input value="Go" class="button" title="搜索！" type="submit">
+				</p>
+			</form>
+		</div>
+
+		<div id="tools">
+			<div id="title">软件下载</div>
+			<div id="tools_reference"></div>
+			<div id="tools_quiz"></div>
+		</div>
+
+	</div>
+
+	<div id="footer">
+		<p class="tiy">向用户提供的面能够开发各种类型应用系统的软件开发框架。<a target="ifrconent" href="javascript:window.frames['ifrconent'].window.location.reload();">刷新页面</a></p>
+		<p>当使用软件，代表您已接受了《<a href='javascript:top.openView("COS软件许可及服务协议", "privacy");'>COS软件许可及服务协议</a>》。focusnt.com版权所有，保留一切权利。</p>
+	</div>
+</div>
+<!-- wrapper end -->
+<form action='#' target='downloadframe'></form>
+<iframe name="downloadframe" id="downloadframe" style="display:none;border:1px solid red"></iframe>
+</body>
+<script type='text/javascript'>
+//alert("document.referrer="+document.referrer);
+var myreferrer = document.referrer;
+var m_li = document.getElementById("firstMenu");
+function changeMenu(li)
+{
+	m_li.className = "";
+	li.className = "currentLink";
+	m_li = li;
+	if(li.id != "firstMenu")
+	{
+		document.getElementById("header").style.display = "none";
+	}
+	else
+	{
+		document.getElementById("header").style.display = "none";
+	}
+	resizeWindow();
+}
+function resizeWindow()
+{
+	var bodyHeight = document.documentElement.clientHeight;
+	//var bodyWidth = window.document.body.clientWidth;
+	//alert(window.document.body.offsetHeight+"  "+ window.document.body.clientHeight+"  "+ window.document.body.scrollHeight);
+	var h0 = document.getElementById("header").clientHeight;
+	h0 += document.getElementById("footer").clientHeight;
+	var h = bodyHeight - h0 - 26;
+	//alert(bodyHeight+"-"+h0+"-"+h1+" = "+ h);
+	document.getElementById("ifrconent").style.height = h+"px";
+}
+document.getElementById("ifrconent").src = "helper!developer.action?id=intro";
+document.getElementById("tools_reference").innerHTML = "<a href='javascript:download(\"cos.zip\")'>"+
+	"cos.zip<br/>发布版<br/><span>(linux&windows)</span></a>";
+document.getElementById("tools_quiz").innerHTML = "<a href='javascript:download(\"cos.api.zip\")'>"+
+	"cos.api.zip<br/>接口包<span></span></a>";
+resizeWindow();
+
+function download(file)
+{
+	top.skit_confirm("您确定要下载"+file+"吗？",function(yes){
+		if( yes ){
+			var url = "p/http://admin.focusnt.com/download/"+file;//urlprefix+"p/http://admin.focusnt.com/download/"+file;
+			document.forms[0].action = url;
+			document.forms[0].method = "POST";
+			document.forms[0].target = "downloadframe";
+			document.forms[0].submit();
+		}
+	});
+}
+</script>
+</html>

@@ -1,0 +1,251 @@
+
+<!DOCTYPE dwr PUBLIC
+    "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN"
+    "http://getahead.org/dwr/dwr20.dtd">
+<dwr>
+	<allow>
+	    <convert match="org.json.JSONArray" converter="bean"></convert>
+	    <convert match="org.json.JSONObject" converter="bean"></convert>
+	    <convert match="com.focus.skit.tree.KComponent" converter="bean"></convert>
+	    <convert match="com.focus.skit.tree.KAction" converter="bean"></convert>
+	    <convert match="com.focus.skit.tree.KActionItem" converter="bean"></convert>
+	    <convert match="com.focus.skit.tree.KTree" converter="bean"></convert>
+	    <convert match="com.focus.skit.tree.KTreeItem" converter="bean"></convert>
+	    <convert match="com.focus.cos.web.common.AjaxResult" converter="bean"></convert>
+	    <create creator="spring" javascript="RoleMgr">
+			<param name="beanName" value="RoleMgr"/>
+			<include method="saveRole"/>
+			<include method="renameRole"/>
+			<include method="setRoleState"/>
+			<include method="dragDropRole"/>
+			<include method="delRole"/>
+	    </create>
+	    <convert match="com.focus.cos.web.user.vo.User" converter="bean"></convert>
+	    <create creator="spring" javascript="UserMgr">
+			<param name="beanName" value="UserMgr"/>
+			<include method="setUser"/>
+			<include method="setUserState"/>
+			<include method="resetPassword"/>
+			<include method="dragDropRole"/>
+			<include method="setPrivileges"/>
+			<include method="clearPrivileges"/>
+			<include method="modifyPwd"/>
+			<include method="changeCreator"/>
+	    </create>
+	    <create creator="spring" javascript="Login">
+			<param name="beanName" value="Login"/>
+			<include method="getLoginInfo"/>
+			<include method="getIndexModules"/>
+	    </create>
+	    <convert match="com.focus.cos.web.ops.vo.MonitorServer" converter="bean"></convert>
+	    <convert match="com.focus.cos.web.ops.vo.ModuleTrack" converter="bean"></convert>
+	    <convert match="com.focus.cos.web.ops.vo.ModuleLog" converter="bean"></convert>
+	    <convert match="com.focus.control.HostPerf" converter="bean"></convert>
+	    <convert match="com.focus.control.SystemPerf" converter="bean"></convert>
+	    <convert match="com.focus.control.Storage" converter="bean"></convert>
+	    <create creator="spring" javascript="MonitorMgr">
+			<param name="beanName" value="MonitorMgr"/>
+			<include method="addCluster"/>
+			<include method="addServer"/>
+			<include method="delCluster"/>
+			<include method="delServer"/>
+			<include method="renameCluster"/>
+			<include method="dragDropCluster"/>
+			<include method="getClusterStates"/>
+			<include method="getMonitorServers"/>
+			<include method="getZookeeperConfig"/>
+			<include method="resetMonitor"/>
+			<include method="getSystemPerf"/>
+			<include method="getMonitorRunnerInfo"/>
+	    	<include method="getModuleLogs"/>
+	    	<include method="getServerStates"/>
+	    </create>
+	    <create creator="spring" javascript="ControlMgr">
+			<param name="beanName" value="ControlMgr"/>
+			<include method="delProgramConfig"/>
+			<include method="switchProgram"/>
+			<include method="switchDebug"/>
+			<include method="setProgramRemark"/>
+			<include method="getVersionSelection"/>
+			<include method="setProgrammer"/>
+			<include method="setControlTitle"/>
+			<include method="setProgramConfig"/>
+			<include method="cancelProgramConfig"/>
+			<include method="clearProgramConfig"/>
+	    </create>
+	    <create creator="spring" javascript="ProgramMgr">
+			<param name="beanName" value="ProgramMgr"/>
+			<include method="delProgramConfig"/>
+			<include method="setProgramRemark"/>
+			<include method="setProgrammer"/>
+			<include method="setProgramConfig"/>
+			<include method="setProgramPublish"/>
+	    </create>
+	    <create creator="spring" javascript="ZookeeperMgr">
+			<param name="beanName" value="ZookeeperMgr"/>
+			<include method="getNodes"/>
+			<include method="deleteNode"/>
+			<include method="getDeleteResult"/>
+			<include method="setBackup"/>
+			<include method="cancelBackup"/>
+			<include method="createJSONNode"/>
+			<include method="setData"/>
+	    </create>
+	    <create creator="spring" javascript="FilesMgr">
+			<param name="beanName" value="FilesMgr"/>
+			<include method="getDirs"/>
+			<include method="deleteDir"/>
+			<include method="deleteFiles"/>
+			<include method="getAllDirs"/>
+			<include method="getContentType"/>
+			<include method="getFileType"/>
+			<include method="mkFile"/>
+			<include method="mkDir"/>
+	    </create>   
+	    <create creator="spring" javascript="MenusMgr">
+			<param name="beanName" value="MenusMgr"/>
+			<include method="setModulesMenu"/>
+			<include method="delModulesMenu"/>
+			<include method="setModuleDefault"/>
+			<include method="addModulesNode"/>
+			<include method="delModulesNode"/>
+			<include method="addDefaultMenu"/>
+			<include method="dragDropMenu"/>
+			<include method="chkModulesMenu"/>
+	    </create>
+	    <create creator="spring" javascript="SysCfgMgr">
+			<param name="beanName" value="SysCfgMgr"/>
+			<include method="modifyProperty"/>
+			<include method="changeSkin"/>
+			<include method="executeDatabaseOper"/>
+			<include method="restoreDatabase"/>
+			<include method="getRestoreDatabaseProgress"/>
+	    </create>
+	    <create creator="spring" javascript="SftCfgMgr">
+			<param name="beanName" value="SftCfgMgr"/>
+			<include method="modifyProperty"/>
+	    </create>
+	    <create creator="spring" javascript="EmailMgr">
+	    	<param name="beanName" value="EmailMgr"/>
+	    	<include method="doView"/>
+	    </create>
+	    <convert match="com.focus.util.Item" converter="bean"></convert>
+	    <convert match="com.focus.cos.web.common.SSHResponse" converter="bean"></convert>
+	    <convert match="com.focus.cos.web.common.DebugResponse" converter="bean"></convert>
+	    <create creator="spring" javascript="RpcMgr">
+			<param name="beanName" value="RpcMgr"/>
+			<include method="sendSsh"/>
+			<include method="getSshResponse"/>
+			<include method="openDebug"/>
+			<include method="closeDebug"/>
+			<include method="getDebugResponse"/>
+			<include method="findJars"/>
+			<include method="delTerminal"/>
+			<include method="addTerminal"/>
+			<include method="setTerminal"/>
+			<include method="getTerminalServerKey"/>
+	    </create>
+	    <convert match="com.focus.cos.web.ops.vo.Sysnotify" converter="bean"></convert>
+	    <convert match="com.focus.cos.web.ops.vo.Sysalarm" converter="bean"></convert>
+	    <convert match="com.focus.cos.web.ops.vo.DescktopMessage" converter="bean"></convert>
+	    <convert match="com.focus.cos.web.ops.vo.DescktopNotify" converter="bean"></convert>
+	    <convert match="com.focus.cos.web.ops.vo.DescktopTips" converter="bean"></convert>
+	    <create creator="spring" javascript="DescktopMgr">
+	    	<param name="beanName" value="DescktopMgr"/>
+	    	<include method="setSysnotifyState"/>
+	    	<include method="sendMessage"/>
+	    	<include method="sendSystemNotify"/>
+	    	<include method="getDescktopTips"/>
+	    	<include method="getNotifies"/>
+			<include method="setUserActionMemory"/>
+			<include method="getUserActionMemory"/>
+	    </create>
+	    <create creator="spring" javascript="HelperMgr">
+	    	<param name="beanName" value="HelperMgr"/>
+			<include method="doUpgradeDownload"/>
+			<include method="getUpgradeDownloadResult"/>
+			<include method="doUpgrade"/>
+			<include method="getUpgradeResult"/>
+			<include method="doUpgradeRetartup"/>
+			<include method="setAutoUpgrade"/>
+	    </create>
+	    
+	    <create creator="spring" javascript="ModulesMgr">
+	    	<param name="beanName" value="ModulesMgr"/>
+			<include method="publish"/>
+	    </create>
+	    
+	    <create creator="spring" javascript="WeixinMgr">
+	    	<param name="beanName" value="WeixinMgr"/>
+			<include method="setWeixinProgram"/>
+	    </create>
+	    
+	    <create creator="spring" javascript="DiggMgr">
+	    	<param name="beanName" value="DiggMgr"/>
+			<include method="getExportProgress"/>
+			<include method="stopExport"/>
+			<include method="getDiggProgress"/>
+			<include method="getNonce"/>
+	    </create>
+	    
+	    <create creator="spring" javascript="FormMgr">
+	    	<param name="beanName" value="FormMgr"/>
+			<include method="save"/>
+			<include method="delete"/>
+			<include method="getNonce"/>
+	    </create>
+	    
+	    <create creator="spring" javascript="DiggConfigMgr">
+	    	<param name="beanName" value="DiggConfigMgr"/>
+			<include method="getTs"/>
+			<include method="getNonce"/>
+			<include method="remarkDatasourceCell"/>
+			<include method="addModule"/>
+			<include method="setModule"/>
+			<include method="getModuleDatasources"/>
+			<include method="setTemplateDir"/>
+			<include method="copyTemplateDir"/>
+			<include method="createQueryTemplate"/>
+			<include method="createQueryTemplateByZookeeper"/>
+			<include method="createQueryTemplateByJson"/>
+			<include method="createQueryTemplateByDatasource"/>
+			<include method="createConfigTemplateByZookeeper"/>
+			<include method="createConfigTemplateByDatasource"/>
+			<include method="getTemplateXml"/>
+			<include method="dragDropTemplate"/>
+			<include method="delTemplate"/>
+			<include method="testDatasource"/>
+			<include method="setTemplateApi"/>
+	    </create>
+	    
+	    <create creator="spring" javascript="SecurityMgr">
+	    	<param name="beanName" value="SecurityMgr"/>
+			<include method="getTs"/>
+			<include method="getNonce"/>
+			<include method="encryptSsoAccount"/>
+	    </create>
+	    <!--DWR WebWork  -->
+	    <create creator="none" javascript="DWRAction">
+  			<param name="class" value="org.directwebremoting.webwork.DWRAction"/>
+  			<include method="execute"/>
+		</create>
+		<convert converter="bean" match="org.directwebremoting.webwork.ActionDefinition">
+  			<param name="include" value="namespace,action,method,executeResult" />
+		</convert>
+		<convert converter="bean" match="org.directwebremoting.webwork.AjaxResult"/>
+		<convert converter="bean" match="com.opensymphony.xwork.ActionSupport" />
+	</allow>
+	<signatures>
+	<![CDATA[
+      import java.util.Map;   
+      import org.directwebremoting.webwork.ActionDefinition;
+      import org.directwebremoting.webwork.DWRAction;
+      import javax.servlet.http.HttpServletRequest;
+      import javax.servlet.http.HttpServletResponse;
+      import javax.servlet.ServletContext;
+           
+      DWRAction.execute(ActionDefinition, Map<String,String>,
+          HttpServletRequest, HttpServletResponse, ServletContext);
+	]]>
+</signatures>
+</dwr>

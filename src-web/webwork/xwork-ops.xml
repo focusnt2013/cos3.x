@@ -1,0 +1,101 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<package name="ops" extends="default">
+	    <action name="syslog" class="SyslogAction">	
+    		<interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+		</action>
+	    <action name="sysalarm" class="SysalarmAction">
+		    <result name="preview" type="dispatcher">/jsp/alarm/preview.jsp</result>
+    		<interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+		</action>
+	    <action name="notify" class="SysnotifyAction">	
+		    <result name="messenger" type="dispatcher">/defone/messenger.jsp</result>
+    		<interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+		</action>
+		<!-- 
+	    <action name="notice" class="NoticeAction">
+		    <result name="doQuery" type="dispatcher">/jsp/notice/noticeMgr.jsp</result>
+		    <result name="preSet" type="dispatcher">/jsp/notice/setNotice.jsp</result>
+		    <interceptor-ref name="fileUploadStack"/>
+    		<interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+		</action>
+		 -->
+	    <action name="monitor" class="MonitorAction">	
+		    <result name="track" type="dispatcher">/jsp/monitor/track.jsp</result>
+		    <result name="navigate" type="dispatcher">/jsp/monitor/navigate.jsp</result>
+		    <result name="cluster" type="dispatcher">/jsp/monitor/cluster.jsp</result>
+		    <result name="server" type="dispatcher">/jsp/monitor/server.jsp</result>
+    		<interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+		</action>
+	    <action name="files" class="FilesAction">	
+		    <result name="navigate" type="dispatcher">/jsp/files/navigate.jsp</result>
+   		    <result name="open" type="dispatcher">/jsp/files/open.jsp</result>
+   		    <result name="edit" type="dispatcher">/jsp/files/edit.jsp</result>
+   		    <result name="list" type="dispatcher">/jsp/files/list.jsp</result>
+		    <result name="pageshow" type="dispatcher">/jsp/files/pageshow.jsp</result>
+		    <result name="showfile" type="dispatcher">/jsp/files/showfile.jsp</result>
+		    <result name="textedit" type="dispatcher">/jsp/files/textedit.jsp</result>
+		    <result name="copy" type="dispatcher">/jsp/files/copy.jsp</result>
+		    <interceptor-ref name="fileUploadStack"/>
+		    <interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+		</action>
+	    <action name="monitorload" class="MonitorLoadAction">	
+		    <result name="serverchart" type="dispatcher">/jsp/monitor/chartserverload.jsp</result>
+		    <result name="clusterchart" type="dispatcher">/jsp/monitor/chartclusterload.jsp</result>
+		    <result name="modulememory" type="dispatcher">/jsp/monitor/chartmodulememory.jsp</result>
+    		<interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+		</action>
+	    <action name="monitorcfg" class="MonitorConfigAction">	
+		    <result name="databases" type="dispatcher">/jsp/monitor/databasecfg.jsp</result>
+    		<interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+		</action>
+	    <action name="rpc" class="RpcAction">
+		    <result name="navigate" type="dispatcher">/jsp/rpc/navigate.jsp</result>
+   		    <result name="open" type="dispatcher">/jsp/rpc/open.jsp</result>
+   		    <result name="gateone" type="dispatcher">/jsp/rpc/gateone.jsp</result>
+		    <result name="debug" type="dispatcher">/jsp/rpc/debug.jsp</result>
+		    <result name="findjars" type="dispatcher">/jsp/rpc/findjars.jsp</result>
+		    <interceptor-ref name="fileUploadStack"/>
+		    <interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+		</action>
+	    <action name="control" class="ControlAction">
+		    <result name="navigate" type="dispatcher">/jsp/control/navigate.jsp</result>
+   		    <result name="navigatehistory" type="dispatcher">/jsp/control/navigatehistory.jsp</result>
+   		    <result name="open" type="dispatcher">/jsp/control/open.jsp</result>
+		    <result name="preset" type="dispatcher">/jsp/control/preset.jsp</result>
+		    <result name="preview" type="dispatcher">/jsp/control/preview.jsp</result>
+		    <result name="configxml" type="dispatcher">/jsp/control/configxml.jsp</result>
+		    <result name="upgrade" type="dispatcher">/jsp/control/upgrade.jsp</result>
+		    <interceptor-ref name="fileUploadStack"/>
+		    <interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+		</action>
+	    <action name="zookeeper" class="ZookeeperAction">
+           <result name="navigate" type="dispatcher">/jsp/zookeeper/navigate.jsp</result>
+           <result name="open" type="dispatcher">/jsp/zookeeper/open.jsp</result>
+		    <interceptor-ref name="fileUploadStack"/>
+	   		<interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+	    </action>
+		<action name="email" class="EmailAction">
+			 <interceptor-ref name="model-driven"/>
+		     <interceptor-ref name="params"/>
+		</action>
+		<action name="security" class="SecurityAction">
+            <result name="test" type="dispatcher">/helper/api/test.jsp</result>
+            <result name="sso" type="dispatcher">/helper/api/sso.jsp</result>
+		    <result name="security-addaccount" type="dispatcher">/jsp/user/userset.jsp</result>
+			<interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+		</action>
+   	</package>
+</xwork>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta name="robots" content="all">
+<link rel="stylesheet" type="text/css" href="helper/developer/style.css">
+<link href="cos.ico" rel="shortcut icon" type="image/x-icon">
+</head>
+<body>
+    
+    <div id="maincontent" style="text-align: left; width: 732px;">
+        <h1>业务系统用户操作权限开发</h1>
+        <div id="intro">
+        <p>用户基于COS云架构开放式应用服务系统开发业务系统。业务系统嵌入到COS中，涉及用户对模块功能的操作配置。本手册章节将介绍如何开发用户权限，包括业务系统内页面的按钮权限。</p>
+        <img src='../../images/developer/030.png' width='666'>    
+        </div>
+        <div>
+        <h2>开发业务系统首先配置平台系统的功能菜单，功能菜单的层级包括：</h2>
+        <ul>
+        <li>工具栏菜单</li>
+        <li>二级导航菜单</li>
+        <li>二级导航菜单下的Action菜单</li>
+        <li>功能模块中的按钮级权限</li>
+        </ul>
+        <p>请参看下列配置：</p>
+        <pre>
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;sys name='xxx系统' version='3.14.1.11'&gt;
+&lt;toolbar&gt;
+    &lt;menu id='monitor' fa='fa-desktop' href='omt!monitor.action' name='系统监控' module='Sys'/&gt;
+&lt;/toolbar&gt;
+&lt;!-- 系统配置的菜单选项ID和组件文件名称保持一致 --&gt;
+&lt;module id='Sys' name='系统管理' status='1'&gt;
+    &lt;action id='addApplication'&gt;
+        &lt;menu icon='images/icons/appadd.gif' href='config!preSetAppCfg.action' name='新增应用'/&gt;
+    &lt;/action&gt;
+    &lt;action id='user'&gt;
+        &lt;menu icon='images/icons/useradd.gif' href='user!preAdd.action' name='新增用户'/&gt;
+        &lt;menu icon='images/icons/useradd.gif' href='role!preSet.action' name='新增角色'/&gt;
+    &lt;/action&gt;
+    &lt;action id='sendMessage'&gt;
+        &lt;menu icon='images/icons/mailunread.gif' href='sms!openSendsmsView.action' name='发送短信'/&gt;
+    &lt;/action&gt;
+    &lt;action id='addDatasource'&gt;
+        &lt;menu icon='%home.report%images/icons/taskinstance.gif' href='%home.report%data!preset.action' name='新增数据源连接'/&gt;
+    &lt;/action&gt;
+    &lt;navigation default='omt!monitor.action'&gt;
+        &lt;menu href='#' name='系统维护' id='sysmain'&gt;
+            &lt;menu href='omt!monitor.action' name='系统监控'/&gt;
+            &lt;menu href='omt!serversmonitor.action' name='业务监控'/&gt;
+            &lt;menu href='omt!serversmonitor.action' name='服务进程监控'/&gt;
+            &lt;menu href='syslog!doQuery.action' name='系统日志'/&gt;
+              &lt;button name="导出" id="syslogmanageExport"/&gt;
+              &lt;button icon='images/icons/abort.gif' name="清除" id="syslogmanageClear"/&gt;
+              &lt;button icon='images/icons/abort.gif' name="删除" id="syslogmanagedelete"/&gt;
+            &lt;/menu&gt;
+            &lt;menu href='sysalarm!instant.action' name='实时告警'/&gt;
+            &lt;menu href='sysalarm!history.action' name='历史告警'/&gt;
+            &lt;menu href='emailOutbox!outbox.action' name='邮件发件箱'/&gt;
+            &lt;menu href='http://114.113.232.93:18010' name='dubbo-管理配置'/&gt;
+            &lt;menu href='http://www.106818.com/SmsQuery.aspx' name='版权家下发短信跟踪'/&gt;            
+        &lt;/menu&gt;
+        &lt;menu href='#' name='权限管理' id='user'&gt;
+            &lt;menu href='role!rolemgr.action' name='角色管理' action='user'/&gt;
+            &lt;menu href='user!query.action' name='用户管理' action='user'/&gt;
+        &lt;/menu&gt;
+        &lt;menu href='#' name='系统配置' id='sysconfig'&gt;
+            &lt;menu href='config!sysConfig.action' name='系统参数'/&gt;
+            &lt;menu href='config!sysSoftware.action' name='软件参数'/&gt;
+            &lt;menu href='config!doCmpCfg.action' name='组件配置'/&gt;
+            &lt;menu href='notifyConfig!config.action' name='系统消息配置'/&gt;
+            &lt;menu href='sysalarm!config.action' name='告警配置'/&gt;
+        &lt;/menu&gt;
+        &lt;menu href='#' name='短信服务管理' id='sms'&gt;
+            &lt;menu href='smsInbox!inbox.action' name='短信收件箱'/&gt;
+            &lt;menu href='smsOutbox!outbox.action' name='短信发件箱' action='sendMessage'/&gt;
+            &lt;menu href='config!accCfg.action' name='接入配置'/&gt;
+            &lt;menu href='config!doAppCfg.action' name='应用管理' action='addApplication'/&gt;
+            &lt;menu href='bwlist!black.action' name='黑名单管理'/&gt;
+            &lt;menu href='column!configColumnsOfHlr.action' name='号段管理'&gt;
+                &lt;button name="新增区域" id="actionConfigColumnsofHlrAdd1"/&gt;
+                &lt;button name="删除区域" id="actionConfigColumnsofHlrDetete1"/&gt;
+                &lt;button name="保存号段" id="actionConfignumbersave"/&gt;
+                &lt;button name="导出号段" id="actionConfignumberdaochu"/&gt;
+            &lt;/menu&gt;
+            &lt;menu href='monitorsend!preview.action' name='下行消息监控'/&gt;
+            &lt;menu href='omt!msgMonitor.action' name='上行消息监控'/&gt;
+        &lt;/menu&gt;
+        &lt;menu href='#' name='ZooKeeper管理' id='zookeeper'&gt;
+            &lt;menu href='zk!query.action' name='本地测试环境ZK服务'/&gt;
+        &lt;/menu&gt;
+        &lt;menu href='#' name='报表元数据管理' id='data'&gt;
+            &lt;menu href='%home.report%data!config.action?' name='元数据配置' action='addDatasource'/&gt;
+            &lt;menu href='%home.report%data!prequery.action?' name='元数据查询' action='addDatasource'/&gt;
+        &lt;/menu&gt;
+    &lt;/navigation&gt;
+&lt;/module&gt;
+……
+&lt;/sys&gt;        
+        </pre>
+        </div>
+        
+        <div>
+        <h2>模块配置说明</h2>
+        <p>在config/cmp/目录下有模块子系统的配置profile文件，该文件对应模块子系统。系统配置的菜单选项ID和组件文件名称保持一致。注意下文实例中红色字体内容。</p>
+        <pre>
+&lt;!-- 系统配置的菜单选项ID和组件文件名称保持一致 --&gt;
+&lt;module id='Sys' name='系统管理' status='1'&gt;
+    &lt;action  <span style='color:red'>id='addApplication'</span>&gt;
+        &lt;menu icon='images/icons/appadd.gif' href='config!preSetAppCfg.action' name='新增应用'/&gt;
+    &lt;/action&gt;
+    &lt;action <span style='color:red'>id='user'</span>&gt;
+        &lt;menu icon='images/icons/useradd.gif' href='user!preAdd.action' name='新增用户'/&gt;
+        &lt;menu icon='images/icons/useradd.gif' href='role!preSet.action' name='新增角色'/&gt;
+    &lt;/action&gt;
+        </pre>
+        <p>模块子系统下，action配置是指全局的跨界功能菜单。它可以绑定到任何一个模块下。如下所示：</p>
+        <pre>
+        &lt;menu href='#' name='权限管理' <span style='color:red'>id='user'</span>&gt;
+            &lt;menu href='role!rolemgr.action' name='角色管理' <span style='color:red'>action='user'</span>/&gt;
+            &lt;menu href='user!query.action' name='用户管理' <span style='color:red'>action='user'</span>/&gt;
+        &lt;/menu&gt;
+        </pre>
+        </div>
+        
+        <div>
+        <h2>按钮级权限配置说明</h2>
+        <p>以下面号段管理模块为例，该功能模块由4个功能操作按钮，每个按钮的ID配置为与业务系统页面内按钮的ID一致。</p>
+        <pre>
+&lt;menu href='column!configColumnsOfHlr.action' name='号段管理'&gt;
+    &lt;button name="新增区域" <span style='color:red'>id="actionConfigColumnsofHlrAdd1"</span>/&gt;
+    &lt;button name="删除区域" <span style='color:red'>id="actionConfigColumnsofHlrDetete1"</span>/&gt;
+    &lt;button name="保存号段" <span style='color:red'>id="actionConfignumbersave"</span>/&gt;
+    &lt;button name="导出号段" <span style='color:red'>id="actionConfignumberdaochu"</span>/&gt;
+&lt;/menu&gt;
+        </pre>
+        <p>业务系统页面实例如下，任何按钮对象标签包括button、input、div，只要是html有效DOM对象即可有效。</p>
+        <pre>
+&lt;button type='button' class='skit_btn60' onClick="openDirectoryPanel();" <span style='color:red'>id="actionConfigColumnsofHlrAdd1"</span>&gt;
+	&lt;img src='&lt;%=Common.URL_IMGICON(request)%&gt;fadd.gif' ALIGN="ABSMIDDLE" border='0'&gt;新增&lt;/button&gt;&nbsp;
+&lt;button type='button' class='skit_btn60' onClick='removeColumn();'<span style='color:red'>id="actionConfigColumnsofHlrDetete1"</span>&gt;
+	&lt;img src='&lt;%=Common.URL_IMGICON(request)%&gt;abort.gif' ALIGN="ABSMIDDLE"&gt;删除&lt;/button&gt;&nbsp;
+        </pre>
+        <p>完成业务系统按钮ID设定后，业务系统如何判断页面是否有权限，请调用上层框架函数，如下代码所示:</p>
+        <pre>
+if( top && top.getPermissions)
+{
+    var args = top.getPermissions();//从上层框架得到权限列表组
+    if(args)
+    {
+        for( var i = 0; i < args.length; i++ )
+        {
+            var id = args[i][0];//得到按钮的唯一ID
+            var privileges = args[i][1];//权限标识，true表示有权限，false表示无权限
+            var btn = document.getElementById(id);//根据ID得到DOM对象。
+            if( btn )
+            {
+                //btn.disabled = !disabled;
+                if(!privileges)
+                {
+                    btn.onclick = new Function("skit_alert('对不起，您没有该按钮操作权限。');");
+                }
+            }
+        }
+    }
+}     
+        </pre>
+		<p class="tiy"><a href="javascript:test_getPermissions();">点击试一试</a></p>
+        </div>
+    </div>
+<!-- wrapper end -->
+</body>
+<script type="text/javascript">
+<!--
+function test_getPermissions()
+{
+	try
+	{
+		if( top && top.skit_confirm )
+		{
+			top.skit_confirm("点击操作将获取“系统日志查询模块”的按钮的ID和权限，你是否看看返回数据？",function(yes){
+				if( yes ){
+			        if( top && top.getPermissions)
+					{
+						var args = top.getPermissions("syslog!doQuery.action");//从上层框架得到权限列表组
+						if(args)
+						{
+							var rsp = "得到系统日志模块页面内权限配置数据";
+							for( var i = 0; i < args.length; i++ )
+							{
+								var id = args[i][0];//得到按钮的唯一ID
+								var privileges = args[i][1];//权限标识，true表示有权限，false表示无权限
+								rsp += "\r\n按钮ID："+id+", 权限标识："+privileges;
+							}
+							alert(rsp);
+						}
+					} 
+				}
+			});
+			return;
+		}
+	}
+	catch (e)
+	{
+	}
+}
+//-->
+</script>
+</html>

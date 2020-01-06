@@ -1,0 +1,243 @@
+/*! pqgrid skit - v0.0.1 - 2016-7-25
+* http://focusnt.com
+* Includes: 
+* Copyright 2012 Skit Foundation and other contributors; Licensed MIT */
+body {overflow-y:hidden; overflow-x:hidden; margin-top:3px; margin-left:0px; margin-bottom:0px; margin-right:0px }
+
+button.query_btn
+{
+    height:22px;
+}
+
+button.delete_btn
+{
+    margin:-2px 0px;
+}
+button.edit_btn
+{
+    margin:-3px 0px;
+}
+
+tr.pq-row-delete
+{
+    text-decoration:line-through;         
+}
+
+tr.pq-row-delete td
+{
+    background-color:pink;   
+}
+
+tr.green td
+{
+    background: green;
+    color: #fff;
+}
+tr td.green
+{
+    background: green;
+    color: #000;
+}
+tr.lightgreen td
+{
+    background: lightgreen;
+    color: #fff;
+}
+tr td.green
+{
+    background: lightgreen;
+    color: #000;
+}
+tr.red td
+{
+    background:red;
+    color: #fff;    
+}
+tr td.red
+{
+    background:red;
+    color: #fff;
+}
+tr.lightred td
+{
+    color: red;  
+}
+tr td.lightred
+{
+    color: red;  
+}
+tr.black td
+{
+    background: #000;
+    color: red;    
+}
+tr td.black
+{
+    background: #000;
+    color: #fff;
+}
+tr.orange td
+{
+    background: #f9a839;
+    color: #fff;    
+}
+tr td.orange
+{
+    background: #f9a839;
+    color: #fff;
+}
+tr.blue td
+{
+    background: #00ccff;
+    color: #fff;    
+}
+tr td.blue
+{
+    background: #00ccff;
+    color: #fff;
+}
+tr.yellow td
+{
+    background: yellow;
+    color: lightgreen;    
+}
+tr td.yellow
+{
+    background: yellow;
+    color: lightgreen;
+}
+tr.gray td
+{
+    color: #ccc;    
+}
+tr td.gray
+{
+    color: #ccc;    
+}
+
+tr.lightorange td
+{
+    background: #fef5da;
+    color: #000;    
+}
+tr td.lightorange
+{
+    background: #fef5da;
+    color: #000;
+}
+tr.lightblue td
+{
+    background: #dbf8ff;
+    color: #000;    
+}
+tr td.lightblue
+{
+    background: #dbf8ff;
+    color: #000;
+}
+img.ui-datepicker-trigger
+{
+    margin-top:2px;
+}
+.ui-autocomplete {
+    max-height: 200px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+}    
+/*div.pq-grid :focus{
+    outline:none;        
+}*/
+.pq-grid .pq-editor-focus
+{
+    outline:none;
+    border:1px solid #bbb;    
+    border-radius:6px;
+    background-image: linear-gradient(#e6e6e6, #fefefe);
+
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e6e6e6', endColorstr='#fefefe'); 
+    background: -webkit-gradient(linear, left top, left bottom, from(#e6e6e6), to(#fefefe)); 
+    background: -moz-linear-gradient(top,  #e6e6e6,  #fefefe); /* for firefox 3.6+ */	        
+}
+input.pq-date-editor
+{
+    padding:2px;vertical-align:bottom;width:78px;z-index:4;position:relative;
+}
+input.pq-ac-editor
+{
+    padding:2px;z-index:4;position:relative;
+}
+
+.pq-td-div ul
+{
+	list-style: none;
+}
+
+.pq-td-div ul li
+{
+	max-width: 180px;
+	overflow: hidden;
+	float: left;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+	line-height: 19px;
+	padding: 0 9px;
+	background: url(images/pq-tag-bg.$5106.png) repeat-x 0 0;
+	margin: 0 1px 1px 0;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	color: #eeeeee;
+	white-space: nowrap;
+	box-shadow: 0 1px 1px #b7b9bc;
+}
+
+.pq-td-div ul li span{
+	font-size: 8pt;
+}
+
+.pq-td-div ul li a{
+	text-decoration: none;
+	padding-left: 5px;
+	color: rgb(255, 255, 255);
+}
+
+div.pq-grid-summary{
+        height:21px;border-bottom:1px solid #ddd;border-top:1px solid #fff;position:relative;
+    }
+div.pq-grid-summary table.pq-grid-table{
+    position:absolute;top:0;left:-1px;
+}
+
+div.pq-grid-top {
+    background: rgb(211, 225, 241);
+    color: #666;
+}
+
+.ui-dialog *
+{
+    font-family:Tahoma;
+    font-size:11px;
+}
+.ui-dialog form
+{
+    margin-top:20px;
+}
+.ui-dialog form input
+{
+    width:230px;
+    overflow:visible;/*fix for IE*/
+}
+.ui-dialog form td.label
+{
+    font-weight:bold;padding-right:5px;
+}
+div.pq-grid-toolbar-crud
+{
+    text-align:center;
+}
+.ui-widget {
+    font-family: ΢���ź�, Verdana,Arial,sans-serif;
+    font-size: 12px;;
+}

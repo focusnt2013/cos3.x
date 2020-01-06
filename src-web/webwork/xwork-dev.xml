@@ -1,0 +1,48 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<package name="dev" extends="default">
+	    <action name="dev" class="DevAction">
+            <interceptor-ref name="fileUploadStack"/>
+    		<interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+	    </action>
+	    <action name="diggcfg" class="DiggConfigAction">
+		    <result name="explorer" type="dispatcher">/jsp/digg/explorer.jsp</result>
+		    <result name="scriptset" type="dispatcher">/jsp/digg/scriptset.jsp</result>
+		    <result name="manager" type="dispatcher">/jsp/digg/manager.jsp</result>
+		    <result name="preset" type="dispatcher">/jsp/digg/preset.jsp</result>
+		    <result name="precreate" type="dispatcher">/jsp/digg/precreate.jsp</result>
+		    <result name="api" type="dispatcher">/jsp/digg/api.jsp</result>
+            <interceptor-ref name="fileUploadStack"/>
+    		<interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+	    </action>
+	    <action name="digg" class="DiggAction">
+            <interceptor-ref name="fileUploadStack"/>
+    		<interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+	    </action>
+	    <action name="form" class="FormAction"/>
+	    <action name="modules" class="ModulesAction">
+		    <result name="publish" type="dispatcher">/jsp/modules/publish.jsp</result>
+		    <result name="navigate" type="dispatcher">/jsp/modules/navigate.jsp</result>
+		    <result name="presetdevelopers" type="dispatcher">/jsp/modules/developers.jsp</result>
+            <interceptor-ref name="fileUploadStack"/>
+    		<interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+		</action>
+	    <action name="menus" class="MenusAction">
+		    <result name="config" type="dispatcher">/jsp/modules/menucfg.jsp</result>
+            <interceptor-ref name="fileUploadStack"/>
+    		<interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+	    </action>
+	    <action name="program" class="ProgramAction">
+		    <result name="config" type="dispatcher">/jsp/modules/programcfg.jsp</result>
+		    <result name="preset" type="dispatcher">/jsp/modules/programset.jsp</result>
+            <interceptor-ref name="fileUploadStack"/>
+    		<interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+	    </action>
+   	</package>
+</xwork>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta name="robots" content="all">
+<link rel="stylesheet" type="text/css" href="helper/developer/style.css">
+<link href="cos.ico" rel="shortcut icon" type="image/x-icon">
+</head>
+<body>
+	
+	<div id="maincontent" style="text-align: left; width: 732px;">
+		<h1>业务系统用户登录鉴权开发</h1>
+		<div id="intro">
+		<p>用户基于COS云架构开放式应用服务系统开发业务系统。业务系统嵌入到COS中，涉及统一用户登录鉴权。本手册章节将介绍如何开发登录用户统一鉴权登录。</p>
+		<img src='../../images/developer/027.png' width='666'>	
+		<p>用户完成登录后，进入主框架界面。以【cookie】为标识的登录信息会保存到COS自带的Zookeeper服务中。业务系统的登录用户鉴权开发就是基于该留存数据。</p>
+		<p class="tiy"><a href="javascript:parent.download('cos.ide.zip')">下载COS.IDE</a></p>
+		</div>
+		
+		<div>
+		<h2>检查保存在Zookeeper上的用户登录鉴权数据</h2>
+		<p>打开系统管理Zookeeper管理模块，展开/cos/login/cookie/节点，可以看到登录用户的记录信息。该管理模块在正式运行环境下，只有系统管理员可配置权限。</p>
+		<img src='../../images/developer/028.png' width='666'>	
+		<p>节点中记录信息如下所示：</p>
+		<pre>
+{"lastLogin":"2016-06-20 23:24:06 346",
+ "username":"admin",
+ "count":4,
+ "token":"b76795274c435f08f0b5284fee1d4105",
+ "roleid":1,
+ "realname":"系统管理员"}
+		</pre>
+		</div>
+		
+		<div>
+		<h2>登录用户鉴权功能的开发</h2>
+		<p>因为业务系统与COS主框架系统是在同一个数据安全区域，所以业务系统可以直接访问Zookeeper的数据节点。同时从用户URL请求中获取CookieID为“COSSESSIONID”的值作为身份令牌，该数据开发的鉴权模块实例如下：</p>
+		<pre>
+/**
+ * 登录用户鉴权
+ * @param cookieid 登录用户的cookieid
+ * @return 如果鉴权成功，返回用户JSON对象
+ */
+public JSONObject auth(String cookieid)
+    throws Exception
+{
+	ZooKeeper zookeeper = null;
+	String ip = "192.168.1.1";//集群统一的Zookeeper客户端访问地址
+	int port = 9081;//集群配置的Zookeeper客户端访问的端口
+	try
+	{
+		Watcher watcher = new Watcher(){
+			public void process(org.apache.zookeeper.WatchedEvent event)
+			{
+			}
+		};
+		ZooKeeper zookeeper = new ZooKeeper(ip+":"+port, 30000, watcher);
+		String path = "/cos/login/cookie/"+cookieid;
+		Stat stat = zookeeper.exists(path, watcher); 
+		if( stat == null)
+		{
+			return null;//鉴权失败
+		}
+		byte[] data = zookeeper.getData(path, watcher, stat);
+		return new JSONObject(new String(data, "UTF-8"));//鉴权成功返回用户对象
+	}
+	catch(Exception e )
+	{
+		throw e;
+	}
+	finally
+	{
+		if( zookeeper != null )
+			try
+			{
+				zookeeper.close();
+			}
+			catch (InterruptedException e)
+			{
+			}
+	}
+}
+		</pre>
+		</div>
+
+		<div>
+		<h2>用户访问权限判断</h2>
+		<p>登录后平台会在ZK中记录/cos/login/token/<token>访问权限令牌数据。该数据记录了该用户在平台下有权限访问的页面，如下图所示：</p>
+		<img src='../../images/developer/055.png' width='666'>	
+		<p>数据以json对象存储，key=访问页面的全路径，value=[]表示页面操作子权限（如果配置了按钮级别功能）</p>
+		</div>		
+	</div>
+<!-- wrapper end -->
+</body>
+</html>

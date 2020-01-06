@@ -1,0 +1,52 @@
+.skit_menu_box_top_left{ background-image: url(skin/unicom2013/menu/box_top_left.png); cursor: hand; width:10px;height:9px;}
+.skit_menu_box_top_middle{ background-image: url(skin/unicom2013/menu/box_top_middle.png); cursor: hand; height:9px}
+.skit_menu_box_top_right{ background-image: url(skin/unicom2013/menu/box_top_right.png); cursor: hand; width:10px;height:9px;}
+.skit_menu_box_middle_left{ background-image: url(skin/unicom2013/menu/box_middle_left.png); cursor: hand; width:10px}
+.skit_menu_box_middle_middle{ background-image: url(skin/unicom2013/menu/box_middle_middle.png); cursor: hand; }
+.skit_menu_box_middle_right{ background-image: url(skin/unicom2013/menu/box_middle_right.png); cursor: hand; width:10px}
+.skit_menu_box_bottom_left{ background-image: url(skin/unicom2013/menu/box_bottom_left.png); cursor: hand; width:10px;height:9px;}
+.skit_menu_box_bottom_middle{ background-image: url(skin/unicom2013/menu/box_bottom_middle.png); cursor: hand; height:9px;}
+.skit_menu_box_bottom_right{ background-image: url(skin/unicom2013/menu/box_bottom_right.png); cursor: hand; width:10px;height:9px;}
+
+.skit_menu_item_left{ background-image: url(skin/unicom2013/menu/item_left.png); cursor: hand; width:10px;height:20px;}
+.skit_menu_item_middle{	background-image: url(skin/unicom2013/menu/item_middle.png); cursor: hand; height:20px; font-family: Photina Casual Black; font-size:9pt; font-weight:bold; color:#666; text-align:left; padding-left:16px;padding-right:16px;}
+.skit_menu_item_right{ background-image: url(skin/unicom2013/menu/item_right.png); cursor: hand; width:10px;height:20px;}
+.skit_menu_item_over_left{ background-image: url(skin/unicom2013/menu/item_over_left.png); cursor: hand; width:10px;height:20px;}
+.skit_menu_item_over_middle{ background-image: url(skin/unicom2013/menu/item_over_middle.png); cursor: hand; height:20px; font-family: Photina Casual Black; font-size:9pt; font-weight:bold; color:#000000; text-align:left; padding-left:16px;padding-right:16px;}
+.skit_menu_item_over_right{ background-image: url(skin/unicom2013/menu/item_over_right.png); cursor: hand; width:10px;height:20px;}
+
+.skit_menu_line_left{/* background-image: url(none.gif);*/ cursor: hand; background-color:#dde5f2; /*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="skin/unicom2013/menu/line_left.png", sizingMethod="scale");*/height:1px }
+.skit_menu_line_middle{ /*background-image: url(none.gif); */cursor: hand;background-color:#dde5f2;/* filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="skin/unicom2013/menu/line_middle.png", sizingMethod="scale");*/height:1px }
+.skit_menu_line_right{ /*background-image: url(none.gif);*/ cursor: hand;background-color:#dde5f2;/* filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="skin/unicom2013/menu/line_right.png", sizingMethod="scale");*/height:1px }
+
+.skit_popmenu
+{
+	position:absolute; 
+	overflow: visible;
+	visibility: hidden;
+	cursor:pointer;
+    BORDER-BOTTOM: 0px solid buttonshadow;
+	BORDER-LEFT: 0px solid buttonshadow;
+	BORDER-RIGHT: 0px solid buttonshadow;
+	BORDER-TOP: 0px solid buttonshadow;
+}
+
+.skit_menu_item_actived
+{
+	width:220px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	list-style-type:none;
+	color:#000000;
+}
+
+.skit_menu_item_over
+{
+	width:220px;
+	overflow:
+	hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	list-style-type:none;
+}

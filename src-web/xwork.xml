@@ -1,0 +1,123 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>   
+    <include file="webwork-default.xml"/>   
+    <package name="default" extends="webwork-default">
+        <global-results>
+            <result name="exception" type="dispatcher">/skit/jsp/500.jsp</result>
+            <result name="404" type="dispatcher">/skit/jsp/404.jsp</result>
+            <result name="403" type="dispatcher">/skit/jsp/403.jsp</result>
+            <result name="sessionTimeout" type="dispatcher">/skit/jsp/sessionout.jsp</result>
+            <result name="licenseTimeout" type="dispatcher">/skit/jsp/licenseout.jsp</result>
+            <result name="close" type="dispatcher">/skit/jsp/close.jsp</result>
+            <result name="about" type="dispatcher">/about/show.jsp</result>
+            <result name="alert" type="dispatcher">/skit/jsp/alert.jsp</result>
+	    	<result name="gridquery" type="dispatcher">/skit/grid/query.jsp</result>
+	    	<result name="gridreport" type="dispatcher">/skit/grid/query.jsp</result>
+	    	<result name="gridedit" type="dispatcher">/skit/grid/edit.jsp</result>
+	    	<result name="griddebug" type="dispatcher">/skit/grid/debug.jsp</result>
+	    	<result name="gridsnapshot" type="dispatcher">/skit/grid/snapshot.jsp</result>
+	    	<result name="gridform" type="dispatcher">/skit/grid/form.jsp</result>
+            <result name="progress" type="dispatcher">/skit/jsp/progress.jsp</result>
+		    <result name="xml_json_css_sql" type="dispatcher">/helper/toolkit/editor.jsp</result>
+		    <result name="text" type="dispatcher">/helper/toolkit/editor.jsp</result>
+		    <result name="javascript" type="dispatcher">/helper/toolkit/javascript.jsp</result>
+        </global-results>
+        
+        <global-exception-mappings>
+            <exception-mapping name="error" result="exception" exception="java.lang.Exception"/>
+        </global-exception-mappings>
+        
+	    <action name="cos" class="RegisterAction">
+            <result name="checkin" type="dispatcher">/defone/register.jsp</result>
+		    <interceptor-ref name="fileUploadStack"/>
+    		<interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+	    </action>
+	    
+	    <action name="helper" class="HelperAction">
+            <result name="upgrade" type="dispatcher">/helper/deploy/upgrade.jsp</result>
+	    	<result name="timeline" type="dispatcher">/skit/jsp/timeline.jsp</result>
+	    	<result name="sqlquery" type="dispatcher">/helper/developer/sqlquery.jsp</result>
+	    	<result name="baidumap" type="dispatcher">/skit/jsp/baidumap.jsp</result>
+		    <result name="fa" type="dispatcher">/defone/showfa.jsp</result>
+		    <result name="icon" type="dispatcher">/defone/showicon.jsp</result>
+	    	<result name="start" type="dispatcher">/helper/developer/start.htm</result>
+	    	<result name="interface" type="dispatcher">/helper/developer/interface.htm</result>
+	    	<result name="interface_SystemNotifyService" type="dispatcher">/helper/developer/interface_SystemNotifyService.htm</result>
+	    	<result name="interface_EmailService" type="dispatcher">/helper/developer/interface_EmailService.htm</result>
+	    	<result name="interface_AlarmService" type="dispatcher">/helper/developer/interface_AlarmService.htm</result>
+	    	<result name="interface_LogService" type="dispatcher">/helper/developer/interface_LogService.htm</result>
+	    	<result name="interface_UserService" type="dispatcher">/helper/developer/interface_UserService.htm</result>
+	    	<result name="intro" type="dispatcher">/helper/developer/intro.htm</result>
+	    	<result name="modules" type="dispatcher">/helper/developer/modules.htm</result>
+	    	<result name="ide" type="dispatcher">/helper/developer/ide.htm</result>
+	    	<result name="setup" type="dispatcher">/helper/developer/setup.htm</result>
+	    	<result name="setuplinux" type="dispatcher">/helper/developer/setuplinux.htm</result>
+	    	<result name="setupwindows" type="dispatcher">/helper/developer/setupwindows.htm</result>
+	    	<result name="control" type="dispatcher">/helper/developer/control.htm</result>
+	    	<result name="cases" type="dispatcher">/helper/developer/cases.htm</result>
+	    	<result name="function_frames" type="dispatcher">/helper/developer/function_frames.htm</result>
+	    	<result name="function_monitor" type="dispatcher">/helper/developer/function_monitor.htm</result>
+	    	<result name="function_privileges" type="dispatcher">/helper/developer/function_privileges.htm</result>
+	    	<result name="function_privileges3th" type="dispatcher">/helper/developer/function_privileges3th.htm</result>
+	    	<result name="function_skin" type="dispatcher">/helper/developer/function_skin.htm</result>
+		    <result name="regexp" type="dispatcher">/helper/developer/regexp.jsp</result>
+		    <result name="colors" type="dispatcher">/helper/toolkit/colors.jsp</result>
+		</action>
+	    <action name="editor" class="EditorAction">
+		    <result name="text" type="dispatcher">/helper/toolkit/editor.jsp</result>
+		    <result name="xml_json_css_sql" type="dispatcher">/helper/toolkit/editor.jsp</result>
+		    <result name="javascript" type="dispatcher">/helper/toolkit/javascript.jsp</result>
+		    <result name="mergely" type="dispatcher">/helper/toolkit/mergely.jsp</result>
+		    <interceptor-ref name="fileUploadStack"/>
+    		<interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+	    </action>
+	    
+	    <action name="http" class="HttpAction">
+	    <!-- 
+		    <result name="jpg" type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="contentDisposition">filename="focus.jpg"</param>
+				<param name="inputName">dataStream</param>
+				<param name="bufferSize">10240</param>
+		    </result>
+		    <result name="jpeg" type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="contentDisposition">filename="focus.jpg"</param>
+				<param name="inputName">dataStream</param>
+				<param name="bufferSize">10240</param>
+		    </result>		    
+		    <result name="gif" type="stream">
+				<param name="contentType">image/gif</param>
+				<param name="contentDisposition">filename="focus.gif"</param>
+				<param name="inputName">dataStream</param>
+				<param name="bufferSize">10240</param>
+		    </result>
+		    <result name="tif" type="stream">
+				<param name="contentType">image/tiff</param>
+				<param name="contentDisposition">filename="focus.tif"</param>
+				<param name="inputName">dataStream</param>
+				<param name="bufferSize">10240</param>
+		    </result>
+		    <result name="tiff" type="stream">
+				<param name="contentType">image/tiff</param>
+				<param name="contentDisposition">filename="focus.tif"</param>
+				<param name="inputName">dataStream</param>
+				<param name="bufferSize">10240</param>
+		    </result>
+		 -->
+		    <result name="preview" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="contentDisposition">filename="focus.html"</param>
+				<param name="inputName">dataStream</param>
+				<param name="bufferSize">10240</param>
+		    </result>
+		</action>
+   	</package>
+   	<include file="webwork/xwork-conf.xml"/>
+   	<include file="webwork/xwork-ops.xml"/>
+   	<include file="webwork/xwork-user.xml"/>
+   	<include file="webwork/xwork-weixin.xml"/>
+   	<include file="webwork/xwork-dev.xml"/>
+</xwork>

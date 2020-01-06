@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta name="robots" content="all">
+<meta name="author" content="w3school.com.cn">
+<link rel="stylesheet" type="text/css" href="helper/developer/style.css">
+<link href="cos.ico" rel="shortcut icon" type="image/x-icon">
+</head>
+<body>
+	
+	<div id="maincontent" style="text-align: left; width: 732px;">
+
+		<h1>系统告警接口</h1>
+
+		<div id="intro">
+		<h2></h2>
+		<p>调用该接口提交系统告警给平台。</p>
+		<p class="tiy" id="btnWs"></p>
+		</div>
+		
+		<div>
+		<h2>接口调用例程</h2>
+		<p>加载接口包，配置正确的邮件服务接口地址WS_ALARM，</p>	
+		<pre>
+String dn = "10.10.10.1";//告警发生的网页地址
+AlarmSeverity severity = AlarmSeverity.BLACK;//BLACK("致命"),RED("严重"),ORANGE("重要"),YELLOW("次要"),BLUE("警告");
+AlarmType type = AlarmType.B;// B("业务告警"),Q("服务质量告警"),S("系统告警"),E("环境告警"),D("设备告警");
+String title = "高级标题";//标题重复的告警在不确认之前不会重复保存
+String text = "告警详细描述，例如异常堆栈信息。";
+String cause = "简短的告警原因表述";//
+String module = "Sys";//与子系统组件配置一致
+Date eventtime = new Date();
+String id = "CPULoad";//告警标识非中文定义的告警唯一标识
+AlarmClient.Save(Config.getString("WS_ALARM"), dn, severity, type, title, text, cause, module, eventtime, id);
+		</pre>
+		<p class="tiy"><a href="javascript:parent.download('cos.api.zip')">下载接口包</a></p>
+		</div>
+		
+		<div>
+		<h2>系统告警在界面的体现</h2>
+		<p>用户登录后台界面后，点击实时告警。系统管理员可以在实时告警界面进行告警确认。</p>	
+		<img src='../../images/developer/019.png' width='666'>
+		</div>
+
+		<div>
+		<h2>系统告警后台确认</h2>
+		<p>产生告警的后台程序发现告警情况已经恢复，可以调用接口进行告警确认</p>	
+		<pre>
+String dn = InetAddress.getLocalHost().getHostAddress();
+String module = "系统监控";
+String id = "CPULoad";
+AlarmClient.AutoConfirm("<span id='case0' style='color:red'></span>", module, dn, id);
+		</pre>
+		<p>完成确认的告警进行历史告警。</p>	
+		</div>
+	</div>
+<!-- wrapper end -->
+</body>
+<script type="text/javascript">
+function getParameter(param, def)  
+{  
+	var query = window.location.search;//获取URL地址中？后的所有字符  
+	var iLen = param.length;//获取你的参数名称长度  
+	var iStart = query.indexOf(param);//获取你该参数名称的其实索引
+	if (iStart == -1)//-1为没有该参数  
+		return def;  
+	iStart += iLen + 1;  
+	var iEnd = query.indexOf("&", iStart);//获取第二个参数的其实索引  
+	if (iEnd == -1)//只有一个参数  
+		return query.substring(iStart);//获取单个参数的参数值  
+	return query.substring(iStart, iEnd);//获取第二个参数的值  
+}
+var ws = getParameter("ws", "#");
+document.getElementById("btnWs").innerHTML = "<a target='_blank' href='"+ws+"'>测试WEBSERVICE接口</a>";
+document.getElementById("case0").innerHTML = ws.substring(0, ws.length-5);
+</script>
+</html>

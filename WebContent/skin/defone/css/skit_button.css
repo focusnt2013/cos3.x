@@ -1,0 +1,530 @@
+.skit_button_left {  background-image: url(skin/unicom2013/button/button_left.gif);height:23px;width:10px}
+.skit_button_middle {  background-image: url(skin/unicom2013/button/button_middle.gif);height:23px; padding-top:0px;padding-bottom:2px}
+.skit_button_right {  background-image: url(skin/unicom2013/button/button_right.gif);height:23px;width:10px}
+.skit_button_over_left {  background-image: url(skin/unicom2013/button/button_over_left.gif);height:23px;width:10px}
+.skit_button_over_middle {  background-image: url(skin/unicom2013/button/button_over_middle.gif);height:23px; padding-top:0px;padding-bottom:2px}
+.skit_button_over_right {  background-image: url(skin/unicom2013/button/button_over_right.gif);height:23px;width:10px}
+.skit_button_clicked_left {  background-image: url(skin/unicom2013/button/button_clicked_left.gif);height:23px;width:10px}
+.skit_button_clicked_middle {  background-image: url(skin/unicom2013/button/button_clicked_middle.gif);height:23px; padding-top:0px;padding-top:2px}
+.skit_button_clicked_right {  background-image: url(skin/unicom2013/button/button_clicked_right.gif);height:23px;width:10px}
+
+.skit_blue_button_left {  background-image: url(skin/unicom2013/button/blue/button_left.png); height:23px;width:10px}
+.skit_blue_button_middle {  background-image: url(skin/unicom2013/button/blue/button_middle.png); height:23px;}
+.skit_blue_button_right {  background-image: url(skin/unicom2013/button/blue/button_right.png); height:23px;width:10px}
+.skit_blue_button_over_left {  background-image: url(skin/unicom2013/button/blue/button_over_left.png); height:23px;width:10px}
+.skit_blue_button_over_middle {  background-image: url(skin/unicom2013/button/blue/button_over_middle.png); height:23px;}
+.skit_blue_button_over_right {  background-image: url(skin/unicom2013/button/blue/button_over_right.png); height:23px;width:10px}
+.skit_blue_button_clicked_left {  background-image: url(skin/unicom2013/button/blue/button_clicked_left.png); height:23px;width:10px}
+.skit_blue_button_clicked_middle {  background-image: url(skin/unicom2013/button/blue/button_clicked_middle.png); height:23px;}
+.skit_blue_button_clicked_right {  background-image: url(skin/unicom2013/button/blue/button_clicked_right.png); height:23px;width:10px}
+
+.skit_picked_left {  background-image: url(skin/unicom2013/picked/picked_left.png); cursor: hand; height:20px;width:10px}
+.skit_picked_middle {  background-image: url(skin/unicom2013/picked/picked_middle.png); cursor: hand; height:20px;font-family:Photina Casual Black;}
+.skit_picked_right {  background-image: url(skin/unicom2013/picked/picked_right.png); cursor: hand; height:20px;width:23px}
+.skit_picked_disabled_left {  background-image: url(skin/unicom2013/picked/picked_disabled_left.png); cursor: hand; height:20px;width:10px}
+.skit_picked_disabled_middle {  background-image: url(skin/unicom2013/picked/picked_disabled_middle.png); cursor: hand; height:20px;}
+.skit_picked_disabled_right {  background-image: url(skin/unicom2013/picked/picked_disabled_right.png); cursor: hand; height:20px;width:23px}
+.skit_picked_over_left {  background-image: url(skin/unicom2013/picked/picked_over_left.png); cursor: hand; height:20px;width:10px}
+.skit_picked_over_middle {  background-image: url(skin/unicom2013/picked/picked_over_middle.png); cursor: hand; height:20px;font-size:12px;font-weight:bold;color:#fff;text-align:center;padding-left:5px;padding-right:5px;}
+.skit_picked_over_right {  background-image: url(skin/unicom2013/picked/picked_over_right.png); cursor: hand; height:20px;width:23px}
+.skit_picked_clicked_left {  background-image: url(skin/unicom2013/picked/picked_clicked_left.png); cursor: hand; height:20px;width:10px}
+.skit_picked_clicked_middle {  background-image: url(skin/unicom2013/picked/picked_clicked_middle.png); cursor: hand; height:20px;font-size:12px;font-weight:bold;color:#FFFFFF;text-align:center;padding-top:2px;padding-left:5px;padding-right:5px;}
+.skit_picked_clicked_right {  background-image: url(skin/unicom2013/picked/picked_clicked_right.png); cursor: hand; height:20px;width:23px}
+.skit_showing_left {  background-image: url(skin/unicom2013/picked/showing_left.png); cursor: hand; height:20px;width:10px}
+.skit_showing_middle {  background-image: url(skin/unicom2013/picked/showing_middle.png); cursor: hand; height:20px;font-size:12px;font-weight:bold;color:#FFFFFF;text-align:center;padding-left:5px;padding-right:0px;}
+.skit_showing_right {  background-image: url(skin/unicom2013/picked/showing_right.png); cursor: hand; height:20px;width:23px}
+
+.skit_minus {  background-image: url(skin/unicom2013/selection/minus.png); cursor: hand; height:23px;width:20px}
+.skit_minus_clicked {  background-image: url(skin/unicom2013/selection/minus_clicked.png); cursor: hand; height:23px;width:20px}
+.skit_minus_disabled {  background-image: url(skin/unicom2013/selection/minus_disabled.png); cursor: hand; height:23px;width:20px}
+.skit_minus_over {  background-image: url(skin/unicom2013/selection/minus_over.png); cursor: hand; height:23px;width:20px}
+
+.skit_button_font
+{
+	font-family:Photina Casual Black;
+	font-size:12px;
+	font-weight:bold;
+	color:#FFFFFF;
+	text-align:center;
+	padding-left:16px;
+    padding-right:16px;
+}
+
+.skit_button{
+	cursor:hand
+	}
+
+.skit_input_submit_d {
+	FONT-SIZE: 9pt;
+	border:0; 
+	color:white;
+	width: 100px;
+	height: 23px;
+	text-decoration: none;
+	text-align:center;
+	background: url();
+	cursor:pointer;
+	background-image: url(skin/unicom2013/buttons/100.png); 
+	
+}
+.skit_input_submit {
+	FONT-SIZE: 9pt;
+	border:0; 
+	color:#1e395b;;
+	width: 80px;
+	height: 23px;
+	text-decoration: none;
+	text-align:center;
+	background: url();
+	cursor:pointer;
+	background-image: url(skin/unicom2013/buttons/80.png); 
+	 
+}
+.skit_button_small {
+	FONT-SIZE: 9pt;
+	border:0; 
+	color:white;
+	width: 60px;
+	height: 23px;
+	text-decoration: none;
+	text-align:center;
+	background: url();
+	cursor:pointer;
+	background-image: url(skin/unicom2013/buttons/60.png); 
+	 
+}
+
+.skit_btn100 {
+	FONT-SIZE: 9pt;
+	border:0; 
+	color:#1e395b;
+	width: 100px;
+	height: 23px;
+	text-decoration: none;
+	text-align:center;
+	background: url();
+	cursor:pointer;
+	background-image: url(skin/unicom2013/buttons/100.png); 
+}
+.skit_btn100:hover {
+	FONT-SIZE: 9pt;
+	border:0;
+	color:#1e395b;
+	width: 100px;
+	height: 23px;
+	text-decoration: none;
+	text-align:center;
+	background: url();
+	cursor:pointer;
+	background-image: url(skin/unicom2013/buttons/100over.png); 
+}
+
+.skit_btn80 {
+	FONT-SIZE: 9pt;
+	border:0; 
+	color:#1e395b;
+	width: 80px;
+	height: 23px;
+	text-decoration: none;
+	text-align:center;
+	background: url();
+	cursor:pointer;
+	background-image: url(skin/unicom2013/buttons/80.png); 
+}
+.skit_btn80:hover {
+	FONT-SIZE: 9pt;
+	border:0;
+	color:#1e395b;
+	width: 80px;
+	height: 23px;
+	text-decoration: none;
+	text-align:center;
+	background: url();
+	cursor:pointer;
+	background-image: url(skin/unicom2013/buttons/80over.png); 
+}
+
+.skit_btn60 {
+	FONT-SIZE: 9pt;
+	border:0; 
+	color:#1e395b;
+	width: 60px;
+	height: 23px;
+	text-decoration: none;
+	text-align:center;
+	background: url();
+	cursor:pointer;
+	background-image: url(skin/unicom2013/buttons/60.png); 
+	 
+}
+.skit_btn60:hover {
+	FONT-SIZE: 9pt;
+	border:0;
+	color:#1e395b;
+	width: 60px;
+	height: 23px;
+	text-decoration: none;
+	text-align:center;
+	background: url();
+	cursor:pointer;
+	background-image: url(skin/unicom2013/buttons/60over.png); 
+}
+
+.skit_button_winshow {
+	height: 26px;
+	width: 32px;
+    border-top: 1px solid #8FA68A;
+    BORDER-BOTTOM: 2px solid #566B52;
+    BORDER-LEFT: 1px solid #8FA68A;
+    BORDER-RIGHT: 2px solid #566B52 ;
+	background-image: url(skit/images/icons/winshow.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-color:#75926E;
+	cursor: pointer;
+	padding-top:1px;
+}
+
+.skit_button_winhidden {
+	height: 26px;
+	width: 32px;
+    border-top: 1px solid #8FA68A;
+    BORDER-BOTTOM: 2px solid #566B52;
+    BORDER-LEFT: 1px solid #8FA68A;
+    BORDER-RIGHT: 2px solid #566B52 ;
+	background-image: url(skit/images/icons/winhidden.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-color:#75926E;
+	cursor: pointer;
+	padding-top:1px;
+}
+
+.skit_input_no_long {
+	font-size: 12px;
+	height: 20px;
+	border-top: 1px solid #373737;
+	border-right: 1px solid #DDDDDD;
+	border-bottom: 1px solid #DDDDDD;
+	border-left: 1px solid #373737;
+}
+.skit_search_input	{
+	font-size: 12px;
+	margin:0 0 1px;
+	width: 100%;
+	height:20px;
+	padding:1px 0 0 20px!important;
+	padding:1 0 0 21px;
+	background:url(skit/images/icons/zommfit.gif) no-repeat;
+	background-color: #fffce9;
+	border:solid #566B52 1px ;
+	color: #494949;
+}
+.skit_calendar	{
+	font-size: 12px;
+	margin:0 0 1px;
+	width:144px;
+	height:20px;
+	padding:1px 0 0 20px!important;
+	padding:1 0 0 21px;
+	background:url(skit/images/icons/calendarsearch.gif) no-repeat;
+	background-color: #fffce9;
+	border:solid #566B52 1px ;
+	color: #494949;
+	aaa:expression(this.readOnly=true);
+}
+.skit_normal_input	{
+	font-size: 12px;
+	margin:0 0 1px;
+	width: 160px;
+	height:20px;
+	padding:1px 0 0 20px!important;
+	padding:1 0 0 21px;
+	/*background: #efefef;*/
+	border:solid #e6ecf4 1px ;
+	color: #494949;
+}
+
+.skit_input_number
+{
+	font-size: 12px;
+	margin:0 0 1px;
+	width: 100%;
+	height:19px;
+/*	background: #efefef;*/
+	border:solid #e6ecf4 1px ;
+	color: #494949;
+	font-weight: bold;
+	text-align:right;
+}
+
+.skit_input_text
+{
+	font-size: 12px;
+	margin:0 0 1px;
+	width: 100%;
+	height:20px;
+	background: #fffae6;
+	border:solid #e6ecf4 1px ;
+	color: #494949;
+}
+
+.skit_input_center
+{
+	font-size: 12px;
+	margin:0 0 1px;
+	width: 100%;
+	height:19px;
+	/*background: #efefef;*/
+	border:solid #7F9DB9 1px ;
+	color: #494949;
+	font-weight: bold;
+	text-align:center;
+}
+
+.skit_input_rimless
+{
+	font-size: 12px;
+	margin:0 0 0px;
+	width: 100%;
+/*	background: #efefef;*/
+	border:solid #e6ecf4 1px ;
+	color: #494949;
+	text-align:center;
+}
+
+.skit_input_label
+{
+	font-size: 12px;
+	margin:0 0 0px;
+	width: 100%;
+	border:solid #7F9DB9 0px ;
+	color: #494949;
+	aaa:expression(this.readOnly=true);
+}
+
+.skit_input_head
+{
+	font-weight: bold;
+	font-size: 12px;
+	margin:0 0 0px;
+	width: 100%;
+	background-color: #ade0ff;
+	border:solid #A9BAA5 0px ;
+	color: #000000;
+	aaa:expression(this.readOnly=true);
+}
+
+.skit_multiple_select
+{
+	font-size: 12px;
+	width: 100%;
+	/*background: #efefef;*/
+	color: #494949;
+/*	scrollbar-highlight-color:#ACDAFF;
+	scrollbar-darkshadow-color:#5BBAFF;
+	scrollbar-shadow-color:#5BBAFF;
+	scrollbar-track-color:#ACDAFF;
+	scrollbar-base-color:#66BEFF;
+	scrollbar-arrow-color:#C4E4FF;*/
+}
+
+.skit_input_checkbox
+{
+	/*background: #efefef;*/
+	padding-right:2px;
+}
+
+.skit_select_option
+{
+	padding-top:1px;
+	width: 100%;
+	height:20px;
+	/*background: #efefef;*/
+	border:solid #e6ecf4 1px ;
+	color: #494949;
+}
+
+.skit_input_textarea
+{
+	font-size: 12px;
+	margin:0 0 1px;
+	width: 100%;
+	background: #efefef;
+	border:solid #e6ecf4 1px ;
+	color: #494949;
+	scrollbar-highlight-color:#ACDAFF;
+	scrollbar-darkshadow-color:#5BBAFF;
+	scrollbar-shadow-color:#5BBAFF;
+	scrollbar-track-color:#ACDAFF;
+	scrollbar-base-color:#66BEFF;
+	scrollbar-arrow-color:#C4E4FF;
+}
+
+.skit_textarea
+{
+	font-size: 12px;
+	margin:0 0 1px;
+	width: 100%;
+	/*background: #efefef;*/
+	border:solid #e6ecf4 1px ;
+	color: #494949;
+}
+
+.skit_popmenu
+{
+	background: #ffffff;
+	position:absolute;
+	font-size: 12px;
+	top:28px;
+	left:0px; 
+	width:222px;
+	overflow: hidden;
+	visibility: hidden;
+	cursor:pointer;
+	BORDER: 1px solid #405B40;
+}
+.skit_select
+{
+	background: #ffffff;
+	position:absolute;
+	font-size: 12px;
+	top:28px;
+	left:0px; 
+	width:222px;
+	visibility: hidden;
+	cursor:pointer;
+	BORDER: 1px solid #405B40;
+}
+
+.skit_select_input
+{
+	position:absolute;
+	font-size: 12px;
+	margin:0 0 1px;
+	top:0px;
+	left:0px; 
+	width: 100%;
+	height:19px;
+	/*background: #efefef;*/
+	border:solid #e6ecf4 1px ;
+	visibility: hidden;
+	color: #494949;
+	font-weight: bold;
+}
+
+.A.skit_btn60:link {
+	FONT-SIZE: 9pt; 
+	color:#1e395b;
+	width: 60px;
+	height: 23px;
+	text-decoration: none;
+	text-align:center;
+	padding-top:5px;
+	background: url();
+	background-image: url(skin/unicom2013/buttons/60.png); 
+	
+}
+
+.A.skit_btn60:hover {
+	FONT-SIZE: 9pt; 
+	color:#1e395b;
+	width: 60px;
+	height: 23px;
+	text-decoration: none;
+	text-align:center;
+	padding-top:5px;
+	background: url();
+	background-image: url(skin/unicom2013/buttons/60over.png); 
+	
+}
+
+.A.skit_btn60:visited {
+	FONT-SIZE: 9pt; 
+	color:#1e395b;
+	width: 60px;
+	height: 23px;
+	text-decoration: none;
+	text-align:center;
+	padding-top:5px;
+	background: url();
+	background-image: url(skin/unicom2013/buttons/60clicked.png); 
+	
+}
+
+.A.skit_btn80:link {
+	FONT-SIZE: 9pt; 
+	color:#1e395b;;
+	width: 80px;
+	height: 23px;
+	text-decoration: none;
+	text-align:center;
+	padding-top:5px;
+	background: url();
+	background-image: url(skin/unicom2013/buttons/80.png); 
+	
+}
+
+.A.skit_btn80:hover {
+	FONT-SIZE: 9pt; 
+	color:#1e395b;;
+	width: 80px;
+	height: 23px;
+	text-decoration: none;
+	text-align:center;
+	padding-top:5px;
+	background: url();
+	background-image: url(skin/unicom2013/buttons/80over.png); 
+	
+}
+
+.A.skit_btn80:visited {
+	FONT-SIZE: 9pt; 
+	color:#1e395b;
+	width: 80px;
+	height: 23px;
+	text-decoration: none;
+	text-align:center;
+	padding-top:5px;
+	background: url();
+	background-image: url(skin/unicom2013/buttons/80clicked.png); 
+	
+}
+
+.A.skit_btn100:link {
+	FONT-SIZE: 9pt; 
+	color:#1e395b;
+	width: 60px;
+	height: 23px;
+	text-decoration: none;
+	text-align:center;
+	padding-top:5px;
+	background: url();
+	background-image: url(skin/unicom2013/buttons/100.png); 
+	
+}
+
+.A.skit_btn100:hover {
+	FONT-SIZE: 9pt; 
+	color:#1e395b;
+	width: 60px;
+	height: 23px;
+	text-decoration: none;
+	text-align:center;
+	padding-top:5px;
+	background: url();
+	background-image: url(skin/unicom2013/buttons/100over.png); 
+	
+}
+.A.skit_btn100:visited {
+	FONT-SIZE: 9pt; 
+	color:#1e395b;
+	width: 60px;
+	height: 23px;
+	text-decoration: none;
+	text-align:center;
+	padding-top:5px;
+	background: url();
+	background-image: url(skin/unicom2013/buttons/100clicked.png); 
+	
+}

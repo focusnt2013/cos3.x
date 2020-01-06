@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta name="robots" content="all">
+<meta name="author" content="w3school.com.cn">
+<link rel="stylesheet" type="text/css" href="helper/developer/style.css">
+<link href="cos.ico" rel="shortcut icon" type="image/x-icon">
+</head>
+<body>
+	
+	<div id="maincontent" style="text-align: left; width: 732px;">
+
+		<h1>主控程序引擎配置</h1>
+
+		<div>
+		<h2>主控工作机制介绍</h2>
+		<p>COS服务入口，启动服务时执行此类，该类中启动了一个模块管理（ ModuleMananger）线程。control.xml中配置的所有模块将通过模块管理来进行控制。</p>
+		<p>主控模块。本模块启动后将会解析config/control.xml，读取模块并根据各模块的参数对模块进行控制。 ModuleMananger启动时会启动一个系统监控（SystemMonitor）的线程，此模块采集的信息输出到前台监控页面，由此可以监控到平台运行情况。</p>
+		<p>系统监控模块。采集服务器信息、模块运行情况、网络流量等。</p>
+		</div>
+		
+		<div>
+		<h2>在文件模式下配置主控引擎</h2>
+		<p>主控引擎配置文件时config/control.xml，开发人员在该文件中配置平台工作程序。切记xml文件不要出错。</p>
+		<pre>
+&lt;module id='' name='' mode='' restartup='' enable='' forcereboot='' delayed='' dependence='' logfile='' pidfile=''&gt;
+   &lt;release version=''&gt;&lt;/release&gt;
+	&lt;maintenance programmer='张三'&gt;xxx@qq.com&lt;/maintenance&gt;
+   &lt;startup debug='' start='‘ end=''&gt;
+    &lt;!--java工具--&gt;
+    &lt;command&gt;%java.home%/bin/java&lt;/command&gt;
+    &lt;!--运行环境的目录--&gt;
+    &lt;command&gt;-classpath&lt;/command&gt;
+    &lt;!--引入引擎需要用到的包-&gt;
+    &lt;command&gt;%cos-test.jar%&lt;command&gt;
+    &lt;!--引擎的类路径--&gt;
+    &lt;command&gt;&lt;/command&gt;
+    &lt;!--模块名称--&gt;
+    &lt;command&gt;&lt;/command&gt;
+    &lt;!--引擎自定义参数--&gt;
+    &lt;command&gt;&lt;/command&gt; 		
+  &lt;/startup&gt;
+&lt;/module&gt;	
+id：模块标识
+name：模块名称 必须保证唯一
+mode：工作模式(0|1|2|3|4)	
+restartup：重启间隔
+enable：启动开关
+forcereboot：强制重启间隔
+delayed：延迟启动时间
+dependence：模块依赖
+logfile：日志路径
+pidfile：进程ID路径
+version：版本号
+debug：调试信息输出开关
+start：引擎启动最早时间
+end：引擎停止时间
+programmer:程序负责的开发人员，并留下邮箱
+		</pre>
+		<p></p>
+		</div>
+
+		<div>
+		<h2>主控模式</h2>
+		<pre>
+0：缺省值。由主控自动控制启动停止，如果引擎关闭就在约定时间 restartup重启
+1：启动后先暂停，由界面控制启动停止，引擎关闭就在约定时间	restartup重启
+2：交给人工控制做单次启动，用户点击一次启动一次
+3：主控负责自动启动或关闭进程，引擎随主控一起启动和停止
+4：主控并不负责自动启动或关闭进程;用户只能在界面人工启动或停止引擎，记录上次启动时间或关闭以及执行后状态变化
+		</pre>
+		</div>
+		
+	</div>
+
+<!-- wrapper end -->
+</body>
+<script type="text/javascript" language="javascript">
+<!--
+//-->
+</script>
+</html>

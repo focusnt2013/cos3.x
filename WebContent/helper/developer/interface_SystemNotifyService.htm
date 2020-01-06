@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta name="robots" content="all">
+<meta name="author" content="w3school.com.cn">
+<link rel="stylesheet" type="text/css" href="helper/developer/style.css">
+<link href="cos.ico" rel="shortcut icon" type="image/x-icon">
+</head>
+<body>
+	
+	<div id="maincontent" style="text-align: left; width: 732px;">
+
+		<h1>系统通知消息接口</h1>
+
+		<div id="intro">
+		<h2></h2>
+		<p>调用该接口实现系统消息提交。任何业务模块都可以通过该接口想指定后台用户发送系统消息。</p>
+		<p class="tiy" id="btnWs"></p>
+		</div>
+		
+		<div>
+		<h2>接口调用例程</h2>
+		<p>加载接口包，配置正确的邮件服务接口地址WS_ALARM，</p>	
+		<pre>
+Notify notify = new Notify();
+notify.setUseraccount("zhangshan");
+notify.setFilter("运营提醒");//消息类型
+notify.setNotifytime(new Date());
+notify.setPriority(0);
+notify.setTitle("最新注册用户情况反馈");
+notify.setContext("截止xxxx年xx月xx日 xx:xx【xxx】平台注册用户达到１亿。");
+SystemNotifyClient.send("<span id='case0' style='color:red'></span>", notify);
+		</pre>
+		<p class="tiy"><a href="javascript:parent.download('cos.api.zip')">下载接口包</a></p>
+		</div>
+		
+		<div>
+		<h2>系统消息在界面的体现</h2>
+		<p>用户登录后台界面后，系统会读取该用户的所有未读系统消息。并弹出气泡对话框提醒用户相关事项。</p>	
+		<img src='../../images/developer/016.png' width='666'>
+		</div>
+
+		
+		<div>
+		<h2>针对特殊的引导用户进一步操作的通知</h2>
+		<p>某些系统通知消息会出现操作按钮和关联链接，如下图所示：</p>	
+		<img src='../../images/developer/018.png' width='666'>
+		<p>该界面形态的系统通知消息是通过这种方式发送出来的，如下列代码所示：</p>	
+		<pre>
+Notify notify = new Notify();
+notify.setUseraccount("admin");
+notify.setAction("修改密码");//可以为空
+notify.setActionlink("http://xxxx触发事件操作的链接地址");//可以为空
+notify.setContextLink("http://xxxx与系统通知消息相关的网页链接");//可以为空
+notify.setFilter("用户账号安全");//消息类型
+notify.setNotifytime(new Date());
+notify.setPriority(0);
+notify.setTitle("您的账号已经超过"+day+"天没有修改过密码，为了您的账号安全请重置密码");
+notify.setContext("您的账号上次修改密码的时间是"+Tools.getFormatTime("yyyy-MM-dd HH:mm", date.getTime())+"，已经超过"+day+"天没有修改过密码，为了您的账号安全请重置密码。");
+SystemNotifyClient.send("<span id='case1' style='color:red'></span>", notify);
+		</pre>
+		<p>右侧图片就显示的是contextLink的内容。</p>
+		</div>
+		
+		<div>
+		<h2>系统消息配置</h2>
+		<p>可以配置针对系统消息类型发送邮件或短信的功能。例如：定义消息类型为“运营告警”，当系统收到业务系统提交的系统消息通知，会根据类型过滤执行消息提醒。</p>
+		<img src='../../images/developer/017.png' width='666'>
+		</div>
+	</div>
+<!-- wrapper end -->
+</body>
+<script type="text/javascript">
+function getParameter(param, def)  
+{  
+	var query = window.location.search;//获取URL地址中？后的所有字符  
+	var iLen = param.length;//获取你的参数名称长度  
+	var iStart = query.indexOf(param);//获取你该参数名称的其实索引
+	if (iStart == -1)//-1为没有该参数  
+		return def;  
+	iStart += iLen + 1;  
+	var iEnd = query.indexOf("&", iStart);//获取第二个参数的其实索引  
+	if (iEnd == -1)//只有一个参数  
+		return query.substring(iStart);//获取单个参数的参数值  
+	return query.substring(iStart, iEnd);//获取第二个参数的值  
+}
+var ws = getParameter("ws", "#");
+document.getElementById("btnWs").innerHTML = "<a target='_blank' href='"+ws+"'>测试WEBSERVICE接口</a>";
+document.getElementById("case0").innerHTML = ws.substring(0, ws.length-5);
+document.getElementById("case1").innerHTML = ws.substring(0, ws.length-5);
+</script>
+</html>

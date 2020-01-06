@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta name="robots" content="all">
+<meta name="author" content="w3school.com.cn">
+<link rel="stylesheet" type="text/css" href="helper/developer/style.css">
+<link href="cos.ico" rel="shortcut icon" type="image/x-icon">
+</head>
+<body>
+	
+	<div id="maincontent" style="text-align: left; width: 732px;">
+
+		<h1>开发者配置</h1>
+
+		<div>
+		<h2>步骤1 下载cos.ide.zip</h2>
+		<p>开发包中包含cos主界面框架运行的基本配置环境与参数。</p>
+		<p class="tiy"><a href="javascript:parent.download('cos.ide.zip')">下载cos.ide.zip</a></p>
+		</div>
+
+		<div>
+		<h2>步骤2 cos.web主界面框架集成</h2>
+		<p>在cos.ide/tomcat/workspace/cos发布到您的本地tomcat的目录下。支持任何tomcat版本。上级目录必须包含config目录，因为主界面框架运行所需要的菜单与系统参数配置都在congfig文件夹中。</p>
+		<pre>
+../
+../config
+    modules.xml                [主界面框架菜单配置文件，业务系统的菜单在这里完成配置]
+    control.xml                [系统引擎配置文件 在界面开发中用不上]
+    wrapper.conf               [主控服务配置文件 在界面开发中用不上]
+    config.properties          [系统全局配置文件 在界面开发中用不上]
+    cmp/                       [子系统模块配置目录]
+        Sys                    [系统监控模块配置文件]
+    sys/                       [系统配置目录]
+        SysConfig              [系统配置文件 为自己业务系统起名设置相关全局参数 登录主界面框架后可在系统配置中修改]
+        SoftwareConfig         [软件配置文件 为自己的业务系统软件配置软件版本参数等 登录主界面框架后可在系统配置中修改]
+        HardwareConfig         [硬件配置文件 登录主界面框架后可在系统配置中修改]
+../tomcatxxxxx                 [tomcat目录，config]
+    conf/                      [配置目录]
+        server.xml             [配置加载cos.web在tomcat下运行起来]
+    workspace/                 [WEB应用工作目录，注意为了避免和webapps下配置工作目录是workspace]
+        cos/                   [cos.web主界面软件包，该软件包的上级目录中必须包含config配置，否则无法读取配置参数]
+		</pre>
+		</div>
+		
+		<div>
+		<h2>步骤3 在tomcat中配置启动</h2>
+		<p>打开server.xml，配置cos.web的应用。可以为cos.web起任何别名，例如/admin</p>
+		<pre>
+      &lt;Host name="localhost"  appBase="" unpackWARs="true" autoDeploy="true" xmlValidation="false" xmlNamespaceAware="false"&gt;
+		&lt;Context path="/admin" docBase="workspace/cos" debug="1" privileged="true"/&gt;
+      &lt;/Host&gt;		
+		</pre>
+		<p>如果您的host配置是这样的，appBase="webapps"，那么docBase="../workspace/cos"</p>
+		<pre>
+      &lt;Host name="localhost"  appBase="webapps" unpackWARs="true" autoDeploy="true" xmlValidation="false" xmlNamespaceAware="false"&gt;
+		&lt;Context path="/admin" docBase="../workspace/cos" debug="1" privileged="true"/&gt;
+      &lt;/Host&gt;		
+		</pre>		
+		</div>
+		
+		<div>
+		<h2>步骤4 启动</h2>
+		<p>在浏览器中输入主界面框架访问地址，即可打开界面。自动生成的缺省管理员账号是admin，密码123456</p>
+		<img src='../../images/developer/052.png' width='666'>	
+		</div>
+	</div>
+
+<!-- wrapper end -->
+</body>
+<script type="text/javascript" language="javascript">
+<!--
+//-->
+</script>
+</html>

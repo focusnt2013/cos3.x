@@ -1,0 +1,45 @@
+table {
+	width: 100%;
+}
+
+table tr {
+    border-bottom: 1px solid #efefef;
+    cursor: pointer;
+}
+
+table tr td {
+	height: 26px;
+    font-size: 12px;
+    font-family: Î¢ÈíÑÅºÚ;
+	padding-left: 3px;
+}
+
+.tablea {
+    font-size: 12px;
+    font-family: Î¢ÈíÑÅºÚ;
+    cursor: pointer;
+    COLOR: #000;
+    TEXT-DECORATION: none;
+}
+
+.tablea:hover {
+    font-size: 12px;
+    font-family: Î¢ÈíÑÅºÚ;
+    COLOR: #ffffff;
+    cursor:pointer;
+    TEXT-DECORATION: none;
+}
+
+.head {
+	color: #333;
+	height: 28px;
+	background-color: #f5f5f5;
+}
+
+.unline {
+    border-bottom: 0px solid #efefef;
+}
+
+.weaken {
+	color: #aaa;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta name="robots" content="all">
+<link rel="stylesheet" type="text/css" href="helper/developer/style.css">
+<link href="cos.ico" rel="shortcut icon" type="image/x-icon">
+</head>
+<body>
+	
+	<div id="maincontent" style="text-align: left; width: 732px;">
+		<h1>记录系统日志接口</h1>
+		<div id="intro">
+		<h2></h2>
+		<p>调用该接口记录指定用户的系统操作日志到后台，可以通过系统日志查询模块查到。</p>
+		<p class="tiy" id="btnWs"></p>
+		<img src='../../images/developer/051.png' width='666'>
+		</div>
+		<div>
+		<h2>接口调用例程</h2>
+		<p>加载接口包，配置正确的邮件服务接口地址WS_USER，</p>	
+		<pre>
+Syslog log = new Syslog();
+log.setLogtype(1);//操作日志(1), 运行日志(2), 用户日志(3), 安全日志(4);
+log.setLogtime(new Date());
+log.setLogtext("张三李四王二麻子");
+log.setLogseverity(1);//INFO(1), DEBUG(2), ERROR(3);
+LogClient.write("<span id='case0' style='color:red'></span>", log);
+		</pre>
+		<p class="tiy"><a href="javascript:parent.download('cos.api.zip')">下载接口包</a></p>
+		</div>
+	</div>
+<!-- wrapper end -->
+</body>
+<script type="text/javascript">
+function getParameter(param, def)  
+{  
+	var query = window.location.search;//获取URL地址中？后的所有字符  
+	var iLen = param.length;//获取你的参数名称长度  
+	var iStart = query.indexOf(param);//获取你该参数名称的其实索引
+	if (iStart == -1)//-1为没有该参数  
+		return def;  
+	iStart += iLen + 1;  
+	var iEnd = query.indexOf("&", iStart);//获取第二个参数的其实索引  
+	if (iEnd == -1)//只有一个参数  
+		return query.substring(iStart);//获取单个参数的参数值  
+	return query.substring(iStart, iEnd);//获取第二个参数的值  
+}
+var ws = getParameter("ws", "#");
+document.getElementById("btnWs").innerHTML = "<a target='_blank' href='"+ws+"'>测试WEBSERVICE接口</a>";
+document.getElementById("case0").innerHTML = ws.substring(0, ws.length-5);
+</script>
+</html>

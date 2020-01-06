@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta name="robots" content="all">
+<meta name="author" content="w3school.com.cn">
+<link rel="stylesheet" type="text/css" href="helper/developer/style.css">
+<link href="cos.ico" rel="shortcut icon" type="image/x-icon">
+</head>
+<body>
+	
+	<div id="maincontent" style="text-align: left; width: 732px;">
+
+		<h1>配置与启动</h1>
+
+		<div id="intro">
+		<p>COS云架构开放式应用服务系统在linux下的运行，请阅读以下步骤</p>
+		</div>
+		
+		<div>
+		<h2>步骤1 上传基础的软件包</h2>
+		<p>下载cos.server.zip上传到目标安装服务器，在服务器上解压。以下安装配置步骤说明以安装在根目录/cos下为例，使用root账号权限操作。实际安装可以根据安装配置的需求调整安装路径。</p>
+		<p class="tiy"><a href="javascript:parent.download('cos.server.zip')">下载cos.server.zip</a></p>
+		</div>
+		<div>
+		<h2>步骤2 安装JDK1.6</h2>
+		<p>执行以下指令</p>
+<pre>
+#mkdir /cos/setup
+#cd /cos/setup
+#wget –c http://cd.yun.ftn.qq.com/ftn_handler/3f8684e39f0e2dab00066a8b5538eaf024c24c947018cd27fdc9995398726bf8/?fname=jdk-6u45-linux-x64.bin&cn=0&cv=30013
+#chmod 755 /cos/setup/*.*
+#/cos/setup/jdk-6u45-linux-x64.bin
+</pre>
+		</div>
+		<div>
+		<h2>步骤3 建立jdk的符号链接</h2>
+		<p>可以跳过这一步，相对要修改涉及JDK的相关配置（warpper.conf），如果要调整执行以下指令</p>
+<pre>
+#ln -s /cos/setup/jdk1.6.0_45 /cos/jdk 
+</pre>
+		<p>或者</p>
+<pre>
+#mv /cos/setup/jdk1.6.0_45 /cos/jdk   
+</pre>
+		</div>
+		<div>
+		<h2>步骤4 为系统运行创建用户与用户组</h2>
+		<p>从系统安全的角度出发，任何软件都不能用root用户权限启动执行，需要为系统创建专属的用户与用户组，以cos作为系统运行的用户与用户组例，执行以下指令</p>
+<pre>
+#groupadd cos
+#useradd -g cos cos
+#passwd cos
+//输入新的用户名密码  123456
+Changing password for user sysadmin.
+New UNIX password: 
+BAD PASSWORD: it is based on a dictionary word
+Retype new UNIX password: 
+passwd: all authentication tokens updated successfully.
+//授权部署目录给sysadmin用户
+#chgrp –R cos /cos
+#chown –R cos /cos
+#chmod –R 755 /cos
+ 
+</pre>
+		</div>
+		<div>
+		<h2>步骤5 修改/cos/bin/下的启动脚本</h2>
+		<p>在/cos/bin下有启动服务的shell脚本：原文件名是cos</p>
+		<pre>
+#ll /cos/bin
+-rwxr-xr-x 1 root root    19064 Aug  5  2015 cos
+-rwxr-xr-x 1 root root   125752 Aug  5  2015 wrapper-linux-x86-64
+		</pre>
+		<p>该文件可以被允许修改为任何名称，可以改为应用名称，以下仍然以cos作为应用标识为例。打开这个文件，修改相关参数。其中，APP_NAME和APP_LONG_NAME可以根据应用方需求修改。</p>
+		<pre>
+
+#-----------------------------------------------------------------------------
+# These settings can be modified to fit the needs of your application
+# Optimized for use with version 3.3.1-st of the Wrapper.
+
+# Application
+APP_NAME="cos"
+APP_LONG_NAME="<span style='color:red'>应用服务名称</span>"
+		
+# If specified, the Wrapper will be run as the specified user.
+# IMPORTANT - Make sure that the user has the required privileges to write
+#  the PID file and wrapper.log files.  Failure to be able to write the log
+#  file will cause the Wrapper to exit without any way to write out an error
+#  message.
+# NOTE - This will set the user which is used to run the Wrapper as well as
+#  the JVM and is not useful in situations where a privileged resource or
+#  port needs to be allocated prior to the user being changed.
+RUN_AS_USER=cos
+		</pre>
+		<p>将RUNAS_ACCOUNT修改为步骤4创建的用户。</p>
+		</div>
+		
+		<div>
+		<h2>步骤6 配置/cos/config/wrapper.conf文件</h2>
+				<p>在/cos/config下有启动服务的配置文件，需要检查两处jdk配置路径，缺省是../jdk，依赖于步骤3的配置。配置项目wrapper.java.additional.3=-Dcontrol.port=<port>是平台监控端口，需检查与配置防火墙对应端口UDP协议的对外开放。注意下表<span style='color:red'>红色</span>配置项。</p>
+		<pre>
+#********************************************************************
+# TestWrapper Properties
+#
+# NOTE - Please use src/conf/wrapper.conf.in as a template for your
+#        own application rather than the values used for the
+#        TestWrapper sample.
+#********************************************************************
+# Java Application
+wrapper.java.command=<span style='color:red'>../jdk/bin/java</span>
+
+# Java Main class.  This class must implement the WrapperListener interface
+#  or guarantee that the WrapperManager class is initialized.  Helper
+#  classes are provided to do this for you.  See the Integration section
+#  of the documentation for details.
+wrapper.java.mainclass=com.focus.control.Shell
+
+# Java Classpath (include wrapper.jar)  Add class path elements as
+#  needed starting from 1
+wrapper.java.classpath.1=../lib/wrapper.jar
+wrapper.java.classpath.2=../lib/cos.jar
+wrapper.java.classpath.3=../config
+wrapper.java.classpath.4=../lib/cos-api-all.jar
+#  You can use h2-1.4.192.jar if you use jdk1.7.
+wrapper.java.classpath.5=../lib/h2-1.3.174.jar
+
+
+# Java Library Path (location of Wrapper.DLL or libwrapper.so)
+wrapper.java.library.path.1=../lib
+
+# Additional Parameters, please ensure that the correct parameter sequence number is completed.
+# The control.port be used in main control(UDP) and startup zookeeper(TCP) 
+wrapper.java.additional.1=-Dcontrol.port=<span style='color:red'>19075</span>
+wrapper.java.additional.2=-Dfile.encoding=UTF-8
+wrapper.java.additional.3=-Duser.language=zh
+wrapper.java.additional.4=-Duser.country=CN
+
+# Initial Java Heap Size (in MB)
+wrapper.java.initmemory=16
+
+# Maximum Java Heap Size (in MB)
+wrapper.java.maxmemory=256
+
+# Application parameters.  Add parameters as needed starting from 1
+#wrapper.app.parameter.1=
+
+wrapper.filter.trigger.1=java.lang.OutOfMemoryError
+wrapper.filter.action.1=RESTART 
+#********************************************************************
+# Wrapper Logging Properties
+#********************************************************************
+# Format of output for the console.  (See docs for formats)
+wrapper.console.format=PM
+
+# Log Level for console output.  (See docs for log levels)
+wrapper.console.loglevel=INFO
+
+# Log file to use for wrapper output logging.
+wrapper.logfile=../log/wrapper.log
+
+# Format of output for the log file.  (See docs for formats)
+wrapper.logfile.format=LPTM
+
+# Log Level for log file output.  (See docs for log levels)
+wrapper.logfile.loglevel=INFO
+
+# Maximum size that the log file will be allowed to grow to before
+#  the log is rolled. Size is specified in bytes.  The default value
+#  of 0, disables log rolling.  May abbreviate with the 'k' (kb) or
+#  'm' (mb) suffix.  For example: 10m = 10 megabytes.
+wrapper.logfile.maxsize=10m
+
+# Maximum number of rolled log files which will be allowed before old
+#  files are deleted.  The default value of 0 implies no limit.
+wrapper.logfile.maxfiles=10
+
+# Log Level for sys/event log output.  (See docs for log levels)
+wrapper.syslog.loglevel=NONE
+		</pre>
+		</div>
+		
+		<div>
+		<h2>步骤7 配置/cos/config/config.properties文件</h2>
+				<p>在/cos/config下有系统的配置文件，决定的系统是否启动H2数据库，是否启动邮件发送程序、告警通知程序、系统通知程序，以及其它监控参数。</p>
+		<pre>
+#********************************************************************
+# System Properties
+#
+# NOTE - The properties will be load by cos.jar.ConfigUtil.
+#        String val = getString("<key>", "<defult>");	
+#********************************************************************
+# The config of runner below email, alarm, notify
+#  The programer of send email from the outbox of email will be startup
+#  if you set the below property to rue 
+runner.email=<span style='color:red'>true 或者 false 系统默认的邮件发送程序，整个系统只能启动一个</span>
+runner.email.frequency=30
+
+#  The programer of send alarm-notify from the config of alarm will be startup
+#  if you set the below property to rue 
+runner.alarm=<span style='color:red'>true 或者 false 系统默认的告警通知发送程序，整个系统只能启动一个</span>
+runner.alarm.frequency=30
+
+#  The programer of send system-notoify from the config of notify will be startup
+#  if you set the below property to rue 
+runner.notify=<span style='color:red'>true 或者 false 系统默认的系统通知发送程序，整个系统只能启动一个</span>
+runner.notify.frequency=30
+
+# Configure IP address for zookeeper server clusters in a comma-delimited forma
+# Example:192.168.0.1,192.168.0.2,192.168.0.3...
+# COS will automatically generate Zookeeper boot configuration file
+zookeeper.servers=<span style='color:red'>如果系统由多台服务器组成，可以配置为Ｚｏｏｋｅｅｐｅｒ集群模式，系统启动的Ｚｏｏｋｅｅｐｅｒ将根据配置的ＩＰ地址顺序进行集群构建</span>
+
+# The database of h2 for cos will be startup if you set the below property to true.
+# COS缺省服务捆绑了轻量级数据库h2，在一个集群中只需要一台服务器配置启动这个数据库。如果确定启动数据库的参数，修改上表中这项配置，如下所示去掉其注释#
+cos.database.h2=<span style='color:red'>true 或者 false 系统默认的ＣＯＳ数据库开关，整个系统只能启动一个</span>
+# 如果上面设置了启动邮件、告警、通知程序，那么必须激活以下配置
+#cos.jdbc.driver=org.h2.Driver
+#cos.jdbc.url=jdbc:h2:tcp://localhost/../h2/cos
+#cos.jdbc.user=sa
+#cos.jdbc.password=
+
+# Running configuration parameters of system monitoring program
+monitor.frequency=30
+#  Monitor the network status of the specified server.
+monitor.ping=
+#  Monitor the local storage space of the server, specify the path of the comma separated
+monitor.storages=
+
+# The default web-service of cos
+# According to the server.xml configuration of COS-WEB
+# 配置系统链接的用户、日志、告警、通知、邮件、短信服务的WEB-Service接口地址，请根据COS-WEB的server.xml配置确定
+ws.user=http://127.0.0.1:8080/services/UserService
+ws.log=http://127.0.0.1:8080/services/LogService
+ws.alarm=http://127.0.0.1:8080/services/AlarmService
+ws.notify=http://127.0.0.1:8080/services/SystemNotifyService
+ws.email=http://127.0.0.1:8080/services/EmailService
+ws.sms=http://127.0.0.1:8080/services/SMSService
+#  For the system to send the configuration of the application of product parameters,
+#  the application of the product corresponding to the distribution of SMS
+cos.sms.appid=<span style='color:red'>系统后台配置接入与产品应用,确定发送短信使用哪个产品哪个接入。</span>
+
+#********************************************************************
+# Other configuration parameters of the business system can be 
+# configured below. 
+		</pre>
+		</div>
+		
+		<div>
+		<h2>步骤8 系统启动相关配置</h2>
+		<p>修改/cos/bin目录下可执行文件的权限</p>
+<pre>
+#chmod 755 /cos/bin/*
+</pre>
+		<p>在/etc/init.d目录建立服务脚本的符号链接，如下表所示。如果您修改了应用标识（启动脚本的文件名），则对应的命令需修改。</p>
+<pre>
+#ln -s /cos/bin/cos /etc/init.d/cos
+</pre>
+		</div>
+		<div>
+		<h2>步骤9 将系统配置为linux的自服务</h2>
+		<p>按顺序执行以下命令，应用标识名称根据上面配置调整。</p>
+<pre>
+#chmod +x /etc/init.d/cos
+#chkconfig --add cos
+#service cos start
+</pre>
+		</div>
+		
+		<div>
+		<h2>步骤10 检查服务的启动是否正常</h2>
+		<p>检查主控日志是否有异常信息输出。</p>
+<pre>
+#cat /cos/log/wrapper.log
+</pre>
+		<p>检查服务器进程是否正常存在</p>
+<pre>
+#ps -ef|grep java
+</pre>
+		</div>
+
+	</div>
+
+	
+
+<!-- wrapper end -->
+</body>
+</html>

@@ -1,0 +1,10 @@
+[PropertyInfo]
+dblClickFunc,String,false,false, , ,false,<default>
+height,int,false,false, , ,false,<default>
+model,org.lazybug.skit.table.KTableModel,false,false, , ,false,<default>
+scriptTag,String,false,false, , ,true,<default>
+[IconNames]
+
+
+
+

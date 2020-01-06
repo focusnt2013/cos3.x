@@ -1,0 +1,39 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<package name="userPag" extends="default">
+	    <action name="user" class="UserAction">
+		    <result name="password" type="dispatcher">/jsp/user/password.jsp</result>
+		    <result name="manager" type="dispatcher">/jsp/user/usermgr.jsp</result>
+		    <result name="query" type="dispatcher">/jsp/user/userquery.jsp</result>
+		    <result name="preset" type="dispatcher">/jsp/user/userset.jsp</result>
+		    <result name="preview" type="dispatcher">/jsp/user/userview.jsp</result>
+		    <result name="privileges" type="dispatcher">/jsp/user/privileges.jsp</result>
+    		<interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+		</action>
+	    <action name="role" class="RoleAction">
+		    <result name="manager" type="dispatcher">/jsp/user/rolemgr.jsp</result>
+		    <result name="preset" type="dispatcher">/jsp/user/roleset.jsp</result>
+		    <result name="preview" type="dispatcher">/jsp/user/roleview.jsp</result>
+		    <result name="cluster" type="dispatcher">/jsp/user/rolecluster.jsp</result>
+    		<interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+		</action>
+	    <action name="login" class="LoginAction">
+            <result name="portal_defone" type="dispatcher">/defone/portal.jsp</result>
+            <result name="login_defone" type="dispatcher">/defone/login.jsp</result>
+            <result name="index_defone" type="dispatcher">/defone/portal_index.jsp</result>
+            <result name="fogotpassword" type="dispatcher">/defone/fogotpassword.jsp</result>
+            <result name="ptcl" type="dispatcher">/former/portal.jsp</result>
+            <result name="portal" type="dispatcher">/former/portal.jsp</result>
+            <result name="monitor" type="dispatcher">/former/portal.jsp</result>
+            <result name="index" type="dispatcher">/former/portal_index.jsp</result>
+            <result name="navigation" type="dispatcher">/former/portal_tree.jsp</result>
+		    <result name="preSetPermission" type="dispatcher">/jsp/user/setPermission.jsp</result>
+            <result name="logout" type="redirect">/main</result>
+		    <interceptor-ref name="fileUploadStack"/>
+    		<interceptor-ref name="model-driven"/>
+		    <interceptor-ref name="params"/>
+	    </action>
+   	</package>
+</xwork>

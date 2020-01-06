@@ -1,0 +1,149 @@
+body {overflow:auto; margin-top:0px; margin-left:0px; margin-bottom:0px; margin-right:0px }
+form {margin:0px;padding:0px}
+td {font-size: 9pt;	padding-left: 0px}
+.skit_tree
+{
+	width:172px
+}
+
+A:visited
+{
+    COLOR: #000000;
+    TEXT-DECORATION: none
+}
+A:link
+{
+    COLOR: #000000;
+    TEXT-DECORATION: none
+}
+A:active
+{
+    COLOR: #fff;
+    TEXT-DECORATION: none
+}
+A:hover
+{
+    CURSOR: hand;
+    COLOR: #fff;
+    TEXT-DECORATION: none
+}
+
+.skit_tree_top{ background-image: url(skin/unicom2013/navigation/tree_top.png); height:42px;width:172px}
+.skit_tree_middle{ background-image: url(skin/unicom2013/navigation/tree_middle.png); width:172px;padding-left:9px;padding-right:9px }
+.skit_tree_bottom{ background-image: url(skin/unicom2013/navigation/tree_bottom.png); height:44px;width:172px }
+.skit_treelower_top{ background-image: url(skin/unicom2013/navigation/treelower_top.png); height:1px;width:172px }
+.skit_treelower_middle{ background-image: url(skin/unicom2013/navigation/treelower_middle.png); width:172px;padding-left:7px;padding-right:5px }
+.skit_treelower_bottom{ background-image: url(skin/unicom2013/navigation/treelower_bottom.png); height:6px;width:172px }
+.skit_tree_line{ background-image: url(skin/unicom2013/navigation/line.png);width:154px;height:1px }
+.skit_tree_item_over{background-image: url(skin/unicom2013/navigation/line.png);}
+
+.skit_tree_item
+{
+	height:22px;
+	font-family:Photina Casual Black, serif; 
+	font-size:9pt; 
+	text-align:left;
+}
+
+.skit_tree_item_click
+{
+	height:22px;
+	color:#6600FF;
+	font-family:Photina Casual Black, serif; 
+	font-size:9pt; 
+	text-align:left;
+}
+
+.skit_tree_item_exp
+{
+	height:22px;
+	font-family:Photina Casual Black, serif; 
+	font-size:9pt; 
+	text-align:left;
+	padding-left:12px
+}
+
+
+.skit_tree_exp
+{
+	padding-right:22px;
+	width:22px;
+	height:22px;
+	background-image: url(skin/unicom2013/navigation/unexpand.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.skit_tree_exp_mins
+{
+	padding-right:22px;
+	width:22px;
+	height:22px;
+	background-image: url(skin/unicom2013/navigation/expand.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.skit_tree_icon	
+{
+	width:16px;
+}
+
+.skit_tree_block	
+{
+	padding-left:8px;
+	padding-right:8px;
+	padding-top:11px;
+	padding-bottom:11px;
+}
+
+.skit_tree_item_ch
+{
+	width:134px;
+	height:22px;
+	font-size:9pt;
+	font-weight:bold;
+	text-align:left;
+}
+
+.skit_navigation
+{
+	overflow-y: auto;
+	width:154px;
+	height:0px;
+	cursor:pointer;
+    BORDER-BOTTOM: 0px solid buttonshadow;
+	BORDER-LEFT: 0px solid buttonshadow;
+	BORDER-RIGHT: 0px solid buttonshadow;
+	BORDER-TOP: 0px solid buttonshadow;
+/*	scrollbar-highlight-color:#ff8164;
+	scrollbar-darkshadow-color:#fff3ed;
+	scrollbar-shadow-color:#fff3ed;
+	scrollbar-track-color:#fff2eb;
+	scrollbar-base-color:#ff8164;
+	scrollbar-arrow-color:#fa4b23;*/
+}
+
+.skit_actions
+{
+	cursor:pointer;
+	display:none;
+}
+
+.skit_action_popmenu
+{
+	cursor:pointer;
+	font-size:9pt;
+	font-weight:bold;
+}
+.skit_actions_font
+{
+	cursor:pointer;
+	font-size:9pt;
+}
+.skit_actions_font_click
+{
+	cursor:pointer;
+	font-size:9pt;
+	color:#6600FF;
+}

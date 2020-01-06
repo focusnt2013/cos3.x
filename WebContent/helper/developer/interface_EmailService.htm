@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta name="robots" content="all">
+<link rel="stylesheet" type="text/css" href="helper/developer/style.css">
+<link href="cos.ico" rel="shortcut icon" type="image/x-icon">
+</head>
+<body>
+	
+	<div id="maincontent" style="text-align: left; width: 732px;">
+		<h1>邮件接口</h1>
+		<div id="intro">
+		<h2></h2>
+		<p>通过系统级的配置实现邮件的发送，有效管理邮件。登录进入系统管理模块，点击系统参数页面，设置邮箱参数。</p>
+		<p class="tiy" id="btnWs"></p>
+		</div>
+		<div>
+		<h2>邮件配置包括以下配置</h2>
+		<p>在COS集群下，启动了COS界面服务即可使用该接口服务。</p>	
+		<ul>
+		<li>邮件STMP服务器地址</li>
+		<li>系统邮箱POP账号</li>
+		<li>系统邮箱POP密码</li>
+		<li>系统邮箱标题</li>
+		</ul>
+		<img src='../../images/developer/014.jpg' width='666'>
+		</div>
+		<div>
+		<h2>支持的邮件类别</h2>
+		<p>邮件系统支持多种构建邮件内容的方式，每种邮件类型都通过特殊的前缀标识加以区别。</p>	
+		<ul>
+		<li>快照模式snapshot==</li>
+		<pre style='width:640px'>
+邮件系统根据提供URL链接地址生成邮件内容。
+snapshot==http://www.baidu.com/xxx
+		</pre>
+		<li>多图模式images==</li>
+		<pre style='width:640px'>
+提供URL链接地址生成邮件内容。
+images==http://www.baidu.com/img/bdlogo.gif;...
+		</pre>
+		<li>网页模板html==</li>
+		<pre style='width:640px'>
+通过html模板实现邮件内容发送，邮件系统会将html发送给用户
+注意图片链接前要加cid，邮件系统会自动加载该图片资源。
+html==&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;img src='cid:http://www.baidu.com/img/bdlogo.gif'&gt;&lt;br/&gt;
+欢迎使用COS邮件功能&lt;/body&gt;&lt;/html&gt;
+		</pre>
+		</ul>
+		</div>
+		
+		<div>
+		<h2>发邮件例程</h2>
+		<p>加载接口包，配置正确的邮件服务接口地址WS_EMAIL，接口提交邮件发送请求到服务器，由服务器执行下发。</p>	
+		<pre>
+EmailClient.send(
+    "<span id='case0' style='color:red'></span>",//获取邮件地址
+    "1@qq.com;2@qq.com",//收件人地址
+    "3@qq.com",//cc抄送人
+    "[”+handler+"]解决了客户端反馈故障单["+troubleId+"]", //标题
+    "html==…",//内容，前缀为邮件内容类型
+    "http://xxxx.zip" //附件的URL下载地址或者本地文件地址，邮件系统会负责将他们装到邮件中
+);
+		</pre>
+		<p class="tiy"><a href="javascript:parent.download('cos.api.zip')">下载接口包</a></p>
+		</div>
+
+		<div>
+		<h2>发邮件单个附件的例程</h2>
+		<pre>
+EmailClient.send(
+    "<span id='case0' style='color:red'></span>",//获取邮件地址
+    "1@qq.com;2@qq.com",//收件人地址
+    "邮件标题：这封邮件有一个附件",
+    "这是邮件正文内容，不加标签",
+    "http://n.sinaimg.cn/sports/20160703/ohrJ-fxtsats1473003.jpg"
+);
+		</pre>
+		</div>
+
+		<div>
+		<h2>发邮件多个附件的例程</h2>
+		<pre>
+EmailClient.send(
+    "<span id='case0' style='color:red'></span>",//获取邮件地址
+    "1@qq.com;2@qq.com",//收件人地址
+    "邮件标题：这封邮件有2个附件",
+	"这是邮件正文内容，不加xxxx==标签，多个附件分号分割多个附件，逗号分割路径和标题。支持绝对路径，但是需要确保发送邮件的服务器存储路径。注意‘, ’逗号后面有一个空格", 
+	"http://n.sinaimg.cn/sports/20160703/ohrJ-fxtsats1473003.jpg, 欧洲杯-德国点球淘汰意大利 德国晋级4强;" +
+	"http://www.sinaimg.cn/dy/slidenews/2_img/2016_26/76980_1843734_662024.jpg, 博努奇点球罚失");
+		</pre>
+		</div>
+				
+		<div>
+		<h2>在管理后台邮件发件箱中查看</h2>
+		<p>邮件是否发送成功，发送给了谁，中途想删除不发了，都由该功能模块控制。</p>	
+		<img src='../../images/developer/015.jpg' width='666'>
+		</div>
+	</div>
+<!-- wrapper end -->
+</body>
+<script type="text/javascript">
+function getParameter(param, def)  
+{  
+	var query = window.location.search;//获取URL地址中？后的所有字符  
+	var iLen = param.length;//获取你的参数名称长度  
+	var iStart = query.indexOf(param);//获取你该参数名称的其实索引
+	if (iStart == -1)//-1为没有该参数  
+		return def;  
+	iStart += iLen + 1;  
+	var iEnd = query.indexOf("&", iStart);//获取第二个参数的其实索引  
+	if (iEnd == -1)//只有一个参数  
+		return query.substring(iStart);//获取单个参数的参数值  
+	return query.substring(iStart, iEnd);//获取第二个参数的值  
+}
+var ws = getParameter("ws", "#");
+document.getElementById("btnWs").innerHTML = "<a target='_blank' href='"+ws+"'>测试WEBSERVICE接口</a>";
+document.getElementById("case0").innerHTML = ws.substring(0, ws.length-5);
+</script>
+</html>

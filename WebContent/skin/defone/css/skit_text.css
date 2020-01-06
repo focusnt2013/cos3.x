@@ -1,0 +1,34 @@
+.skit_text_first
+{
+    BORDER-TOP: 0px solid buttonshadow;
+    BORDER-LEFT: 0px solid buttonshadow;
+    BORDER-RIGHT: 0px solid buttonshadow;
+    BORDER-BOTTOM: 0px solid buttonshadow;
+    height:20px;
+    width:300px;
+}
+.skit_text_ua
+{
+	cursor:pointer;
+    BORDER-TOP: 0px solid buttonshadow;
+    BORDER-LEFT: 0px solid buttonshadow;
+    BORDER-RIGHT: 0px solid buttonshadow;
+    BORDER-BOTTOM: 0px solid buttonshadow;
+	font-family: serif; 
+	font-size:9pt;
+	font-weight:bold;
+	color:#F39405;
+}
+.skit_text_src
+{
+    BORDER-TOP: 0px solid buttonshadow;
+    BORDER-LEFT: 0px solid buttonshadow;
+    BORDER-RIGHT: 0px solid buttonshadow;
+    BORDER-BOTTOM: 0px solid buttonshadow;
+    height:20px;
+    width:400px;
+	font-family: serif; 
+	font-size:10pt;
+	font-weight:bold;
+	color:#F39405;
+}

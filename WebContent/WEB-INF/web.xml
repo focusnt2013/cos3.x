@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" 
+    xmlns="http://java.sun.com/xml/ns/j2ee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+    http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+    <display-name>Welcome to focus-web</display-name>
+    <context-param>  
+        <param-name>webAppRootKey</param-name>  
+        <param-value>cos</param-value>  
+    </context-param>
+    <context-param>  
+      <param-name>log4jExposeWebAppRoot</param-name>  
+      <param-value>false</param-value>  
+    </context-param>
+    <context-param>  
+        <param-name>log4jConfigLocation</param-name>  
+        <param-value>/WEB-INF/classes/log4j.xml</param-value>  
+    </context-param>  
+    <!-- Log4j日志监听 -->
+    <listener>  
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>  
+    </listener>    
+    <!-- COS前台系统初始化程序 -->
+    <listener>
+        <listener-class>com.focus.cos.web.common.listener.Initializer</listener-class>
+    </listener>
+    <!-- Spring ApplicationContext loading -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <!-- Spring refresh prevent memory leak-->
+    <listener>
+        <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+    </listener>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>   
+        <param-value>classpath:spring/applicationContext*.xml</param-value>   
+    </context-param>
+    
+    <filter>
+      <filter-name>SetCharacterEncoding</filter-name>
+      <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+      <init-param>
+          <param-name>encoding</param-name>
+          <param-value>UTF-8</param-value>
+      </init-param>
+    </filter>
+    
+    <filter>
+        <filter-name>redirect_filter</filter-name>
+        <filter-class>com.focus.cos.web.common.filter.RedirectFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>login_check_filter</filter-name>
+        <filter-class>com.focus.cos.web.common.filter.LoginCheckFilter</filter-class>
+    </filter>
+    <!--Hibernate Open Session in View Filter-->
+    <filter>
+      <filter-name>hibernateFilter</filter-name>
+      <filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>webwork-cleanup</filter-name>
+        <filter-class>com.opensymphony.webwork.dispatcher.ActionContextCleanUp</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>webwork</filter-name>
+        <filter-class>com.opensymphony.webwork.dispatcher.FilterDispatcher</filter-class>
+    </filter>
+    
+    <filter>
+        <filter-name>UrlRewriteFilter</filter-name>
+        <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>SetCharacterEncoding</filter-name>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>SetCharacterEncoding</filter-name>
+        <url-pattern>*.action</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>SetCharacterEncoding</filter-name>
+        <url-pattern>*.htm</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>SetCharacterEncoding</filter-name>
+        <url-pattern>*.html</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>*.action</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/main</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/sso/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/sysuser/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/syslog/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/sysnotify/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/sysalarm/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/sysemail/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/programpublish/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/synchfiles/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/reportmonitor/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/configmonitor/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/diggapi/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/diggexport/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/digg/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/securitycallback/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/addsysuser/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/index/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/logon/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/fogotpassowrd/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/sql/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/checkin/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/zoom/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/zkcfg/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/modulelogo/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/i/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/z/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/p/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>redirect_filter</filter-name>
+        <url-pattern>/d/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>login_check_filter</filter-name>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>login_check_filter</filter-name>
+        <url-pattern>*.action</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+          <filter-name>hibernateFilter</filter-name>
+          <url-pattern>/services/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>hibernateFilter</filter-name>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+  
+     <filter-mapping>
+        <filter-name>webwork-cleanup</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+     <filter-mapping>
+        <filter-name>webwork</filter-name>
+        <url-pattern>*.action</url-pattern>
+        <dispatcher>REQUEST</dispatcher>  
+        <dispatcher>FORWARD</dispatcher>  
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>UrlRewriteFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>  
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+<!-- 
+    <filter-mapping>
+        <filter-name>shiroFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+-->
+    <servlet>
+        <servlet-name>jspSupportServlet</servlet-name>
+        <servlet-class>com.opensymphony.webwork.views.JspSupportServlet</servlet-class>
+        <load-on-startup>10</load-on-startup>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>dwr-invoker</servlet-name>
+        <servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>crossDomainSessionSecurity</param-name>  
+            <param-value>false</param-value>  
+        </init-param>
+    </servlet>
+
+    <servlet>
+        <servlet-name>jcaptcha</servlet-name>
+        <servlet-class>com.focus.cos.web.servlet.ImageCaptchaServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dwr-invoker</servlet-name>
+        <url-pattern>/dwr/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>jcaptcha</servlet-name>
+        <url-pattern>/jcaptcha</url-pattern>
+    </servlet-mapping>
+    
+    <!-- session timeout unit minutes -->
+    <session-config>
+        <!-- FOR PTCL , 改大点，避免长时间操作ptcl导致会话超时 -->
+        <session-timeout>30</session-timeout>
+    </session-config>
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+    
+    <error-page>
+        <error-code>404</error-code>
+        <location>/skit/jsp/404.jsp</location>
+    </error-page>
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/skit/jsp/500.jsp</location>
+    </error-page>
+
+</web-app>

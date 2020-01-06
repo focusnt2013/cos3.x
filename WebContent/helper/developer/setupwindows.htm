@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta name="robots" content="all">
+<meta name="author" content="w3school.com.cn">
+<link rel="stylesheet" type="text/css" href="helper/developer/style.css">
+<link href="cos.ico" rel="shortcut icon" type="image/x-icon">
+</head>
+<body>
+	
+	<div id="maincontent" style="text-align: left; width: 732px;">
+
+		<h1>配置与启动</h1>
+
+		<div id="intro">
+		<p>COS云架构开放式应用服务系统在windows下的运行，请阅读以下步骤</p>
+		</div>
+		
+		<div>
+		<h2>步骤1 上传基础的软件包</h2>
+		<p>下载cos.win.zip上传到目标安装服务器，在服务器上解压。以下安装配置步骤说明以安装在根目录/cos下为例。</p>
+		<p class="tiy"><a href="javascript:parent.download('cos.server.zip')">下载cos.server.zip</a></p>
+		</div>
+		<div>
+		<h2>步骤2 安装JDK1.6或JDK1.7</h2>
+		<p>执行以下指令</p>
+		</div>
+		<div>
+		<h2>步骤3 配置config/wrapper.conf文件</h2>
+		<p>在config下有启动服务的配置文件，需要检查两处jdk配置路径，缺省是../jdk，依赖于步骤3的配置。配置项目wrapper.java.additional.3=-Dcontrol.port=<port>是平台监控端口，需检查与配置防火墙对应端口UDP协议的对外开放。注意下表<span style='color:red'>红色</span>配置项。</p>
+		<pre>
+#********************************************************************
+# TestWrapper Properties
+#
+# NOTE - Please use src/conf/wrapper.conf.in as a template for your
+#        own application rather than the values used for the
+#        TestWrapper sample.
+#********************************************************************
+# Java Application
+wrapper.java.command=<span style='color:red'>../jdk/bin/java</span>
+
+# Java Main class.  This class must implement the WrapperListener interface
+#  or guarantee that the WrapperManager class is initialized.  Helper
+#  classes are provided to do this for you.  See the Integration section
+#  of the documentation for details.
+wrapper.java.mainclass=com.focus.control.Shell
+
+# Java Classpath (include wrapper.jar)  Add class path elements as
+#  needed starting from 1
+wrapper.java.classpath.1=../lib/wrapper.jar
+wrapper.java.classpath.2=../lib/cos.jar
+wrapper.java.classpath.3=../config
+wrapper.java.classpath.4=../lib/cos-api-all.jar
+#  You can use h2-1.4.192.jar if you use jdk1.7.
+wrapper.java.classpath.5=../lib/h2-1.3.174.jar
+
+
+# Java Library Path (location of Wrapper.DLL or libwrapper.so)
+wrapper.java.library.path.1=../lib
+
+# Additional Parameters, please ensure that the correct parameter sequence number is completed.
+# The control.port be used in main control(UDP) and startup zookeeper(TCP) 
+wrapper.java.additional.1=-Dcontrol.port=<span style='color:red'>19075</span>
+wrapper.java.additional.2=-Dfile.encoding=UTF-8
+wrapper.java.additional.3=-Duser.language=zh
+wrapper.java.additional.4=-Duser.country=CN
+
+# Initial Java Heap Size (in MB)
+wrapper.java.initmemory=16
+
+# Maximum Java Heap Size (in MB)
+wrapper.java.maxmemory=256
+
+# Application parameters.  Add parameters as needed starting from 1
+#wrapper.app.parameter.1=
+
+wrapper.filter.trigger.1=java.lang.OutOfMemoryError
+wrapper.filter.action.1=RESTART 
+#********************************************************************
+# Wrapper Logging Properties
+#********************************************************************
+# Format of output for the console.  (See docs for formats)
+wrapper.console.format=PM
+
+# Log Level for console output.  (See docs for log levels)
+wrapper.console.loglevel=INFO
+
+# Log file to use for wrapper output logging.
+wrapper.logfile=../log/wrapper.log
+
+# Format of output for the log file.  (See docs for formats)
+wrapper.logfile.format=LPTM
+
+# Log Level for log file output.  (See docs for log levels)
+wrapper.logfile.loglevel=INFO
+
+# Maximum size that the log file will be allowed to grow to before
+#  the log is rolled. Size is specified in bytes.  The default value
+#  of 0, disables log rolling.  May abbreviate with the 'k' (kb) or
+#  'm' (mb) suffix.  For example: 10m = 10 megabytes.
+wrapper.logfile.maxsize=10m
+
+# Maximum number of rolled log files which will be allowed before old
+#  files are deleted.  The default value of 0 implies no limit.
+wrapper.logfile.maxfiles=10
+
+# Log Level for sys/event log output.  (See docs for log levels)
+wrapper.syslog.loglevel=NONE
+#********************************************************************
+# Wrapper Windows NT/2000/XP Service Properties
+#********************************************************************
+# WARNING - Do not modify any of these properties when an application
+#  using this configuration file has been installed as a service.
+#  Please uninstall the service before modifying this section.  The
+#  service can then be reinstalled.
+
+# Name of the service
+wrapper.ntservice.name=COS
+
+# Display name of the service
+wrapper.ntservice.displayname=COS Windows Service
+
+# Description of the service
+wrapper.ntservice.description=COS云架构开放式应用服务系统
+
+# Service dependencies.  Add dependencies as needed starting from 1
+wrapper.ntservice.dependency.1=
+
+# Mode in which the service is installed.  AUTO_START or DEMAND_START
+wrapper.ntservice.starttype=AUTO_START
+
+# Allow the service to interact with the desktop.
+wrapper.ntservice.interactive=false
+		</pre>
+		<p>COS缺省服务捆绑了轻量级数据库h2，在一个集群中只需要一台服务器配置启动这个数据库。如果确定启动数据库的参数，修改上表中这项配置，如下所示去掉其注释#</p>
+		<pre>
+#wrapper.java.classpath.3=../lib/h2-1.3.174.jar
+		</pre>
+		<p>如果要激活h2数据库，去掉注释符号#。</p>
+		</div>
+		<div>
+		<h2>步骤4 如何启动</h2>
+		<p>启动在控制台中</p>
+		<img src='../../images/developer/053.png' width='666'>	
+		<p>如果要将COS配置为windows的服务，需要配置wrapper.conf中服务名称等参数。具体操作间下表批处理文件</p>
+		<pre>
+bin/InstallService.bat
+bin/StartService.bat
+bin/ResumeService.bat
+bin/PauseService.bat
+bin/StopService.bat
+bin/UninstallService.bat
+		</pre>
+		</div>
+	</div>
+<!-- wrapper end -->
+</body>
+</html>

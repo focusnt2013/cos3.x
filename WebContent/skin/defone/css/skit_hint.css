@@ -1,0 +1,15 @@
+.skit_hint_bar{
+	overflow: none;
+	BACKGROUND: #C1BB9F;
+    BORDER-TOP: 0px solid #848277;
+    BORDER-LEFT: 1px solid #6F6A54;
+    BORDER-RIGHT: 1px solid #4D4A3E;
+    BORDER-BOTTOM: 0px solid #474437;}
+
+.skit_hint_bar_shadow{
+	overflow: none;
+    BACKGROUND: #e0ddce;
+    BORDER-TOP: 0px solid #848277;
+    BORDER-LEFT: 1px solid #8C8568;
+    BORDER-RIGHT: 1px solid #8C8568;
+    BORDER-BOTTOM: 2px solid #8C8568;}

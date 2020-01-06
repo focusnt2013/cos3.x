@@ -1,0 +1,18 @@
+[PropertyInfo]
+componentCount,int,false,false, , ,true,<default>
+components,com.kehao.skit.Component[],false,false, , ,true,<default>
+id,String,false,false, , ,true,<default>
+label,String,false,false, , ,true,<default>
+lastRow,boolean,false,false, , ,false,<default>
+name,String,false,false, , ,false,<default>
+nameStyle,String,false,false, , ,false,<default>
+popMenuTag,String,false,false, , ,true,<default>
+scriptTag,String,false,false, , ,true,<default>
+value,String,false,false, , ,false,<default>
+valueCtrl,com.kehao.skit.DefaultComponent,false,false, , ,false,<default>
+valueStyle,String,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

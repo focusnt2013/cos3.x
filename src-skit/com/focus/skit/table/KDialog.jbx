@@ -1,0 +1,13 @@
+[PropertyInfo]
+componentCount,int,false,false, , ,true,<default>
+components,com.kehao.skit.Component[],false,false, , ,true,<default>
+display,boolean,false,false, , ,true,<default>
+id,String,false,false, , ,true,<default>
+label,String,false,false, , ,true,<default>
+popMenuTag,String,false,false, , ,true,<default>
+scriptTag,String,false,false, , ,true,<default>
+[IconNames]
+
+
+
+

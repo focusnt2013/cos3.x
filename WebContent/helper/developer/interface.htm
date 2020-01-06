@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<meta name="robots" content="all">
+<meta name="author" content="w3school.com.cn">
+<link rel="stylesheet" type="text/css" href="helper/developer/style.css">
+<link href="cos.ico" rel="shortcut icon" type="image/x-icon">
+</head>
+<body>
+	
+	<div id="maincontent" style="text-align: left; width: 732px;">
+
+		<h1>接口介绍</h1>
+		<div id="intro">
+		<h2></h2>
+		<p>CSO云架构开放式应用服务系统对业务应用系统开发提供了各项能力支撑，主要以接口方式提供。</p>
+		</div>
+
+		<div>
+		<h2>接口相关参考手册</h2>
+		<p>本手册描述每个接口的使用方法。接口包请点击下载。</p>
+		<p>因为接口服务与COS的后台WEB服务绑定在一起的，启动的COS的后台WEB服务的地址就是响应的服务地址</p>
+		<p class="tiy"><a href="javascript:parent.download('cos.api.zip')">下载接口包</a></p>
+		<ul id="ul"></ul>
+		</div>
+	</div>
+<!-- wrapper end -->
+</body>
+<SCRIPT LANGUAGE="JavaScript">
+<!--//
+//获得参数的方法
+function getParameter(param, def)  
+{  
+	var query = window.location.search;//获取URL地址中？后的所有字符  
+	var iLen = param.length;//获取你的参数名称长度  
+	var iStart = query.indexOf(param);//获取你该参数名称的其实索引
+	if (iStart == -1)//-1为没有该参数  
+		return def;  
+	iStart += iLen + 1;  
+	var iEnd = query.indexOf("&", iStart);//获取第二个参数的其实索引  
+	if (iEnd == -1)//只有一个参数  
+		return query.substring(iStart);//获取单个参数的参数值  
+	return query.substring(iStart, iEnd);//获取第二个参数的值  
+}
+var refer = getParameter("ws", "http://&lt;cos.web&gt;/");
+var ul = document.getElementById("ul");
+var li;
+var p;
+var ws;
+
+ws = refer+"services/SystemNotifyService";
+li = document.createElement("li");
+li.innerHTML = "<a href='interface_SystemNotifyService.htm?ws="+ws+"?wsdl'>发送系统消息通知接口</a>";
+p = document.createElement("p");
+p.innerHTML = "<a href='"+ws+"?wsdl' target='_blank'>"+ws+"</a>";
+ul.appendChild(li);
+ul.appendChild(p);
+
+ws = refer+"services/EmailService";
+li = document.createElement("li");
+li.innerHTML = "<a href='interface_EmailService.htm?ws="+ws+"?wsdl'>发送邮件接口</a>";
+p = document.createElement("p");
+p.innerHTML = "<a href='"+ws+"?wsdl' target='_blank'>"+ws+"</a>";
+ul.appendChild(li);
+ul.appendChild(p);
+
+ws = refer+"services/AlarmService";
+li = document.createElement("li");
+li.innerHTML = "<a href='interface_AlarmService.htm?ws="+ws+"?wsdl'>发送系统告警接口</a>";
+p = document.createElement("p");
+p.innerHTML = "<a href='"+ws+"?wsdl' target='_blank'>"+ws+"</a>";
+ul.appendChild(li);
+ul.appendChild(p);
+
+ws = refer+"services/SmsService";
+li = document.createElement("li");
+li.innerHTML = "<a href='interface_SmsService.htm?refer="+ws+"?wsdl'>发送短信接口</a>";
+p = document.createElement("p");
+p.innerHTML = "<a href='"+ws+"?wsdl' target='_blank'>"+ws+"</a>";
+ul.appendChild(li);
+ul.appendChild(p);
+
+ws = refer+"services/LogService";
+li = document.createElement("li");
+li.innerHTML = "<a href='interface_LogService.htm?refer="+ws+"?wsdl'>记录系统日志接口</a>";
+p = document.createElement("p");
+p.innerHTML = "<a href='"+ws+"?wsdl' target='_blank'>"+ws+"</a>";
+ul.appendChild(li);
+ul.appendChild(p);
+
+ws = refer+"services/UserService";
+li = document.createElement("li");
+li.innerHTML = "<a href='interface_UserService.htm?refer="+ws+"?wsdl'>用户接口</a>";
+p = document.createElement("p");
+p.innerHTML = "<a href='"+ws+"?wsdl' target='_blank'>"+ws+"</a>";
+ul.appendChild(li);
+ul.appendChild(p);
+//-->
+</SCRIPT>
+</html>

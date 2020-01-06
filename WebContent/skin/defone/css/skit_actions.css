@@ -1,0 +1,22 @@
+.skit_actions_box_top{ background-image: url(skin/unicom2013/actions/box_top.png);height:11px;width:160px }
+.skit_actions_box_middle{ background-image: url(skin/unicom2013/actions/box_middle.png);width:160px }
+.skit_actions_box_middle table{ margin-left:10px;}
+.skit_actions_box_bottom{ background-image: url(skin/unicom2013/actions/box_bottom.png);height:11px;width:160px }
+
+.skit_actions_font
+{
+	font-family: Photina Casual Black, serif;font-size:9pt;
+}
+
+.skit_actions_item{
+    background: url(skin/unicom2013/actions/item.png) no-repeat;width:140px;height:22px;text-align:left; padding-left:10px; margin-left:10px; }
+.skit_actions_item_over{
+    background: url(skin/unicom2013/actions/item_over.png) no-repeat;width:140px;height:22px;text-align:left; padding-left:10px; margin-left:10px; color:#1e395b;}
+.skit_actions_item_alt{
+    background: url(skin/unicom2013/actions/item_alt.png) no-repeat;width:140px;height:22px;text-align:left; padding-left:10px; margin-left:10px;}
+.skit_actions_item_alt_over{
+    background: url(skin/unicom2013/actions/item_alt_over.png) no-repeat;width:140px;height:22px;text-align:left; padding-left:10px; margin-left:10px;}
+.skit_actions_line{ 
+    background: url(skin/unicom2013/actions/line.png);height:1px;width:140px }
+.skit_actions_separator{
+    background: url(skin/unicom2013/actions/separator.png);height:2px;width:140px }

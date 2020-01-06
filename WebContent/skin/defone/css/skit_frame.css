@@ -1,0 +1,257 @@
+
+.paper_top_left {  background-image: url(skin/unicom2013/boxes/titled/paper_top_left.png);height:30px;width:12px}
+.paper_top_middle {  background-image: url(skin/unicom2013/boxes/titled/paper_top_middle.png)}
+.paper_top_right {  background-image: url(skin/unicom2013/boxes/titled/paper_top_right.png);height:30px;width:12px}
+.paper_middle_left {  background-image: url(skin/unicom2013/boxes/titled/paper_middle_left.png);width:12px}
+.paper_middle_middle {  background-image: url(skin/unicom2013/boxes/titled/paper_middle_middle.png)}
+.paper_middle_right {  background-image: url(skin/unicom2013/boxes/titled/paper_middle_right.png);width:12px}
+.paper_bottom_left {  background-image: url(skin/unicom2013/boxes/titled/paper_bottom_left.png);height:12px;width:12px}
+.paper_bottom_middle {  background-image: url(skin/unicom2013/boxes/titled/paper_bottom_middle.png)}
+.paper_bottom_right {  background-image: url(skin/unicom2013/boxes/titled/paper_bottom_right.png);height:12px;width:12px}
+.pager_div{
+	overflow: auto;
+	scrollbar-highlight-color:#5BBAFF;
+	scrollbar-darkshadow-color:#5BBAFF;
+	scrollbar-shadow-color:#5BBAFF;
+	scrollbar-track-color:#ACDAFF;
+	scrollbar-base-color:#66BEFF;
+	scrollbar-arrow-color:#ACDAFF
+}
+.pager_title
+{
+	font-size:11pt;
+	font-weight:bold; 
+	color:#005cae;
+	word-spacing: 4px;
+	text-align:left; 
+	padding-bottom:1px
+}
+.pager_button{padding-top:3px}
+
+/*.skit_iframe{scrollbar-track-color:#DFDFDF; scrollbar-darkshadow-color:red; scrollbar-base-color:red; scrollbar-arrow-color:palegreen}*/
+
+.skit_hintframe_bar
+{
+	BACKGROUND: buttonface;
+	BORDER-TOP: 1px solid buttonshadow;
+    BORDER-LEFT: 1px solid buttonshadow;
+    BORDER-RIGHT: 1px solid buttonshadow;
+    BORDER-BOTTOM: 1px solid buttonshadow;
+	color:#000000;
+	padding-left:6px;
+	height:22px;
+	font-family:Photina Casual Black;
+	font-size:9pt;
+	font-weight:bold
+}
+.skit_dialog
+{
+	padding-top:15px;
+	padding-left:15px;
+	padding-right:15px;
+	font-family:Photina Casual Black;
+	font-size:9pt;
+	font-weight:bold
+}
+.skit_hintframe
+{
+	BACKGROUND: #FFFFFF;
+	BORDER-TOP: 0px solid buttonhighlight;
+    BORDER-LEFT: 1px solid buttonshadow;
+    BORDER-RIGHT: 1px solid buttonshadow;
+    BORDER-BOTTOM: 1px solid buttonshadow;
+	padding-left:5px;
+	padding-right:5px;
+	font-size:9pt;
+}
+.skit_view
+{
+	overflow: auto;
+/*	scrollbar-highlight-color:#5BBAFF;
+	scrollbar-darkshadow-color:#5BBAFF;
+	scrollbar-shadow-color:#5BBAFF;
+	scrollbar-track-color:#ACDAFF;
+	scrollbar-base-color:#66BEFF;
+	scrollbar-arrow-color:#ACDAFF*/
+}
+.skit_dialog_label
+{	
+	font-size:9pt;
+	font-weight:bold; 
+	text-align:center; 
+	color: black;
+}
+.skit_dialog_frame
+{	
+	BORDER-TOP: 0px solid buttonhighlight;
+    BORDER-LEFT: 1px solid buttonshadow;
+    BORDER-RIGHT: 1px solid buttonshadow;
+    BORDER-BOTTOM: 1px solid buttonshadow;
+}
+
+.skit_label
+{
+	filter: DropShadow(Color=#A8A8A7, OffX=1, OffY=2, Positive=1);
+}
+.skit_dialog_text
+{
+	background:#EEEFFA;
+	BORDER-TOP: 1px solid #405B40;
+    BORDER-LEFT: 1px solid #405B40;
+    BORDER-RIGHT: 1px solid #405B40;
+    BORDER-BOTTOM: 1px solid #405B40;
+	height:20px;
+	width:200px;
+	font-size:9pt;
+	padding-top:2px;
+	padding-bottom:2px;
+	padding-left:2px;
+	padding-right:2px;
+}
+
+.skit_dialog_top_left { background-image: url(skin/unicom2013/boxes/dialog/paper_top_left.png); height:38px;width:15px}
+.skit_dialog_top_middle { background-image: url(skin/unicom2013/boxes/dialog/paper_top_middle.png);}
+.skit_dialog_top_right { background-image: url(skin/unicom2013/boxes/dialog/paper_top_right.png); height:38px;width:19px}
+.skit_dialog_middle_left { background-image: url(skin/unicom2013/boxes/dialog/paper_middle_left.png); width:15px}
+.skit_dialog_middle_middle { background-image: url(skin/unicom2013/boxes/dialog/paper_middle_middle.png); 
+	padding-top:5px;
+	padding-left:5px;
+	padding-right:5px;
+	font-family:Photina Casual Black;
+	font-size:9pt;
+	font-weight:bold;}
+.skit_dialog_middle_right { background-image: url(skin/unicom2013/boxes/dialog/paper_middle_right.png); width:19px}
+.skit_dialog_bottom_left { background-image: url(skin/unicom2013/boxes/dialog/paper_bottom_left.png); height:36px;width:15px}
+.skit_dialog_bottom_middle { background-image: url(skin/unicom2013/boxes/dialog/paper_bottom_middle.png); }
+.skit_dialog_bottom_right { background-image: url(skin/unicom2013/boxes/dialog/paper_bottom_right.png); height:36px;width:19px}
+
+.skit_dialog_close{background-image: url(skin/unicom2013/boxes/dialog/close.png);height:26px;width:26px;cursor:pointer;cursor:pointer;}
+.skit_popdialog{position:absolute; left:0px; top:0px; overflow: visible; visibility: hidden; cursor:pointer;}
+
+.skit_btn
+{
+    FONT-SIZE: 9pt;
+    WIDTH: 60px;
+    HEIGHT: 20px
+}
+.skit_selectdialog
+{
+	position:absolute;
+	font-size: 12px;
+	background: #fffce9;
+	left:252px; 
+	top:112px;
+	overflow: hidden;
+	visibility: hidden;
+	cursor:pointer;
+	width:180px;
+	height:120px;
+	BORDER-TOP: 0px solid #405B40;
+    BORDER-LEFT: 1px solid #405B40;
+    BORDER-RIGHT: 1px solid #405B40;
+    BORDER-BOTTOM: 1px solid #405B40;
+}
+
+.skit_selectitem
+{
+	word-spacing: 2px;
+	font-size:12px;
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.skit_popwindow
+{
+    FONT-SIZE: 9pt;
+    BACKGROUND: buttonface;
+    LEFT: 300px;
+    VISIBILITY: hidden;
+    OVERFLOW: visible;
+    CURSOR: hand;
+    POSITION: absolute;
+    TOP: 60px
+}
+
+.skit_mask {
+   visibility: hidden;
+   background-color: #92A3B2;
+   left: 0px;
+   position: absolute;
+   top: 0px;
+   background-image: none;
+   filter:alpha(opacity: 50); 
+   BORDER-TOP: 1px solid #405B40;
+   BORDER-LEFT: 1px solid #405B40;
+   BORDER-RIGHT: 1px solid #405B40;
+   BORDER-BOTTOM: 1px solid #405B40;
+}
+
+.skit_loading {
+  visibility: hidden;
+  background-color: #92A3B2;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  background-position:center center;
+  background-repeat: no-repeat;
+  background-image: url(skit/images/loading.gif);
+  filter:alpha(opacity: 20); 
+}
+.skit_booting {
+  visibility: hidden;
+  background-color: #92A3B2;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  background-position:center center;
+  background-repeat: no-repeat;
+  background-image: url(skin/unicom2013/booting.gif);
+  filter:alpha(opacity: 20); 
+}
+
+.skit_dialog_input_text
+{
+	font-size: 12px;
+	margin:0 0 1px;
+	width: 100%;
+	height:20px;
+	background: #fffce9;
+	border:solid #e6ecf4 1px ;
+	color: #494949;
+}
+
+.skit_dialog_cell
+{
+	height:23px;
+	word-spacing: 2px;
+	font-size:12px;
+	padding-left: 3px;
+	padding-right: 3px;
+	color: #494949;
+}
+
+.skit_dialog_select
+{
+	padding-top:1px;
+	width: 100%;
+	height:20px;
+	background: #fffce9;
+	border:solid #e6ecf4 1px ;
+	color: #494949;
+}
+
+.skit_dialog_panel
+{
+	overflow: auto;
+	background: #fffce9;
+	border:solid #6F8B69 1px ;
+	color: #494949;
+/*	scrollbar-highlight-color:#8FA68A;
+	scrollbar-darkshadow-color:#6F8B69;
+	scrollbar-shadow-color:#637B5D;
+	scrollbar-track-color:#536A4C;
+	scrollbar-base-color:#75926E;
+	scrollbar-arrow-color:#FFFFFF*/
+}
